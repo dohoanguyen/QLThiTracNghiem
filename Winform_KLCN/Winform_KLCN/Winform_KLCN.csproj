@@ -52,6 +52,72 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ManHinhAdmin\qlyCauHoi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyCauHoi.Designer.cs">
+      <DependentUpon>qlyCauHoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyGiaoVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyGiaoVien.Designer.cs">
+      <DependentUpon>qlyGiaoVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyHocVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyHocVien.Designer.cs">
+      <DependentUpon>qlyHocVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyKhoaHoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyKhoaHoc.Designer.cs">
+      <DependentUpon>qlyKhoaHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyKyThi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyKyThi.Designer.cs">
+      <DependentUpon>qlyKyThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyLichThi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyLichThi.Designer.cs">
+      <DependentUpon>qlyLichThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyLopHoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyLopHoc.Designer.cs">
+      <DependentUpon>qlyLopHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyMonHoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyMonHoc.Designer.cs">
+      <DependentUpon>qlyMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlySaoLuu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlySaoLuu.Designer.cs">
+      <DependentUpon>qlySaoLuu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyTaiKhoan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyTaiKhoan.Designer.cs">
+      <DependentUpon>qlyTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyThongKe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyThongKe.Designer.cs">
+      <DependentUpon>qlyThongKe.cs</DependentUpon>
+    </Compile>
     <Compile Include="GiaoDien\DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +176,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserSession.cs" />
+    <EmbeddedResource Include="ManHinhAdmin\qlyGiaoVien.resx">
+      <DependentUpon>qlyGiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GiaoDien\DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,5 +242,6 @@
   <ItemGroup>
     <None Include="Resources\avt.jpeg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
