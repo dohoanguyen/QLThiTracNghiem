@@ -209,7 +209,11 @@ namespace Winform_KLCN.ManHinhChinh
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-
+            ThemCauHoi form = new ThemCauHoi();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                LoadCauHoi(); // Hàm reload lại danh sách câu hỏi
+            }
         }
     }
 }
