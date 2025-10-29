@@ -110,5 +110,38 @@ namespace Winform_KLCN.ManHinhChinh
         this.Close(); // Đóng form ThemCauHoi
     }
         }
+
+        private void btnLuu_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection conn = KetNoi.TaoKetNoi())
+                {
+                    string sql = @"INSERT INTO NGANHANGCAUHOI 
+                                  (MaM, MaDK, NoiDung, DaA, DaB, DaC, DaD, DaDung)
+                                  VALUES (@MaM, @MaDK, @NoiDung, @A, @B, @C, @D, @Dung)";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@MaM", cbMon.SelectedValue);
+                    cmd.Parameters.AddWithValue("@MaDK", cbDoKho.SelectedValue);
+                    cmd.Parameters.AddWithValue("@NoiDung", txtNoiDung.Text.Trim());
+                    cmd.Parameters.AddWithValue("@A", txtA.Text.Trim());
+                    cmd.Parameters.AddWithValue("@B", txtB.Text.Trim());
+                    cmd.Parameters.AddWithValue("@C", txtC.Text.Trim());
+                    cmd.Parameters.AddWithValue("@D", txtD.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Dung", cbDung.Text.Trim());
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("✅ Thêm câu hỏi thành công!");
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("❌ Lỗi khi thêm câu hỏi: " + ex.Message);
+            }
+        }
     }
 }
