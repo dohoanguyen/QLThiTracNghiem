@@ -16,7 +16,7 @@ namespace Winform_KLCN
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GiaoDien.ManHinhAdmin());
+            Application.Run(new GiaoDien.DangNhap());
         }
         //chgxvyxcg
         //kjszcdys

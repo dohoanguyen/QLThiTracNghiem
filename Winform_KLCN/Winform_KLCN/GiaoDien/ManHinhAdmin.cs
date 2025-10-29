@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Winform_KLCN.ChucNangAdmin;
+
 using Winform_KLCN.ManHinhChinh;
 
 namespace Winform_KLCN.GiaoDien
@@ -57,14 +57,14 @@ namespace Winform_KLCN.GiaoDien
 
         private void GiaoVien_Click(object sender, EventArgs e)
         {
-            panelNoiDung.Controls.Clear();
+            //panelNoiDung.Controls.Clear();
 
 
-            qlyGiaoVien ucqly = new qlyGiaoVien();
-            ucqly.Dock = DockStyle.Fill;
+            //qlyGiaoVien ucqly = new qlyGiaoVien();
+            //ucqly.Dock = DockStyle.Fill;
 
 
-            panelNoiDung.Controls.Add(ucqly);
+            //panelNoiDung.Controls.Add(ucqly);
         }
     }
 }

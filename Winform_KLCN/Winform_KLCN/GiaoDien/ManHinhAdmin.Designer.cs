@@ -37,6 +37,8 @@
             this.TaiKhoan = new System.Windows.Forms.ToolStripMenuItem();
             this.QlyTaiKhoan = new System.Windows.Forms.ToolStripMenuItem();
             this.themTaiKhoan = new System.Windows.Forms.ToolStripMenuItem();
+            this.themGiaoVien = new System.Windows.Forms.ToolStripMenuItem();
+            this.themHocVien = new System.Windows.Forms.ToolStripMenuItem();
             this.GiaoVien = new System.Windows.Forms.ToolStripMenuItem();
             this.HocVien = new System.Windows.Forms.ToolStripMenuItem();
             this.CauHoi = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,8 +49,6 @@
             this.LopHoc = new System.Windows.Forms.ToolStripMenuItem();
             this.MonHoc = new System.Windows.Forms.ToolStripMenuItem();
             this.ThongKe = new System.Windows.Forms.ToolStripMenuItem();
-            this.themGiaoVien = new System.Windows.Forms.ToolStripMenuItem();
-            this.themHocVien = new System.Windows.Forms.ToolStripMenuItem();
             this.SaoLuu = new System.Windows.Forms.ToolStripMenuItem();
             this.panelNoiDung = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2GradientPanel1.SuspendLayout();
@@ -157,6 +157,18 @@
             this.themTaiKhoan.Size = new System.Drawing.Size(241, 26);
             this.themTaiKhoan.Text = "THÊM TÀI KHOẢN";
             // 
+            // themGiaoVien
+            // 
+            this.themGiaoVien.Name = "themGiaoVien";
+            this.themGiaoVien.Size = new System.Drawing.Size(165, 26);
+            this.themGiaoVien.Text = "GIÁO VIÊN";
+            // 
+            // themHocVien
+            // 
+            this.themHocVien.Name = "themHocVien";
+            this.themHocVien.Size = new System.Drawing.Size(165, 26);
+            this.themHocVien.Text = "HỌC VIÊN";
+            // 
             // GiaoVien
             // 
             this.GiaoVien.Name = "GiaoVien";
@@ -218,18 +230,6 @@
             this.ThongKe.Name = "ThongKe";
             this.ThongKe.Size = new System.Drawing.Size(103, 22);
             this.ThongKe.Text = "THỐNG KÊ";
-            // 
-            // themGiaoVien
-            // 
-            this.themGiaoVien.Name = "themGiaoVien";
-            this.themGiaoVien.Size = new System.Drawing.Size(224, 26);
-            this.themGiaoVien.Text = "GIÁO VIÊN";
-            // 
-            // themHocVien
-            // 
-            this.themHocVien.Name = "themHocVien";
-            this.themHocVien.Size = new System.Drawing.Size(224, 26);
-            this.themHocVien.Text = "HỌC VIÊN";
             // 
             // SaoLuu
             // 
