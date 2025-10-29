@@ -127,10 +127,10 @@
     <Compile Include="ManHinhChinh\LopHoc.Designer.cs">
       <DependentUpon>LopHoc.cs</DependentUpon>
     </Compile>
-    <Compile Include="GiaoDien\ThemCauHoi.cs">
+    <Compile Include="ChucNangGV\ThemCauHoi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GiaoDien\ThemCauHoi.Designer.cs">
+    <Compile Include="ChucNangGV\ThemCauHoi.Designer.cs">
       <DependentUpon>ThemCauHoi.cs</DependentUpon>
     </Compile>
     <Compile Include="ManHinhChinh\ThongTin.cs">
@@ -147,6 +147,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QL_TUQ_NEWDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QL_TUQ_NEWDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UserSession.cs" />
     <EmbeddedResource Include="GiaoDien\DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
@@ -163,7 +168,7 @@
     <EmbeddedResource Include="ManHinhChinh\LopHoc.resx">
       <DependentUpon>LopHoc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GiaoDien\ThemCauHoi.resx">
+    <EmbeddedResource Include="ChucNangGV\ThemCauHoi.resx">
       <DependentUpon>ThemCauHoi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManHinhChinh\ThongTin.resx">
@@ -194,6 +199,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="QL_TUQ_NEWDataSet.xsc">
+      <DependentUpon>QL_TUQ_NEWDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QL_TUQ_NEWDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QL_TUQ_NEWDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QL_TUQ_NEWDataSet.xss">
+      <DependentUpon>QL_TUQ_NEWDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -207,6 +223,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\avt.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
