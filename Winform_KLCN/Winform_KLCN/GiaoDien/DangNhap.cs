@@ -82,7 +82,7 @@ namespace Winform_KLCN.GiaoDien
 
             if (isLoggedIn)
             {
-                MessageBox.Show("Đăng nhập thànvfcvjh công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
 
                 if (UserSession.MaPQ == "1")
