@@ -230,5 +230,9 @@
   <ItemGroup>
     <Content Include="Resources\logo.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ChucNangAdmin\" />
+    <Folder Include="ManHinhAdmin\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
