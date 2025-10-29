@@ -89,6 +89,12 @@
     <Compile Include="ManHinhChinh\LopHoc.Designer.cs">
       <DependentUpon>LopHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiaoDien\ThemCauHoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\ThemCauHoi.Designer.cs">
+      <DependentUpon>ThemCauHoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManHinhChinh\ThongTin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManHinhChinh\LopHoc.resx">
       <DependentUpon>LopHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoDien\ThemCauHoi.resx">
+      <DependentUpon>ThemCauHoi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManHinhChinh\ThongTin.resx">
       <DependentUpon>ThongTin.cs</DependentUpon>
