@@ -41,10 +41,12 @@ namespace Winform_KLCN.GiaoDien
 
             if (taiKhoan == "" || matKhau == "")
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập đầy đủ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
+            //ahdsyhbucsuvskbssv
+            //jgxcsc
+            //skfsfj
             bool isLoggedIn = false;
             string maPhanQuyen = "";
             string maTaiKhoan = "";

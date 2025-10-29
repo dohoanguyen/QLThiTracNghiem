@@ -18,5 +18,6 @@ namespace Winform_KLCN
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new GiaoDien.DangNhap());
         }
+        //chgxvyxcgxcs
     }
 }
