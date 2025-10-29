@@ -57,14 +57,14 @@ namespace Winform_KLCN.GiaoDien
 
         private void GiaoVien_Click(object sender, EventArgs e)
         {
-            //panelNoiDung.Controls.Clear();
+            panelNoiDung.Controls.Clear();
 
 
-            //qlyGiaoVien ucqly = new qlyGiaoVien();
-            //ucqly.Dock = DockStyle.Fill;
+             ucqly = new qlyGiaoVien();
+            ucqly.Dock = DockStyle.Fill;
 
 
-            //panelNoiDung.Controls.Add(ucqly);
+            panelNoiDung.Controls.Add(ucqly);
         }
     }
 }

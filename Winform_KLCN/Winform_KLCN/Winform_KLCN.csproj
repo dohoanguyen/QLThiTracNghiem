@@ -109,6 +109,12 @@
       <DependentUpon>ManHinhChinh.cs</DependentUpon>
     </Compile>
     <Compile Include="KetNoi.cs" />
+    <Compile Include="ManHinhAdmin\qlyGiaoVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyGiaoVien.Designer.cs">
+      <DependentUpon>qlyGiaoVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManHinhChinh\CauHoi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoDien\ManHinhChinh.resx">
       <DependentUpon>ManHinhChinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManHinhAdmin\qlyGiaoVien.resx">
+      <DependentUpon>qlyGiaoVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManHinhChinh\CauHoi.resx">
       <DependentUpon>CauHoi.cs</DependentUpon>
@@ -232,7 +241,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ChucNangAdmin\" />
-    <Folder Include="ManHinhAdmin\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
