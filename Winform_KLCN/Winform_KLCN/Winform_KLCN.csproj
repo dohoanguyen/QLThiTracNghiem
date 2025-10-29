@@ -107,6 +107,9 @@
     <EmbeddedResource Include="GiaoDien\DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GiaoDien\ManHinhAdmin.resx">
+      <DependentUpon>ManHinhAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GiaoDien\ManHinhChinh.resx">
       <DependentUpon>ManHinhChinh.cs</DependentUpon>
     </EmbeddedResource>
