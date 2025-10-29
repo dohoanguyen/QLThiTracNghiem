@@ -91,7 +91,6 @@ namespace Winform_KLCN.GiaoDien
         bool menuExpanded = false; 
         int panelMaxHeight = 60;  
         int panelMinHeight = 0;
-        int panelMaxWidth;
         private void timerMenu_Tick(object sender, EventArgs e)
         {
 

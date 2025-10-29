@@ -44,6 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cbDung = new System.Windows.Forms.ComboBox();
+            this.btnNhapExcel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -184,11 +185,23 @@
             this.cbDung.Size = new System.Drawing.Size(121, 21);
             this.cbDung.TabIndex = 14;
             // 
+            // btnNhapExcel
+            // 
+            this.btnNhapExcel.Location = new System.Drawing.Point(369, 20);
+            this.btnNhapExcel.Name = "btnNhapExcel";
+            this.btnNhapExcel.Size = new System.Drawing.Size(96, 23);
+            this.btnNhapExcel.TabIndex = 16;
+            this.btnNhapExcel.Text = "Nhập từ XML...";
+            this.btnNhapExcel.UseVisualStyleBackColor = true;
+            this.btnNhapExcel.Click += new System.EventHandler(this.btnNhapExcel_Click);
+            // 
             // ThemCauHoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(506, 450);
+            this.Controls.Add(this.btnNhapExcel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbDung);
             this.Controls.Add(this.label4);
@@ -232,5 +245,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbDung;
+        private System.Windows.Forms.Button btnNhapExcel;
     }
 }
