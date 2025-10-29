@@ -19,5 +19,6 @@ namespace Winform_KLCN
             Application.Run(new GiaoDien.DangNhap());
         }
         //chgxvyxcgxcs
+        //íuhcsuc
     }
 }
