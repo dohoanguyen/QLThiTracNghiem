@@ -4,17 +4,20 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace Winform_KLCN
 {
     internal class KetNoi
     {
-        public static string con = @"Data Source=TUYENCACA;Initial Catalog=QL_TUQ_NEW;Persist Security Info=True;User ID=sa;Password=123;TrustServerCertificate=True;";
         //hcbxcbh
         //akdjshdczcj
         public static SqlConnection TaoKetNoi()
         {
-            return new SqlConnection(con);
+            string conString = ConfigurationManager
+                .ConnectionStrings["Winform_KLCN.Properties.Settings.QL_TUQ_NEWConnectionString"]
+                .ConnectionString;
+            return new SqlConnection(conString);
         }
     }
 }
