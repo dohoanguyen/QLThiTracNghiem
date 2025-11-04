@@ -1,0 +1,209 @@
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+
+namespace Winform_KLCN.ManHinhAdmin
+{
+    public partial class qlyGiaoVien : UserControl
+    {
+        private DataTable dtGiaoVien;
+        private bool isEditing = false;
+        private string editingMaGV = "";
+        public qlyGiaoVien()
+        {
+            InitializeComponent();
+            CauHinhDataGridView();
+           
+            LoadTatCaGiaoVien();
+
+            btnSua.Enabled = false;
+            btnLuu.Enabled = false;
+        }
+
+        private void qlyGiaoVien_Load(object sender, EventArgs e)
+        {
+        }
+
+       
+        private void CauHinhDataGridView()
+        {
+            dgvGiaoVien.AutoGenerateColumns = false;
+            dgvGiaoVien.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvGiaoVien.MultiSelect = false;
+            dgvGiaoVien.AllowUserToAddRows = false;
+            dgvGiaoVien.ReadOnly = true;
+            dgvGiaoVien.RowHeadersVisible = false;
+
+            dgvGiaoVien.ColumnHeadersVisible = true;
+            dgvGiaoVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgvGiaoVien.ColumnHeadersHeight = 40;
+
+            dgvGiaoVien.Columns.Clear();
+            AddColumn("MaGV", "Mã GV", 30);
+            AddColumn("TenGV", "Tên giáo viên", 180);
+            AddColumn("GioiTinh", "Giới tính", 40);
+            AddColumn("NgaySinh", "Ngày sinh", 100);
+            AddColumn("TrinhDo", "Trình độ", 120);
+            AddColumn("SDT", "SĐT", 100);
+            AddColumn("TrangThai", "Trạng thái", 120);
+            AddColumn("DiaChi", "Địa chỉ", 300);
+        }
+
+        private void AddColumn(string dataProp, string header, int width)
+        {
+            DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn()
+            {
+                Name = dataProp,
+                DataPropertyName = dataProp,
+                HeaderText = header,
+                Width = width,
+                ReadOnly = true,
+                SortMode = DataGridViewColumnSortMode.NotSortable
+            };
+            dgvGiaoVien.Columns.Add(col);
+        }
+
+       
+        private void LoadTatCaGiaoVien()
+        {
+            try
+            {
+                using (SqlConnection conn = KetNoi.TaoKetNoi())
+                {
+                    conn.Open();
+                    string sql = @"SELECT MaGV, TenGV, GioiTinh, NgaySinh, 
+                                          DiaChi, TrinhDo, SDT, TrangThai
+                                   FROM GIAOVIEN";
+                    SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+                    dtGiaoVien = new DataTable();
+                    da.Fill(dtGiaoVien);
+                    dgvGiaoVien.DataSource = dtGiaoVien;
+
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load giáo viên: " + ex.Message);
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (dgvGiaoVien.CurrentRow == null)
+            {
+                MessageBox.Show("Vui lòng chọn giáo viên cần sửa!", "Thông báo");
+                return;
+            }
+
+            isEditing = true;
+            btnSua.Enabled = false;
+            btnLuu.Enabled = true;
+
+            // ✅ Lưu mã GV đang sửa
+            editingMaGV = dgvGiaoVien.CurrentRow.Cells["MaGV"].Value.ToString();
+
+            // ✅ Cho phép chỉnh sửa 3 cột: Trình độ, SDT, Địa chỉ
+            dgvGiaoVien.ReadOnly = false;
+            foreach (DataGridViewColumn col in dgvGiaoVien.Columns)
+            {
+                if (col.Name == "TrinhDo" || col.Name == "SDT" || col.Name == "DiaChi")
+                    col.ReadOnly = false;
+                else
+                    col.ReadOnly = true;
+            }
+
+            MessageBox.Show("Bạn có thể chỉnh sửa Trình độ, SĐT và Địa chỉ.\nSau khi chỉnh xong, nhấn Lưu để hoàn tất.",
+                "Chế độ chỉnh sửa");
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if (!isEditing)
+            {
+                MessageBox.Show("Không có thông tin nào đang được sửa.", "Thông báo");
+                return;
+            }
+
+            // Lấy thông tin vừa sửa
+            DataGridViewRow row = dgvGiaoVien.CurrentRow;
+            string trinhDo = row.Cells["TrinhDo"].Value.ToString();
+            string sdt = row.Cells["SDT"].Value.ToString();
+            string diaChi = row.Cells["DiaChi"].Value.ToString();
+
+            using (SqlConnection conn = KetNoi.TaoKetNoi())
+            {
+                conn.Open();
+                string sql = "UPDATE GIAOVIEN SET TrinhDo=@td, SDT=@sdt, DiaChi=@dc WHERE MaGV=@mgv";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@td", trinhDo);
+                cmd.Parameters.AddWithValue("@sdt", sdt);
+                cmd.Parameters.AddWithValue("@dc", diaChi);
+                cmd.Parameters.AddWithValue("@mgv", editingMaGV);
+                cmd.ExecuteNonQuery();
+            }
+            MessageBox.Show("Đã lưu thay đổi thành công.", "Thành công");
+
+            // Reset lại trạng thái
+            isEditing = false;
+            editingMaGV = "";
+            dgvGiaoVien.ReadOnly = true;
+            btnLuu.Enabled = false;
+            btnSua.Enabled = false;
+
+            LoadTatCaGiaoVien();
+        }
+
+        private void dgvGiaoVien_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && !isEditing)
+            {
+                btnSua.Enabled = true;
+            }
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string keyword = txtTimKiem.Text.Trim();
+
+            if (string.IsNullOrEmpty(keyword))
+            {
+                // Nếu ô tìm kiếm rỗng -> hiển thị tất cả
+                LoadTatCaGiaoVien();
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection conn = KetNoi.TaoKetNoi())
+                {
+                    conn.Open();
+
+                    string sql = @"
+                SELECT MaGV, TenGV, GioiTinh, NgaySinh, TrinhDo, SDT, TrangThai, DiaChi
+                FROM GIAOVIEN
+                WHERE TenGV LIKE @keyword OR CAST(MaGV AS NVARCHAR) LIKE @keyword";
+
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    if (dt.Rows.Count == 0)
+                    {
+                        MessageBox.Show("❌ Không tìm thấy giáo viên nào phù hợp!", "Kết quả tìm kiếm");
+                    }
+
+                    dgvGiaoVien.DataSource = dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi");
+            }
+        }
+    }
+}
