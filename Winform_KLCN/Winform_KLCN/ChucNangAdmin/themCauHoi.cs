@@ -147,21 +147,36 @@ namespace Winform_KLCN.ChucNangAdmin
                 }
 
                 // Thêm mới
-                string sqlInsert = "INSERT INTO DETHI_CAUHOI (MaD, MaCH) VALUES (@MaD, @MaCH)";
+                // Lấy STT kế tiếp
+                string sqlGetSTT = "SELECT ISNULL(MAX(STT), 0) + 1 FROM DETHI_CAUHOI WHERE MaD = @MaD";
+                SqlCommand cmdGetSTT = new SqlCommand(sqlGetSTT, conn);
+                cmdGetSTT.Parameters.AddWithValue("@MaD", maDe);
+                int stt = (int)cmdGetSTT.ExecuteScalar();
+
+                // Thêm mới có STT
+                string sqlInsert = "INSERT INTO DETHI_CAUHOI (MaD, MaCH, STT) VALUES (@MaD, @MaCH, @STT)";
                 SqlCommand cmdInsert = new SqlCommand(sqlInsert, conn);
                 cmdInsert.Parameters.AddWithValue("@MaD", maDe);
                 cmdInsert.Parameters.AddWithValue("@MaCH", maCH);
+                cmdInsert.Parameters.AddWithValue("@STT", stt);
                 cmdInsert.ExecuteNonQuery();
+
+                string sqlCount = "SELECT COUNT(*) FROM DETHI_CAUHOI WHERE MaD = @MaD";
+                SqlCommand cmdCount = new SqlCommand(sqlCount, conn);
+                cmdCount.Parameters.AddWithValue("@MaD", maDe);
+                int soHienCo = (int)cmdCount.ExecuteScalar();
+
 
                 LoadCauHoiTrongDe();
 
-                int soHienCo = dgvCauHoiHienCo.Rows.Count;
+             
                 if (soHienCo >= tongSoCau)
                 {
                     CapNhatTrangThaiKhoa();
                     MessageBox.Show("Đã đủ số lượng câu hỏi. Đề thi đã được khóa!", "Hoàn tất", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
+              
             }
         }
 
@@ -173,11 +188,13 @@ namespace Winform_KLCN.ChucNangAdmin
             using (SqlConnection conn = KetNoi.TaoKetNoi())
             {
                 conn.Open();
-                string sql = @"SELECT CH.MaCH, CH.NoiDung, DK.TenDoKho
-                               FROM DETHI_CAUHOI DC
-                               JOIN NGANHANGCAUHOI CH ON DC.MaCH = CH.MaCH
-                               JOIN DOKHO DK ON CH.MaDK = DK.MaDK
-                               WHERE DC.MaD = @MaD";
+                string sql = @"SELECT DC.STT, CH.MaCH, CH.NoiDung, DK.TenDoKho
+               FROM DETHI_CAUHOI DC
+               JOIN NGANHANGCAUHOI CH ON DC.MaCH = CH.MaCH
+               JOIN DOKHO DK ON CH.MaDK = DK.MaDK
+               WHERE DC.MaD = @MaD
+               ORDER BY DC.STT";
+
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@MaD", maDe);
 
@@ -186,6 +203,7 @@ namespace Winform_KLCN.ChucNangAdmin
                 da.Fill(dt);
                 dgvCauHoiHienCo.DataSource = dt;
             }
+            
         }
 
         // ==============================

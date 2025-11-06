@@ -128,11 +128,23 @@
     <Compile Include="ChucNangAdmin\ctDeThi.Designer.cs">
       <DependentUpon>ctDeThi.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChucNangAdmin\ctKyThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNangAdmin\ctKyThi.Designer.cs">
+      <DependentUpon>ctKyThi.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChucNangAdmin\taoDeThi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChucNangAdmin\taoDeThi.Designer.cs">
       <DependentUpon>taoDeThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNangAdmin\taoKyThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNangAdmin\taoKyThi.Designer.cs">
+      <DependentUpon>taoKyThi.cs</DependentUpon>
     </Compile>
     <Compile Include="ChucNangAdmin\themCauHoi.cs">
       <SubType>Form</SubType>
@@ -189,6 +201,12 @@
     <Compile Include="ManHinhAdmin\qlyHocVien.Designer.cs">
       <DependentUpon>qlyHocVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManHinhAdmin\qlyKyThi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyKyThi.Designer.cs">
+      <DependentUpon>qlyKyThi.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManHinhAdmin\qlyTaiKhoan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -237,8 +255,14 @@
     <EmbeddedResource Include="ChucNangAdmin\ctDeThi.resx">
       <DependentUpon>ctDeThi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChucNangAdmin\ctKyThi.resx">
+      <DependentUpon>ctKyThi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChucNangAdmin\taoDeThi.resx">
       <DependentUpon>taoDeThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNangAdmin\taoKyThi.resx">
+      <DependentUpon>taoKyThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNangAdmin\themCauHoi.resx">
       <DependentUpon>themCauHoi.cs</DependentUpon>
@@ -266,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManHinhAdmin\qlyHocVien.resx">
       <DependentUpon>qlyHocVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManHinhAdmin\qlyKyThi.resx">
+      <DependentUpon>qlyKyThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManHinhAdmin\qlyTaiKhoan.resx">
       <DependentUpon>qlyTaiKhoan.cs</DependentUpon>

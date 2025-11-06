@@ -54,10 +54,8 @@
             this.taoDeThi = new System.Windows.Forms.ToolStripMenuItem();
             this.qlyDeThi = new System.Windows.Forms.ToolStripMenuItem();
             this.LichThi = new System.Windows.Forms.ToolStripMenuItem();
-            this.dANHSÁCHKỲTHIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.QlyKyThi = new System.Windows.Forms.ToolStripMenuItem();
             this.tẠOKỲTHIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.KyThi = new System.Windows.Forms.ToolStripMenuItem();
-            this.qUẢNLÝLỊCHTHIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.KhoaHoc = new System.Windows.Forms.ToolStripMenuItem();
             this.dANHSÁCHKHÓAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tHÊMKHÓAHỌCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -142,7 +140,6 @@
             this.CauHoi,
             this.DeThi,
             this.LichThi,
-            this.KyThi,
             this.KhoaHoc,
             this.LopHoc,
             this.MonHoc,
@@ -151,7 +148,7 @@
             this.menuAdmin.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuAdmin.Location = new System.Drawing.Point(0, 55);
             this.menuAdmin.Name = "menuAdmin";
-            this.menuAdmin.Size = new System.Drawing.Size(1248, 28);
+            this.menuAdmin.Size = new System.Drawing.Size(1162, 28);
             this.menuAdmin.TabIndex = 2;
             this.menuAdmin.Text = "menuAdmin";
             // 
@@ -307,37 +304,24 @@
             // LichThi
             // 
             this.LichThi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dANHSÁCHKỲTHIToolStripMenuItem,
+            this.QlyKyThi,
             this.tẠOKỲTHIToolStripMenuItem});
             this.LichThi.Name = "LichThi";
             this.LichThi.Size = new System.Drawing.Size(72, 24);
             this.LichThi.Text = "KỲ THI";
             // 
-            // dANHSÁCHKỲTHIToolStripMenuItem
+            // QlyKyThi
             // 
-            this.dANHSÁCHKỲTHIToolStripMenuItem.Name = "dANHSÁCHKỲTHIToolStripMenuItem";
-            this.dANHSÁCHKỲTHIToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
-            this.dANHSÁCHKỲTHIToolStripMenuItem.Text = "DANH SÁCH KỲ THI";
+            this.QlyKyThi.Name = "QlyKyThi";
+            this.QlyKyThi.Size = new System.Drawing.Size(231, 26);
+            this.QlyKyThi.Text = "DANH SÁCH KỲ THI";
+            this.QlyKyThi.Click += new System.EventHandler(this.QlyKyThi_Click);
             // 
             // tẠOKỲTHIToolStripMenuItem
             // 
             this.tẠOKỲTHIToolStripMenuItem.Name = "tẠOKỲTHIToolStripMenuItem";
             this.tẠOKỲTHIToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
             this.tẠOKỲTHIToolStripMenuItem.Text = "TẠO KỲ THI";
-            // 
-            // KyThi
-            // 
-            this.KyThi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.qUẢNLÝLỊCHTHIToolStripMenuItem});
-            this.KyThi.Name = "KyThi";
-            this.KyThi.Size = new System.Drawing.Size(86, 24);
-            this.KyThi.Text = "LỊCH THI";
-            // 
-            // qUẢNLÝLỊCHTHIToolStripMenuItem
-            // 
-            this.qUẢNLÝLỊCHTHIToolStripMenuItem.Name = "qUẢNLÝLỊCHTHIToolStripMenuItem";
-            this.qUẢNLÝLỊCHTHIToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.qUẢNLÝLỊCHTHIToolStripMenuItem.Text = "QUẢN LÝ LỊCH THI";
             // 
             // KhoaHoc
             // 
@@ -487,7 +471,6 @@
         private System.Windows.Forms.ToolStripMenuItem CauHoi;
         private System.Windows.Forms.ToolStripMenuItem DeThi;
         private System.Windows.Forms.ToolStripMenuItem LichThi;
-        private System.Windows.Forms.ToolStripMenuItem KyThi;
         private System.Windows.Forms.ToolStripMenuItem KhoaHoc;
         private System.Windows.Forms.ToolStripMenuItem QlyTaiKhoan;
         private System.Windows.Forms.ToolStripMenuItem themTaiKhoan;
@@ -508,9 +491,8 @@
         private System.Windows.Forms.ToolStripMenuItem qlyCauHoi;
         private System.Windows.Forms.ToolStripMenuItem taoDeThi;
         private System.Windows.Forms.ToolStripMenuItem qlyDeThi;
-        private System.Windows.Forms.ToolStripMenuItem dANHSÁCHKỲTHIToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem QlyKyThi;
         private System.Windows.Forms.ToolStripMenuItem tẠOKỲTHIToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem qUẢNLÝLỊCHTHIToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dANHSÁCHKHÓAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tHÊMKHÓAHỌCToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dANHSÁCHLỚPHỌCToolStripMenuItem;

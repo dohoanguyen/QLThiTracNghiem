@@ -306,6 +306,16 @@ namespace Winform_KLCN.GiaoDien
             form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog(); // mở dạng popup chặn
         }
+
+        private void QlyKyThi_Click(object sender, EventArgs e)
+        {
+            panelNoiDung.Controls.Clear();
+
+            qlyKyThi uc = new qlyKyThi();
+            uc.Dock = DockStyle.Fill;
+
+            panelNoiDung.Controls.Add(uc);
+        }
     }
     
 }
