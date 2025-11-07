@@ -41,6 +41,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhoaHocChuaHoanThien)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +59,7 @@
             this.txtTenKhoa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTenKhoa.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTenKhoa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTenKhoa.Location = new System.Drawing.Point(127, 125);
+            this.txtTenKhoa.Location = new System.Drawing.Point(127, 55);
             this.txtTenKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTenKhoa.Name = "txtTenKhoa";
             this.txtTenKhoa.PlaceholderText = "";
@@ -77,10 +79,10 @@
             this.btnXacNhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnXacNhan.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnXacNhan.ForeColor = System.Drawing.Color.White;
-            this.btnXacNhan.Location = new System.Drawing.Point(48, 389);
+            this.btnXacNhan.Location = new System.Drawing.Point(35, 319);
             this.btnXacNhan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXacNhan.Name = "btnXacNhan";
-            this.btnXacNhan.Size = new System.Drawing.Size(228, 46);
+            this.btnXacNhan.Size = new System.Drawing.Size(261, 46);
             this.btnXacNhan.TabIndex = 34;
             this.btnXacNhan.Text = "Xác Nhận";
             this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
@@ -151,7 +153,7 @@
             this.txtNamHoc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNamHoc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNamHoc.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNamHoc.Location = new System.Drawing.Point(127, 196);
+            this.txtNamHoc.Location = new System.Drawing.Point(127, 126);
             this.txtNamHoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNamHoc.Name = "txtNamHoc";
             this.txtNamHoc.PlaceholderText = "";
@@ -162,26 +164,28 @@
             // dtpNgayKetThuc
             // 
             this.dtpNgayKetThuc.Checked = true;
+            this.dtpNgayKetThuc.FillColor = System.Drawing.Color.White;
             this.dtpNgayKetThuc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpNgayKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpNgayKetThuc.Location = new System.Drawing.Point(141, 334);
+            this.dtpNgayKetThuc.Location = new System.Drawing.Point(127, 264);
             this.dtpNgayKetThuc.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpNgayKetThuc.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpNgayKetThuc.Name = "dtpNgayKetThuc";
-            this.dtpNgayKetThuc.Size = new System.Drawing.Size(135, 36);
+            this.dtpNgayKetThuc.Size = new System.Drawing.Size(169, 36);
             this.dtpNgayKetThuc.TabIndex = 39;
             this.dtpNgayKetThuc.Value = new System.DateTime(2025, 11, 6, 11, 44, 3, 420);
             // 
             // dtpNgayBatDau
             // 
             this.dtpNgayBatDau.Checked = true;
+            this.dtpNgayBatDau.FillColor = System.Drawing.Color.White;
             this.dtpNgayBatDau.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpNgayBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpNgayBatDau.Location = new System.Drawing.Point(141, 274);
+            this.dtpNgayBatDau.Location = new System.Drawing.Point(127, 204);
             this.dtpNgayBatDau.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpNgayBatDau.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpNgayBatDau.Name = "dtpNgayBatDau";
-            this.dtpNgayBatDau.Size = new System.Drawing.Size(135, 36);
+            this.dtpNgayBatDau.Size = new System.Drawing.Size(169, 36);
             this.dtpNgayBatDau.TabIndex = 38;
             this.dtpNgayBatDau.Value = new System.DateTime(2025, 11, 6, 11, 44, 3, 420);
             // 
@@ -189,7 +193,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(648, 18);
+            this.label4.Location = new System.Drawing.Point(624, 19);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(286, 20);
             this.label4.TabIndex = 41;
@@ -198,7 +202,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 142);
+            this.label1.Location = new System.Drawing.Point(26, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 16);
             this.label1.TabIndex = 40;
@@ -207,11 +211,29 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 213);
+            this.label2.Location = new System.Drawing.Point(31, 143);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 16);
             this.label2.TabIndex = 42;
             this.label2.Text = "NĂM HỌC:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(32, 214);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 16);
+            this.label3.TabIndex = 43;
+            this.label3.Text = "BẮT ĐẦU:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(32, 278);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 16);
+            this.label5.TabIndex = 44;
+            this.label5.Text = "KẾT THÚC:";
             // 
             // taoKhoaHoc
             // 
@@ -219,6 +241,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(1164, 523);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
@@ -230,7 +254,7 @@
             this.Controls.Add(this.dgvKhoaHocChuaHoanThien);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "taoKhoaHoc";
-            this.Text = "taoKhoaHoc";
+            this.Text = "Tạo Khóa Học";
             this.Load += new System.EventHandler(this.taoKhoaHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhoaHocChuaHoanThien)).EndInit();
             this.ResumeLayout(false);
@@ -249,5 +273,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
     }
 }

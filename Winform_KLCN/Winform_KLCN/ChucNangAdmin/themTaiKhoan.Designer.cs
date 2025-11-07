@@ -46,6 +46,7 @@
             this.btnChonFile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnChonFile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnChonFile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnChonFile.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnChonFile.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnChonFile.ForeColor = System.Drawing.Color.White;
             this.btnChonFile.Location = new System.Drawing.Point(47, 21);
@@ -62,6 +63,7 @@
             this.btnXacNhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnXacNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnXacNhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnXacNhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnXacNhan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnXacNhan.ForeColor = System.Drawing.Color.White;
             this.btnXacNhan.Location = new System.Drawing.Point(259, 21);
@@ -73,6 +75,7 @@
             // 
             // txtTaiKhoan
             // 
+            this.txtTaiKhoan.BackColor = System.Drawing.Color.White;
             this.txtTaiKhoan.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTaiKhoan.DefaultText = "";
             this.txtTaiKhoan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -146,6 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(482, 270);
             this.Controls.Add(this.dgvXem);
             this.Controls.Add(this.txtTaiKhoan);

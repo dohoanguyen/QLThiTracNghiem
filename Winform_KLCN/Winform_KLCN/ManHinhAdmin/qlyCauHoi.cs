@@ -169,5 +169,10 @@ WHERE (1=1)";
             int maDK = cboDoKho.SelectedValue != null ? Convert.ToInt32(cboDoKho.SelectedValue) : -1;
             LoadCauHoi(maM, maDK);
         }
+
+        private void cboDoKho_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
