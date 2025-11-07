@@ -55,7 +55,9 @@
             // 
             // txtTaiKhoan
             // 
+            this.txtTaiKhoan.BackColor = System.Drawing.Color.Transparent;
             this.txtTaiKhoan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.txtTaiKhoan.BorderRadius = 20;
             this.txtTaiKhoan.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTaiKhoan.DefaultText = "";
             this.txtTaiKhoan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -105,9 +107,9 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.label3.Location = new System.Drawing.Point(372, 181);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(401, 48);
+            this.label3.Size = new System.Drawing.Size(207, 48);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Trang Quản Lý - Dành cho GV";
+            this.label3.Text = "Trang Quản Lý";
             // 
             // label4
             // 
@@ -123,7 +125,9 @@
             // 
             // txtMatKhau
             // 
+            this.txtMatKhau.BackColor = System.Drawing.Color.Transparent;
             this.txtMatKhau.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.txtMatKhau.BorderRadius = 20;
             this.txtMatKhau.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMatKhau.DefaultText = "";
             this.txtMatKhau.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -145,6 +149,8 @@
             // 
             // btnXacNhan
             // 
+            this.btnXacNhan.BackColor = System.Drawing.Color.Transparent;
+            this.btnXacNhan.BorderRadius = 20;
             this.btnXacNhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnXacNhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnXacNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -186,6 +192,7 @@
             // 
             // DangNhap
             // 
+            this.AcceptButton = this.btnXacNhan;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Winform_KLCN.Properties.Resources.bg;

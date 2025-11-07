@@ -41,13 +41,14 @@
             // 
             // btnChonFile
             // 
+            this.btnChonFile.BorderRadius = 20;
             this.btnChonFile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnChonFile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnChonFile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnChonFile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnChonFile.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnChonFile.ForeColor = System.Drawing.Color.White;
-            this.btnChonFile.Location = new System.Drawing.Point(27, 12);
+            this.btnChonFile.Location = new System.Drawing.Point(47, 21);
             this.btnChonFile.Name = "btnChonFile";
             this.btnChonFile.Size = new System.Drawing.Size(180, 45);
             this.btnChonFile.TabIndex = 0;
@@ -56,13 +57,14 @@
             // 
             // btnXacNhan
             // 
+            this.btnXacNhan.BorderRadius = 20;
             this.btnXacNhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnXacNhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnXacNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnXacNhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnXacNhan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnXacNhan.ForeColor = System.Drawing.Color.White;
-            this.btnXacNhan.Location = new System.Drawing.Point(248, 12);
+            this.btnXacNhan.Location = new System.Drawing.Point(259, 21);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(180, 45);
             this.btnXacNhan.TabIndex = 1;
@@ -80,12 +82,12 @@
             this.txtTaiKhoan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTaiKhoan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTaiKhoan.Location = new System.Drawing.Point(112, 69);
+            this.txtTaiKhoan.Location = new System.Drawing.Point(47, 21);
             this.txtTaiKhoan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTaiKhoan.Name = "txtTaiKhoan";
             this.txtTaiKhoan.PlaceholderText = "";
             this.txtTaiKhoan.SelectedText = "";
-            this.txtTaiKhoan.Size = new System.Drawing.Size(229, 48);
+            this.txtTaiKhoan.Size = new System.Drawing.Size(180, 48);
             this.txtTaiKhoan.TabIndex = 2;
             // 
             // dgvXem
@@ -111,12 +113,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvXem.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvXem.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvXem.Location = new System.Drawing.Point(12, 133);
+            this.dgvXem.Location = new System.Drawing.Point(27, 92);
             this.dgvXem.Name = "dgvXem";
             this.dgvXem.RowHeadersVisible = false;
             this.dgvXem.RowHeadersWidth = 51;
             this.dgvXem.RowTemplate.Height = 24;
-            this.dgvXem.Size = new System.Drawing.Size(458, 150);
+            this.dgvXem.Size = new System.Drawing.Size(423, 150);
             this.dgvXem.TabIndex = 3;
             this.dgvXem.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvXem.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -144,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 357);
+            this.ClientSize = new System.Drawing.Size(482, 270);
             this.Controls.Add(this.dgvXem);
             this.Controls.Add(this.txtTaiKhoan);
             this.Controls.Add(this.btnXacNhan);

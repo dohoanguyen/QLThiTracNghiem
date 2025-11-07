@@ -161,19 +161,12 @@ WHERE 1=1";
 
             // Khi chọn kỳ thi có trạng thái “Sắp diễn ra” => hiện btnSua
             string tt = dgvKyThi.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
-            btnSua.Visible = (tt == "Sắp diễn ra");
+           
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
+        private void qlyKyThi_Load(object sender, EventArgs e)
         {
-            if (dgvKyThi.SelectedRows.Count == 0) return;
-            int maKT = Convert.ToInt32(dgvKyThi.SelectedRows[0].Cells["MaKT"].Value);
-            taoKyThi frm = new taoKyThi(maKT);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
 
-            // Sau khi sửa reload lại
-            LocDuLieu(null, null);
         }
     }
 }

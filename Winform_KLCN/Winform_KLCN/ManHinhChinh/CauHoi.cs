@@ -188,12 +188,7 @@ namespace Winform_KLCN.ManHinhChinh
 
                 if (int.TryParse(lbxMonHoc.SelectedValue?.ToString(), out maMon))
                 {
-                    if (maMon == 0) 
-                    {
-                        dgvCauHoi.DataSource = dtCauHoi;
-                        lblKetQua.Text = $"Tất cả câu hỏi ({dtCauHoi.Rows.Count} câu)";
-                        return;
-                    }
+                  
 
                     DataView dv = dtCauHoi.DefaultView;
                     dv.RowFilter = $"MaM = {maMon}";

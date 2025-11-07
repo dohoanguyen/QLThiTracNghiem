@@ -49,9 +49,9 @@
             this.cboMon.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboMon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboMon.ItemHeight = 30;
-            this.cboMon.Location = new System.Drawing.Point(476, 29);
+            this.cboMon.Location = new System.Drawing.Point(19, 32);
             this.cboMon.Name = "cboMon";
-            this.cboMon.Size = new System.Drawing.Size(206, 36);
+            this.cboMon.Size = new System.Drawing.Size(196, 36);
             this.cboMon.TabIndex = 29;
             // 
             // btnXacNhan
@@ -66,7 +66,7 @@
             this.btnXacNhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnXacNhan.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnXacNhan.ForeColor = System.Drawing.Color.White;
-            this.btnXacNhan.Location = new System.Drawing.Point(923, 22);
+            this.btnXacNhan.Location = new System.Drawing.Point(46, 203);
             this.btnXacNhan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(142, 46);
@@ -97,13 +97,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvCauHoi.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCauHoi.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvCauHoi.Location = new System.Drawing.Point(7, 90);
+            this.dgvCauHoi.Location = new System.Drawing.Point(242, 32);
             this.dgvCauHoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvCauHoi.Name = "dgvCauHoi";
             this.dgvCauHoi.RowHeadersVisible = false;
             this.dgvCauHoi.RowHeadersWidth = 51;
             this.dgvCauHoi.RowTemplate.Height = 24;
-            this.dgvCauHoi.Size = new System.Drawing.Size(1169, 534);
+            this.dgvCauHoi.Size = new System.Drawing.Size(915, 515);
             this.dgvCauHoi.TabIndex = 27;
             this.dgvCauHoi.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvCauHoi.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -138,9 +138,9 @@
             this.cboDoKho.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboDoKho.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboDoKho.ItemHeight = 30;
-            this.cboDoKho.Location = new System.Drawing.Point(699, 29);
+            this.cboDoKho.Location = new System.Drawing.Point(19, 121);
             this.cboDoKho.Name = "cboDoKho";
-            this.cboDoKho.Size = new System.Drawing.Size(206, 36);
+            this.cboDoKho.Size = new System.Drawing.Size(196, 36);
             this.cboDoKho.TabIndex = 30;
             // 
             // qlyCauHoi

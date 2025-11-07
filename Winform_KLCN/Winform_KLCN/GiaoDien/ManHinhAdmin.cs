@@ -316,6 +316,33 @@ namespace Winform_KLCN.GiaoDien
 
             panelNoiDung.Controls.Add(uc);
         }
+
+        private void taoKyThi_Click(object sender, EventArgs e)
+        {
+            taoKyThi form = new taoKyThi();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.ShowDialog(); // mở dạng popup chặn
+        }
+
+        private void qlyKhoaHoc_Click(object sender, EventArgs e)
+        {
+            panelNoiDung.Controls.Clear();
+
+            qlyKhoaHoc uc = new qlyKhoaHoc();
+            uc.Dock = DockStyle.Fill;
+
+            panelNoiDung.Controls.Add(uc);
+        }
+
+
+
+
+        private void taoKhoaHoc_Click(object sender, EventArgs e)
+        {
+            taoKhoaHoc form = new taoKhoaHoc();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.ShowDialog();
+        }
     }
     
 }

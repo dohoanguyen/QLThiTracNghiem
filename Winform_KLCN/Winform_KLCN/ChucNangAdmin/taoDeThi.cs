@@ -158,7 +158,8 @@ WHERE D.TrangThai = N'Chưa hoạt động'";
             LoadMonThi();
             LoadDeThiChuaHoatDong();
             btnThemCauHoi.Enabled = false; // Chỉ bật khi chọn đề thi
-            txtThoiGian.Text = "15";
+            txtSoCau.Text = "40";
+            txtThoiGian.Text = "50";
         }
 
         private void dgvDeThiChuaHoatDong_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -185,6 +186,11 @@ WHERE D.TrangThai = N'Chưa hoạt động'";
                 frm.ShowDialog();
                 LoadDeThiChuaHoatDong();
             }
+        }
+
+        private void txtTenDe_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

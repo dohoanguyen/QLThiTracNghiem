@@ -128,6 +128,12 @@
     <Compile Include="ChucNangAdmin\ctDeThi.Designer.cs">
       <DependentUpon>ctDeThi.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChucNangAdmin\ctKhoaHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNangAdmin\ctKhoaHoc.Designer.cs">
+      <DependentUpon>ctKhoaHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChucNangAdmin\ctKyThi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,12 @@
     <Compile Include="ChucNangAdmin\taoDeThi.Designer.cs">
       <DependentUpon>taoDeThi.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChucNangAdmin\taoKhoaHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNangAdmin\taoKhoaHoc.Designer.cs">
+      <DependentUpon>taoKhoaHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChucNangAdmin\taoKyThi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +163,18 @@
     </Compile>
     <Compile Include="ChucNangAdmin\themCauHoi.Designer.cs">
       <DependentUpon>themCauHoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNangAdmin\themLichThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNangAdmin\themLichThi.Designer.cs">
+      <DependentUpon>themLichThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNangAdmin\themLopHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNangAdmin\themLopHoc.Designer.cs">
+      <DependentUpon>themLopHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="ChucNangAdmin\themTaiKhoan.cs">
       <SubType>Form</SubType>
@@ -200,6 +224,12 @@
     </Compile>
     <Compile Include="ManHinhAdmin\qlyHocVien.Designer.cs">
       <DependentUpon>qlyHocVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyKhoaHoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManHinhAdmin\qlyKhoaHoc.Designer.cs">
+      <DependentUpon>qlyKhoaHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="ManHinhAdmin\qlyKyThi.cs">
       <SubType>UserControl</SubType>
@@ -255,17 +285,29 @@
     <EmbeddedResource Include="ChucNangAdmin\ctDeThi.resx">
       <DependentUpon>ctDeThi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChucNangAdmin\ctKhoaHoc.resx">
+      <DependentUpon>ctKhoaHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChucNangAdmin\ctKyThi.resx">
       <DependentUpon>ctKyThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNangAdmin\taoDeThi.resx">
       <DependentUpon>taoDeThi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChucNangAdmin\taoKhoaHoc.resx">
+      <DependentUpon>taoKhoaHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChucNangAdmin\taoKyThi.resx">
       <DependentUpon>taoKyThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNangAdmin\themCauHoi.resx">
       <DependentUpon>themCauHoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNangAdmin\themLichThi.resx">
+      <DependentUpon>themLichThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNangAdmin\themLopHoc.resx">
+      <DependentUpon>themLopHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNangAdmin\themTaiKhoan.resx">
       <DependentUpon>themTaiKhoan.cs</DependentUpon>
@@ -290,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManHinhAdmin\qlyHocVien.resx">
       <DependentUpon>qlyHocVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManHinhAdmin\qlyKhoaHoc.resx">
+      <DependentUpon>qlyKhoaHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManHinhAdmin\qlyKyThi.resx">
       <DependentUpon>qlyKyThi.cs</DependentUpon>

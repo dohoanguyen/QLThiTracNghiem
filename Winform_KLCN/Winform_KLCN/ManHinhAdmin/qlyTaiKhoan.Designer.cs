@@ -54,7 +54,7 @@
             this.btnTimKiem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
-            this.btnTimKiem.Location = new System.Drawing.Point(305, 18);
+            this.btnTimKiem.Location = new System.Drawing.Point(229, 17);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(132, 46);
@@ -80,7 +80,7 @@
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.PlaceholderText = "";
             this.txtTimKiem.SelectedText = "";
-            this.txtTimKiem.Size = new System.Drawing.Size(313, 45);
+            this.txtTimKiem.Size = new System.Drawing.Size(212, 45);
             this.txtTimKiem.TabIndex = 18;
             // 
             // btnLuu
@@ -95,7 +95,7 @@
             this.btnLuu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnLuu.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(923, 17);
+            this.btnLuu.Location = new System.Drawing.Point(593, 17);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(142, 46);
@@ -115,7 +115,7 @@
             this.btnSua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnSua.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(743, 17);
+            this.btnSua.Location = new System.Drawing.Point(392, 17);
             this.btnSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(174, 46);
@@ -146,13 +146,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvTaiKhoan.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTaiKhoan.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvTaiKhoan.Location = new System.Drawing.Point(7, 85);
+            this.dgvTaiKhoan.Location = new System.Drawing.Point(254, 84);
             this.dgvTaiKhoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvTaiKhoan.Name = "dgvTaiKhoan";
             this.dgvTaiKhoan.RowHeadersVisible = false;
             this.dgvTaiKhoan.RowHeadersWidth = 51;
             this.dgvTaiKhoan.RowTemplate.Height = 24;
-            this.dgvTaiKhoan.Size = new System.Drawing.Size(1169, 534);
+            this.dgvTaiKhoan.Size = new System.Drawing.Size(908, 463);
             this.dgvTaiKhoan.TabIndex = 15;
             this.dgvTaiKhoan.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvTaiKhoan.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -189,9 +189,9 @@
             this.cboPhanQuyen.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboPhanQuyen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboPhanQuyen.ItemHeight = 30;
-            this.cboPhanQuyen.Location = new System.Drawing.Point(476, 24);
+            this.cboPhanQuyen.Location = new System.Drawing.Point(38, 103);
             this.cboPhanQuyen.Name = "cboPhanQuyen";
-            this.cboPhanQuyen.Size = new System.Drawing.Size(206, 36);
+            this.cboPhanQuyen.Size = new System.Drawing.Size(189, 36);
             this.cboPhanQuyen.TabIndex = 20;
             this.cboPhanQuyen.SelectedIndexChanged += new System.EventHandler(this.cboPhanQuyen_SelectedIndexChanged);
             // 

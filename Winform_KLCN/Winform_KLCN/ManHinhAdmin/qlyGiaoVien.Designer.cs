@@ -62,13 +62,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvGiaoVien.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvGiaoVien.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvGiaoVien.Location = new System.Drawing.Point(7, 89);
+            this.dgvGiaoVien.Location = new System.Drawing.Point(38, 106);
             this.dgvGiaoVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvGiaoVien.Name = "dgvGiaoVien";
             this.dgvGiaoVien.RowHeadersVisible = false;
             this.dgvGiaoVien.RowHeadersWidth = 51;
             this.dgvGiaoVien.RowTemplate.Height = 24;
-            this.dgvGiaoVien.Size = new System.Drawing.Size(1169, 1000);
+            this.dgvGiaoVien.Size = new System.Drawing.Size(1112, 434);
             this.dgvGiaoVien.TabIndex = 4;
             this.dgvGiaoVien.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvGiaoVien.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -105,7 +105,7 @@
             this.btnSua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnSua.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(743, 21);
+            this.btnSua.Location = new System.Drawing.Point(409, 22);
             this.btnSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(174, 46);
@@ -125,10 +125,10 @@
             this.btnLuu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnLuu.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(923, 21);
+            this.btnLuu.Location = new System.Drawing.Point(618, 22);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(142, 46);
+            this.btnLuu.Size = new System.Drawing.Size(174, 46);
             this.btnLuu.TabIndex = 12;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
@@ -168,7 +168,7 @@
             this.btnTimKiem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
-            this.btnTimKiem.Location = new System.Drawing.Point(305, 22);
+            this.btnTimKiem.Location = new System.Drawing.Point(235, 22);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(132, 46);

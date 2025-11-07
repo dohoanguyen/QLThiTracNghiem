@@ -61,13 +61,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvCauHoi.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCauHoi.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvCauHoi.Location = new System.Drawing.Point(-1, 108);
+            this.dgvCauHoi.Location = new System.Drawing.Point(230, 101);
             this.dgvCauHoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvCauHoi.Name = "dgvCauHoi";
             this.dgvCauHoi.RowHeadersVisible = false;
             this.dgvCauHoi.RowHeadersWidth = 51;
             this.dgvCauHoi.RowTemplate.Height = 24;
-            this.dgvCauHoi.Size = new System.Drawing.Size(1182, 500);
+            this.dgvCauHoi.Size = new System.Drawing.Size(904, 511);
             this.dgvCauHoi.TabIndex = 0;
             this.dgvCauHoi.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvCauHoi.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -96,7 +96,7 @@
             // 
             this.lbxMonHoc.FormattingEnabled = true;
             this.lbxMonHoc.ItemHeight = 16;
-            this.lbxMonHoc.Location = new System.Drawing.Point(13, 2);
+            this.lbxMonHoc.Location = new System.Drawing.Point(26, 25);
             this.lbxMonHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbxMonHoc.Name = "lbxMonHoc";
             this.lbxMonHoc.Size = new System.Drawing.Size(151, 84);
@@ -106,7 +106,7 @@
             // lblKetQua
             // 
             this.lblKetQua.AutoSize = true;
-            this.lblKetQua.Location = new System.Drawing.Point(237, 25);
+            this.lblKetQua.Location = new System.Drawing.Point(23, 146);
             this.lblKetQua.Name = "lblKetQua";
             this.lblKetQua.Size = new System.Drawing.Size(106, 16);
             this.lblKetQua.TabIndex = 3;
@@ -124,7 +124,7 @@
             this.btnThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnThem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(920, 25);
+            this.btnThem.Location = new System.Drawing.Point(230, 25);
             this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(245, 46);

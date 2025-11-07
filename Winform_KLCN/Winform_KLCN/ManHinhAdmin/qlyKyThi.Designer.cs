@@ -31,32 +31,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnSua = new Guna.UI2.WinForms.Guna2Button();
             this.cboKhoa = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dgvKyThi = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cboTrangThai = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKyThi)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnSua
-            // 
-            this.btnSua.BorderRadius = 20;
-            this.btnSua.CustomizableEdges.BottomLeft = false;
-            this.btnSua.CustomizableEdges.TopRight = false;
-            this.btnSua.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSua.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnSua.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(957, 19);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(142, 46);
-            this.btnSua.TabIndex = 33;
-            this.btnSua.Text = "Lưu";
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // cboKhoa
             // 
@@ -69,7 +48,7 @@
             this.cboKhoa.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboKhoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboKhoa.ItemHeight = 30;
-            this.cboKhoa.Location = new System.Drawing.Point(476, 19);
+            this.cboKhoa.Location = new System.Drawing.Point(30, 110);
             this.cboKhoa.Name = "cboKhoa";
             this.cboKhoa.Size = new System.Drawing.Size(206, 36);
             this.cboKhoa.TabIndex = 32;
@@ -97,13 +76,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKyThi.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvKyThi.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvKyThi.Location = new System.Drawing.Point(7, 80);
+            this.dgvKyThi.Location = new System.Drawing.Point(264, 29);
             this.dgvKyThi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvKyThi.Name = "dgvKyThi";
             this.dgvKyThi.RowHeadersVisible = false;
             this.dgvKyThi.RowHeadersWidth = 51;
             this.dgvKyThi.RowTemplate.Height = 24;
-            this.dgvKyThi.Size = new System.Drawing.Size(1169, 534);
+            this.dgvKyThi.Size = new System.Drawing.Size(891, 514);
             this.dgvKyThi.TabIndex = 31;
             this.dgvKyThi.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvKyThi.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -138,7 +117,7 @@
             this.cboTrangThai.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboTrangThai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboTrangThai.ItemHeight = 30;
-            this.cboTrangThai.Location = new System.Drawing.Point(235, 19);
+            this.cboTrangThai.Location = new System.Drawing.Point(30, 29);
             this.cboTrangThai.Name = "cboTrangThai";
             this.cboTrangThai.Size = new System.Drawing.Size(206, 36);
             this.cboTrangThai.TabIndex = 34;
@@ -148,19 +127,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cboTrangThai);
-            this.Controls.Add(this.btnSua);
             this.Controls.Add(this.cboKhoa);
             this.Controls.Add(this.dgvKyThi);
             this.Name = "qlyKyThi";
             this.Size = new System.Drawing.Size(1182, 570);
+            this.Load += new System.EventHandler(this.qlyKyThi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKyThi)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2Button btnSua;
         private Guna.UI2.WinForms.Guna2ComboBox cboKhoa;
         private Guna.UI2.WinForms.Guna2DataGridView dgvKyThi;
         private Guna.UI2.WinForms.Guna2ComboBox cboTrangThai;
