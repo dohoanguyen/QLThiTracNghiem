@@ -64,6 +64,7 @@ namespace Winform_KLCN.ManHinhChinh
             dtCauHoi.Columns.Add("DapAnC", typeof(string));
             dtCauHoi.Columns.Add("DapAnD", typeof(string));
             dtCauHoi.Columns.Add("DapAnDung", typeof(string));
+            dtCauHoi.Columns.Add("LoaiCauHoi", typeof(string));
 
             // Load dữ liệu từ DB trực tiếp
             using (SqlConnection conn = KetNoi.TaoKetNoi())
@@ -132,46 +133,162 @@ namespace Winform_KLCN.ManHinhChinh
 
             using (var workbook = new XLWorkbook(filePath))
             {
-                var worksheet = workbook.Worksheet(1);
-                var rows = worksheet.RangeUsed().RowsUsed();
+                HashSet<string> seenNoiDung = new HashSet<string>();   // kiểm tra trùng nội dung
+                List<string> loi = new List<string>();                 // lưu thông báo lỗi
 
-                HashSet<string> seenNoiDung = new HashSet<string>();
-                List<string> duplicated = new List<string>();
-
-                foreach (var row in rows.Skip(1))
+                // ✅ 1️⃣ Lấy danh sách mã môn mà giáo viên này được phép nhập
+                HashSet<int> monDuocPhanCong = new HashSet<int>();
+                using (SqlConnection conn = KetNoi.TaoKetNoi())
                 {
-                    string noiDung = row.Cell(3).GetValue<string>().Trim();
-                    if (string.IsNullOrWhiteSpace(noiDung)) continue;
-
-                    if (seenNoiDung.Contains(noiDung))
+                    conn.Open();
+                    string sqlMon = "SELECT MaM FROM GIAOVIEN_MON WHERE MaGV = @MaGV";
+                    using (SqlCommand cmd = new SqlCommand(sqlMon, conn))
                     {
-                        duplicated.Add(noiDung);
-                        continue;
+                        cmd.Parameters.AddWithValue("@MaGV", UserSession.MaGV);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                                monDuocPhanCong.Add(reader.GetInt32(0));
+                        }
                     }
-                    seenNoiDung.Add(noiDung);
-
-                    dtCauHoi.Rows.Add(
-                        Convert.ToInt32(row.Cell(1).GetValue<string>()),
-                        Convert.ToInt32(row.Cell(2).GetValue<string>()),
-                        noiDung,
-                        row.Cell(4).GetValue<string>(),
-                        row.Cell(5).GetValue<string>(),
-                        row.Cell(6).GetValue<string>(),
-                        row.Cell(7).GetValue<string>(),
-                        row.Cell(8).GetValue<string>().ToUpper()
-                    );
                 }
 
-                if (duplicated.Count > 0)
+                if (monDuocPhanCong.Count == 0)
                 {
-                    MessageBox.Show($"⚠️ Phát hiện {duplicated.Count} câu hỏi trùng nội dung trong file Excel!\nCác dòng trùng đã bị bỏ qua.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("⚠️ Giáo viên hiện tại chưa được phân công môn học nào, không thể import câu hỏi!",
+                        "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // ✅ 2️⃣ Đọc từng sheet và xử lý như trước
+                for (int loaiPhan = 1; loaiPhan <= 3; loaiPhan++)
+                {
+                    if (workbook.Worksheets.Count < loaiPhan) continue;
+
+                    var worksheet = workbook.Worksheet(loaiPhan);
+                    var rows = worksheet.RangeUsed().RowsUsed();
+
+                    foreach (var row in rows.Skip(1))
+                    {
+                        string noiDung = row.Cell(3).GetValue<string>().Trim();
+                        if (string.IsNullOrWhiteSpace(noiDung))
+                        {
+                            loi.Add($"[Sheet {loaiPhan}] Dòng {row.RowNumber()}: Nội dung trống");
+                            continue;
+                        }
+
+                        if (seenNoiDung.Contains(noiDung))
+                        {
+                            loi.Add($"[Sheet {loaiPhan}] Dòng {row.RowNumber()}: Trùng nội dung câu hỏi");
+                            continue;
+                        }
+                        seenNoiDung.Add(noiDung);
+
+                        int maM, maDK;
+                        if (!int.TryParse(row.Cell(1).GetValue<string>(), out maM))
+                        {
+                            loi.Add($"[Sheet {loaiPhan}] Dòng {row.RowNumber()}: Mã môn không hợp lệ");
+                            continue;
+                        }
+
+                        // ✅ 3️⃣ Kiểm tra môn học có thuộc quyền của giáo viên không
+                        if (!monDuocPhanCong.Contains(maM))
+                        {
+                            loi.Add($"[Sheet {loaiPhan}] Dòng {row.RowNumber()}: Giáo viên không được phép nhập câu hỏi cho môn này (MaM = {maM})");
+                            continue;
+                        }
+
+                        if (!int.TryParse(row.Cell(2).GetValue<string>(), out maDK))
+                        {
+                            loi.Add($"[Sheet {loaiPhan}] Dòng {row.RowNumber()}: Mã độ khó không hợp lệ");
+                            continue;
+                        }
+
+                        string dapAnA = row.Cell(4).GetValue<string>().Trim();
+                        string dapAnB = row.Cell(5).GetValue<string>().Trim();
+                        string dapAnC = row.Cell(6).GetValue<string>().Trim();
+                        string dapAnD = row.Cell(7).GetValue<string>().Trim();
+                        string dapAnDung = "";
+                        string loaiCauHoi = "";
+
+                        if (loaiPhan == 1)
+                        {
+                            string dapAnKey = row.Cell(8).GetValue<string>().Trim().ToUpper();
+
+                            if (dapAnKey == "A") dapAnDung = dapAnA;
+                            else if (dapAnKey == "B") dapAnDung = dapAnB;
+                            else if (dapAnKey == "C") dapAnDung = dapAnC;
+                            else if (dapAnKey == "D") dapAnDung = dapAnD;
+                            else dapAnDung = dapAnKey;
+
+                            loaiCauHoi = "TracNghiem1DapAn";
+                        }
+                        else if (loaiPhan == 2)
+                        {
+                            string dapAnKeys = row.Cell(8).GetValue<string>().Trim();
+                            if (string.IsNullOrEmpty(dapAnKeys))
+                            {
+                                loi.Add($"[Sheet 2] Dòng {row.RowNumber()}: Chưa có đáp án đúng");
+                                continue;
+                            }
+
+                            var keys = dapAnKeys.Replace(";", ",").Split(',');
+                            List<string> dapAnDungList = new List<string>();
+
+                            foreach (string k in keys)
+                            {
+                                string key = k.Trim().ToUpper();
+                                if (key == "A") dapAnDungList.Add(dapAnA);
+                                else if (key == "B") dapAnDungList.Add(dapAnB);
+                                else if (key == "C") dapAnDungList.Add(dapAnC);
+                                else if (key == "D") dapAnDungList.Add(dapAnD);
+                                else dapAnDungList.Add(k.Trim());
+                            }
+
+                            dapAnDung = string.Join("; ", dapAnDungList);
+                            loaiCauHoi = "TracNghiemNhieuDapAn";
+                        }
+                        else if (loaiPhan == 3)
+                        {
+                            dapAnDung = row.Cell(4).GetValue<string>().Trim();
+                            if (string.IsNullOrEmpty(dapAnDung))
+                                loi.Add($"[Sheet 3] Dòng {row.RowNumber()}: Thiếu đáp án đúng (trả lời ngắn)");
+
+                            loaiCauHoi = "TraLoiNgan";
+                        }
+
+                        // --- Thêm vào DataTable ---
+                        DataRow newRow = dtCauHoi.NewRow();
+                        newRow["MaM"] = maM;
+                        newRow["MaDK"] = maDK;
+                        newRow["NoiDung"] = noiDung;
+                        newRow["DapAnA"] = dapAnA;
+                        newRow["DapAnB"] = dapAnB;
+                        newRow["DapAnC"] = dapAnC;
+                        newRow["DapAnD"] = dapAnD;
+                        newRow["DapAnDung"] = dapAnDung;
+                        newRow["LoaiCauHoi"] = loaiCauHoi;
+                        dtCauHoi.Rows.Add(newRow);
+                    }
+                }
+
+                // ✅ 4️⃣ Hiển thị kết quả và lỗi
+                dgvCauHoi.DataSource = dtCauHoi;
+                dgvCauHoi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgvCauHoi.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dgvCauHoi.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+                if (loi.Count > 0)
+                {
+                    string thongBao = $"⚠️ Phát hiện {loi.Count} lỗi dữ liệu:\n\n" + string.Join("\n", loi.Take(15));
+                    if (loi.Count > 15) thongBao += "\n... (còn nhiều lỗi khác)";
+                    MessageBox.Show(thongBao, "Cảnh báo dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("✅ Đọc tất cả câu hỏi (Phần 1–3) thành công, không phát hiện lỗi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-
-            dgvCauHoi.DataSource = dtCauHoi;
-            dgvCauHoi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgvCauHoi.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgvCauHoi.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
 
         private void btnChonFile_Click(object sender, EventArgs e)
@@ -179,7 +296,7 @@ namespace Winform_KLCN.ManHinhChinh
             using (OpenFileDialog ofd = new OpenFileDialog()
             {
                 Filter = "Excel Files|*.xlsx;*.xls",
-                Title = "Chọn file Excel chứa câu hỏi"
+                Title = "Chọn file Excel chứa danh sách câu hỏi (3 phần)"
             })
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
@@ -187,7 +304,6 @@ namespace Winform_KLCN.ManHinhChinh
                     try
                     {
                         LoadExcelToGrid(ofd.FileName);
-                        MessageBox.Show("✅ Đọc file Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
@@ -196,6 +312,7 @@ namespace Winform_KLCN.ManHinhChinh
                 }
             }
         }
+
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
@@ -221,8 +338,9 @@ namespace Winform_KLCN.ManHinhChinh
                     foreach (DataRow row in dtCauHoi.Rows)
                     {
                         string sql = @"INSERT INTO NGANHANGCAUHOI 
-                               (MaM, MaDK, NoiDung, DapAnA, DapAnB, DapAnC, DapAnD, DapAnDung, MaGV)
-                               VALUES (@MaM, @MaDK, @NoiDung, @A, @B, @C, @D, @Dung, @MaGV)";
+                                       (MaM, MaDK, NoiDung, DapAnA, DapAnB, DapAnC, DapAnD, DapAnDung, MaGV, LoaiCauHoi)
+                                       VALUES (@MaM, @MaDK, @NoiDung, @A, @B, @C, @D, @Dung, @MaGV, @Loai)";
+
                         using (SqlCommand cmd = new SqlCommand(sql, conn))
                         {
                             cmd.Parameters.AddWithValue("@MaM", row["MaM"]);
@@ -234,6 +352,7 @@ namespace Winform_KLCN.ManHinhChinh
                             cmd.Parameters.AddWithValue("@D", row["DapAnD"]);
                             cmd.Parameters.AddWithValue("@Dung", row["DapAnDung"]);
                             cmd.Parameters.AddWithValue("@MaGV", UserSession.MaGV); // ✅ Thêm MaGV
+                            cmd.Parameters.AddWithValue("@Loai", row["LoaiCauHoi"]);
 
                             cmd.ExecuteNonQuery();
                         }
