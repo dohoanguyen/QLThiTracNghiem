@@ -10,18 +10,24 @@ namespace Winform_KLCN.ManHinhAdmin
         private DataTable dtCauHoi;
         private DataTable dtMon;
         private DataTable dtDoKho;
+        private DataTable dtPhan;
 
         public qlyCauHoi()
         {
             InitializeComponent();
+
             CauHinhDataGridView();
+
             LoadMon();
             LoadDoKho();
+            LoadPhan();
+
             LoadCauHoi(); // load all by default
 
             btnXacNhan.Click += btnXacNhan_Click;
         }
 
+        #region DataGridView Setup
         private void CauHinhDataGridView()
         {
             dgvCauHoi.AutoGenerateColumns = false;
@@ -35,16 +41,16 @@ namespace Winform_KLCN.ManHinhAdmin
             dgvCauHoi.ColumnHeadersHeight = 40;
 
             dgvCauHoi.Columns.Clear();
+
             AddColumn("MaCH", "Mã CH", 60);
             AddColumn("TenMon", "Môn học", 120);
             AddColumn("TenDoKho", "Độ khó", 120);
+            AddColumn("TenPhan", "Phần", 100);
+            AddColumn("MaGV", "Mã GV", 60);
             AddColumn("NoiDung", "Nội dung", 250);
-            AddColumn("DapAnA", "Đáp án A", 150);
-            AddColumn("DapAnB", "Đáp án B", 150);
-            AddColumn("DapAnC", "Đáp án C", 150);
-            AddColumn("DapAnD", "Đáp án D", 150);
+            AddColumn("DapAn", "Đáp án", 300);
             AddColumn("DapAnDung", "Đáp án đúng", 100);
-
+            AddColumn("GiaiThich", "Giải thích", 250);
         }
 
         private void AddColumn(string dataProp, string header, int width)
@@ -60,7 +66,9 @@ namespace Winform_KLCN.ManHinhAdmin
             };
             dgvCauHoi.Columns.Add(col);
         }
+        #endregion
 
+        #region Load ComboBoxes
         private void LoadMon()
         {
             try
@@ -127,27 +135,76 @@ namespace Winform_KLCN.ManHinhAdmin
             }
         }
 
-        private void LoadCauHoi(int maM = -1, int maDK = -1)
+        private void LoadPhan()
         {
             try
             {
                 using (SqlConnection conn = KetNoi.TaoKetNoi())
                 {
                     conn.Open();
+                    string sql = "SELECT MaP, TenPhan FROM PHAN ORDER BY MaP";
+                    SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+                    dtPhan = new DataTable();
+                    da.Fill(dtPhan);
+
+                    DataTable dtCombo = dtPhan.Clone();
+                    DataRow rAll = dtCombo.NewRow();
+                    rAll["MaP"] = -1;
+                    rAll["TenPhan"] = "Tất cả";
+                    dtCombo.Rows.Add(rAll);
+
+                    foreach (DataRow r in dtPhan.Rows)
+                        dtCombo.ImportRow(r);
+
+                    cboPhan.DisplayMember = "TenPhan";
+                    cboPhan.ValueMember = "MaP";
+                    cboPhan.DataSource = dtCombo;
+                    cboPhan.SelectedIndex = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi tải phần: " + ex.Message);
+            }
+        }
+        #endregion
+
+        #region Load Data
+        private void LoadCauHoi(int maM = -1, int maDK = -1, int maP = -1)
+        {
+            try
+            {
+                using (SqlConnection conn = KetNoi.TaoKetNoi())
+                {
+                    conn.Open();
+
                     string sql = @"
-SELECT CH.MaCH, M.TenMon, DK.TenDoKho, CH.NoiDung, CH.DapAnA, CH.DapAnB, CH.DapAnC, CH.DapAnD, CH.DapAnDung
+SELECT CH.MaCH, M.TenMon, DK.TenDoKho, P.TenPhan, CH.MaGV, CH.NoiDung,
+       CASE 
+           WHEN P.TenPhan = N'Phần II' THEN ISNULL(DA.DapAnText, '')
+           ELSE CH.DapAnA + ' | ' + CH.DapAnB + ' | ' + CH.DapAnC + ' | ' + CH.DapAnD
+       END AS DapAn,
+       CH.DapAnDung, CH.GiaiThich
 FROM NGANHANGCAUHOI CH
 INNER JOIN MON M ON CH.MaM = M.MaM
 INNER JOIN DOKHO DK ON CH.MaDK = DK.MaDK
+INNER JOIN PHAN P ON CH.MaP = P.MaP
+LEFT JOIN (
+    SELECT MaCH, STRING_AGG(MaPhuongAn + ':' + NoiDung, ' | ') AS DapAnText
+    FROM DAPAN
+    GROUP BY MaCH
+) DA ON CH.MaCH = DA.MaCH
 WHERE (1=1)";
 
                     if (maM > 0) sql += " AND CH.MaM = @MaM";
                     if (maDK > 0) sql += " AND CH.MaDK = @MaDK";
+                    if (maP > 0) sql += " AND CH.MaP = @MaP";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         if (maM > 0) cmd.Parameters.AddWithValue("@MaM", maM);
                         if (maDK > 0) cmd.Parameters.AddWithValue("@MaDK", maDK);
+                        if (maP > 0) cmd.Parameters.AddWithValue("@MaP", maP);
 
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         dtCauHoi = new DataTable();
@@ -162,17 +219,17 @@ WHERE (1=1)";
                 MessageBox.Show("Lỗi load câu hỏi: " + ex.Message);
             }
         }
+        #endregion
 
+        #region Events
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
             int maM = cboMon.SelectedValue != null ? Convert.ToInt32(cboMon.SelectedValue) : -1;
             int maDK = cboDoKho.SelectedValue != null ? Convert.ToInt32(cboDoKho.SelectedValue) : -1;
-            LoadCauHoi(maM, maDK);
-        }
+            int maP = cboPhan.SelectedValue != null ? Convert.ToInt32(cboPhan.SelectedValue) : -1;
 
-        private void cboDoKho_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            LoadCauHoi(maM, maDK, maP);
         }
+        #endregion
     }
 }

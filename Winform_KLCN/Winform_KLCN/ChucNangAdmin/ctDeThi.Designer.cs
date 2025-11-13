@@ -39,7 +39,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ctDeThi";
             this.Text = "ctDeThi";
-            this.Load += new System.EventHandler(this.ctDeThi_Load);
             this.ResumeLayout(false);
 
         }

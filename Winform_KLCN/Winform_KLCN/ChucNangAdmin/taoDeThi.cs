@@ -35,6 +35,41 @@ namespace Winform_KLCN.ChucNangAdmin
                 MessageBox.Show("Lỗi tải môn thi: " + ex.Message);
             }
         }
+        private void CboMon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboMon.SelectedValue == null) return;
+
+            string tenMon = cboMon.Text.Trim();
+
+            string cauTruc = "";
+            int tongCau = 0;
+            int thoiGian = 50;
+
+            if (tenMon == "Toán")
+            {
+                cauTruc = "Phần I: 12 - Phần II: 4 - Phần III: 6";
+                tongCau = 22;
+                thoiGian = 90;
+            }
+            else if (tenMon == "Vật lý" || tenMon == "Hóa học" || tenMon == "Sinh học" || tenMon == "Địa lý")
+            {
+                cauTruc = "Phần I: 18 - Phần II: 4 - Phần III: 6";
+                tongCau = 28;
+                thoiGian = 50;
+            }
+            else
+            {
+                cauTruc = "Phần I: 24 - Phần II: 4 - Phần III: 0";
+                tongCau = 28;
+                thoiGian = 50;
+            }
+
+            txtCauTruc.Text = cauTruc.ToString(); // Thêm label trong form để hiển thị
+            txtThoiGian.Text = thoiGian.ToString();
+
+            // Nếu vẫn giữ txtSoCau, tự động set để tiện lưu DB
+            txtSoCau.Text = tongCau.ToString();
+        }
 
         private void LoadDeThiChuaHoatDong()
         {
@@ -158,8 +193,13 @@ WHERE D.TrangThai = N'Chưa hoạt động'";
             LoadMonThi();
             LoadDeThiChuaHoatDong();
             btnThemCauHoi.Enabled = false; // Chỉ bật khi chọn đề thi
-            txtSoCau.Text = "40";
-            txtThoiGian.Text = "50";
+            txtSoCau.ReadOnly = true;
+            txtThoiGian.ReadOnly = true;
+            txtCauTruc.ReadOnly = true;
+
+            txtSoCau.Text = "";
+            txtThoiGian.Text = "";
+            txtCauTruc.Text = "";
         }
 
         private void dgvDeThiChuaHoatDong_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -191,6 +231,16 @@ WHERE D.TrangThai = N'Chưa hoạt động'";
         private void txtTenDe_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnTaoDeTuDong_Click(object sender, EventArgs e)
+        {
+            taoDeTuDong frm = new taoDeTuDong();
+            frm.StartPosition = FormStartPosition.CenterParent;
+
+            // ✅ Khi form con đóng, tự load lại danh sách đề
+            frm.ShowDialog();
+            LoadDeThiChuaHoatDong();
         }
     }
 }

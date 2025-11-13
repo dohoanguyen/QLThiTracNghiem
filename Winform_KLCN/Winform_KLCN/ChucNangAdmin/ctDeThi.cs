@@ -16,7 +16,7 @@ namespace Winform_KLCN.ManHinhAdmin
             InitializeComponent();
             this.maDe = maDe;
             this.tenDe = tenDe;
-            this.Text = tenDe; // đổi tên form theo tên đề
+            this.Text = tenDe;
             LoadCauHoi();
         }
 
@@ -27,17 +27,27 @@ namespace Winform_KLCN.ManHinhAdmin
                 using (SqlConnection conn = KetNoi.TaoKetNoi())
                 {
                     conn.Open();
+
                     string sql = @"
-SELECT CH.MaCH, CH.NoiDung, CH.DapAnA, CH.DapAnB, CH.DapAnC, CH.DapAnD, CH.DapAnDung
+SELECT CH.MaCH, CH.NoiDung, CH.DapAnA, CH.DapAnB, CH.DapAnC, CH.DapAnD, CH.DapAnDung,
+       P.TenPhan,
+       (SELECT STRING_AGG(MaPhuongAn + '. ' + NoiDung, ' | ') 
+        FROM DAPAN 
+        WHERE MaCH = CH.MaCH) AS DapAnPhanII,
+       (SELECT STRING_AGG(DungSai, ',') 
+        FROM DAPAN 
+        WHERE MaCH = CH.MaCH) AS DungSaiPhanII
 FROM DETHI_CAUHOI DC
 INNER JOIN NGANHANGCAUHOI CH ON DC.MaCH = CH.MaCH
+INNER JOIN PHAN P ON CH.MaP = P.MaP
 WHERE DC.MaD = @MaD
-ORDER BY CH.MaCH";
+ORDER BY P.MaP, DC.STT";
+
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@MaD", maDe);
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    SqlDataAdapter daAdapter = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
-                    da.Fill(dt);
+                    daAdapter.Fill(dt);
 
                     if (dt.Rows.Count == 0)
                     {
@@ -52,7 +62,6 @@ ORDER BY CH.MaCH";
                         return;
                     }
 
-                    // Dùng Panel cuộn được để hiển thị danh sách câu hỏi
                     Panel pnl = new Panel
                     {
                         Dock = DockStyle.Fill,
@@ -61,15 +70,30 @@ ORDER BY CH.MaCH";
                     this.Controls.Add(pnl);
 
                     int y = 20;
+                    string currentPhan = "";
                     int soThuTu = 1;
+
                     foreach (DataRow r in dt.Rows)
                     {
+                        string phan = r["TenPhan"].ToString();
                         string noiDung = r["NoiDung"].ToString();
-                        string daA = r["DapAnA"].ToString();
-                        string daB = r["DapAnB"].ToString();
-                        string daC = r["DapAnC"].ToString();
-                        string daD = r["DapAnD"].ToString();
                         string daDung = r["DapAnDung"].ToString();
+
+                        // Nếu Phần thay đổi, thêm label phân phần
+                        if (phan != currentPhan)
+                        {
+                            Label lblPhan = new Label()
+                            {
+                                Text = phan,
+                                Location = new Point(10, y),
+                                AutoSize = true,
+                                Font = new Font("Segoe UI", 12, FontStyle.Bold | FontStyle.Underline)
+                            };
+                            pnl.Controls.Add(lblPhan);
+                            y += 30;
+                            currentPhan = phan;
+                            soThuTu = 1; // reset số thứ tự cho từng phần
+                        }
 
                         // Label câu hỏi
                         Label lbl = new Label()
@@ -82,11 +106,43 @@ ORDER BY CH.MaCH";
                         pnl.Controls.Add(lbl);
                         y += 25;
 
-                        // Tạo radio button cho từng đáp án
-                        y = TaoRadioButton(pnl, "A", daA, daDung == "A", y);
-                        y = TaoRadioButton(pnl, "B", daB, daDung == "B", y);
-                        y = TaoRadioButton(pnl, "C", daC, daDung == "C", y);
-                        y = TaoRadioButton(pnl, "D", daD, daDung == "D", y);
+                        if (phan == "Phần I")
+                        {
+                            // đánh dấu đáp án đúng dựa trên nội dung thực tế
+                            y = TaoRadioButton(pnl, "A. " + r["DapAnA"].ToString(), r["DapAnA"].ToString() == daDung, y);
+                            y = TaoRadioButton(pnl, "B. " + r["DapAnB"].ToString(), r["DapAnB"].ToString() == daDung, y);
+                            y = TaoRadioButton(pnl, "C. " + r["DapAnC"].ToString(), r["DapAnC"].ToString() == daDung, y);
+                            y = TaoRadioButton(pnl, "D. " + r["DapAnD"].ToString(), r["DapAnD"].ToString() == daDung, y);
+                        }
+                        else if (phan == "Phần II")
+                        {
+                            string dapAnPhanII = r["DapAnPhanII"].ToString();
+                            string dungSaiStr = r["DungSaiPhanII"].ToString(); // ví dụ: 1,0,1,0
+                            if (!string.IsNullOrEmpty(dapAnPhanII))
+                            {
+                                string[] arr = dapAnPhanII.Split(new string[] { " | " }, StringSplitOptions.RemoveEmptyEntries);
+                                string[] arrDungSai = dungSaiStr.Split(',');
+                                for (int i = 0; i < arr.Length; i++)
+                                {
+                                    bool isDung = arrDungSai[i] == "1";
+                                    y = TaoRadioButton(pnl, arr[i], isDung, y);
+                                }
+                            }
+                        }
+                        else if (phan == "Phần III")
+                        {
+                            // Tự luận, chỉ hiển thị đáp án đúng
+                            Label lblDapAn = new Label()
+                            {
+                                Text = "Đáp án: " + daDung,
+                                Location = new Point(40, y),
+                                AutoSize = true,
+                                Font = new Font("Segoe UI", 10, FontStyle.Italic),
+                                ForeColor = Color.Blue
+                            };
+                            pnl.Controls.Add(lblDapAn);
+                            y += 25;
+                        }
 
                         y += 15;
                         soThuTu++;
@@ -99,23 +155,18 @@ ORDER BY CH.MaCH";
             }
         }
 
-        private int TaoRadioButton(Panel pnl, string label, string text, bool checkedState, int y)
+        private int TaoRadioButton(Panel pnl, string text, bool checkedState, int y)
         {
             RadioButton rb = new RadioButton()
             {
-                Text = $"{label}. {text}",
+                Text = text,
                 Location = new Point(40, y),
                 AutoSize = true,
                 Checked = checkedState,
-                Enabled = false // không cho chỉnh sửa
+                Enabled = false
             };
             pnl.Controls.Add(rb);
             return y + 25;
-        }
-
-        private void ctDeThi_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

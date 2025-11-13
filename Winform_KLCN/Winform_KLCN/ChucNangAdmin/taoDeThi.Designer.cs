@@ -43,6 +43,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnTaoDeTuDong = new Guna.UI2.WinForms.Guna2Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCauTruc = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeThiChuaHoatDong)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +64,7 @@
             this.cboMon.Name = "cboMon";
             this.cboMon.Size = new System.Drawing.Size(260, 36);
             this.cboMon.TabIndex = 32;
+            this.cboMon.SelectedIndexChanged += new System.EventHandler(this.CboMon_SelectedIndexChanged);
             // 
             // txtTenDe
             // 
@@ -257,12 +261,65 @@
             this.label4.TabIndex = 38;
             this.label4.Text = "ĐỀ CHƯA HOÀN THIỆN";
             // 
+            // btnTaoDeTuDong
+            // 
+            this.btnTaoDeTuDong.BorderRadius = 20;
+            this.btnTaoDeTuDong.CustomizableEdges.BottomLeft = false;
+            this.btnTaoDeTuDong.CustomizableEdges.TopRight = false;
+            this.btnTaoDeTuDong.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTaoDeTuDong.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTaoDeTuDong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTaoDeTuDong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTaoDeTuDong.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnTaoDeTuDong.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnTaoDeTuDong.ForeColor = System.Drawing.Color.White;
+            this.btnTaoDeTuDong.Location = new System.Drawing.Point(25, 463);
+            this.btnTaoDeTuDong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnTaoDeTuDong.Name = "btnTaoDeTuDong";
+            this.btnTaoDeTuDong.Size = new System.Drawing.Size(255, 46);
+            this.btnTaoDeTuDong.TabIndex = 39;
+            this.btnTaoDeTuDong.Text = "Tạo Đề Tự Động";
+            this.btnTaoDeTuDong.Click += new System.EventHandler(this.btnTaoDeTuDong_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(22, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 16);
+            this.label5.TabIndex = 41;
+            this.label5.Text = "TÊN ĐỀ:";
+            // 
+            // txtCauTruc
+            // 
+            this.txtCauTruc.BorderRadius = 20;
+            this.txtCauTruc.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCauTruc.CustomizableEdges.BottomLeft = false;
+            this.txtCauTruc.DefaultText = "";
+            this.txtCauTruc.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCauTruc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCauTruc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCauTruc.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCauTruc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCauTruc.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCauTruc.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCauTruc.Location = new System.Drawing.Point(116, 13);
+            this.txtCauTruc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCauTruc.Name = "txtCauTruc";
+            this.txtCauTruc.PlaceholderText = "";
+            this.txtCauTruc.SelectedText = "";
+            this.txtCauTruc.Size = new System.Drawing.Size(169, 45);
+            this.txtCauTruc.TabIndex = 40;
+            // 
             // taoDeThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(1164, 523);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtCauTruc);
+            this.Controls.Add(this.btnTaoDeTuDong);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -297,5 +354,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2Button btnTaoDeTuDong;
+        private System.Windows.Forms.Label label5;
+        private Guna.UI2.WinForms.Guna2TextBox txtCauTruc;
     }
 }
