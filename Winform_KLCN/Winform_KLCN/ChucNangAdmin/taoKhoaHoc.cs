@@ -8,6 +8,9 @@ namespace Winform_KLCN.ChucNangAdmin
     public partial class taoKhoaHoc : Form
     {
         private DataTable dtKhoaHocChuaHoanThien;
+        private int maKhoa_DangChon = -1;
+        private string tenKhoa_DangChon = "";
+
 
         public taoKhoaHoc()
         {
@@ -16,6 +19,7 @@ namespace Winform_KLCN.ChucNangAdmin
 
         private void taoKhoaHoc_Load(object sender, EventArgs e)
         {
+            btnThemLopHoc.Enabled = false;
 
             txtTenKhoa.Clear();
             txtNamHoc.Text = DateTime.Today.Year.ToString();
@@ -98,6 +102,7 @@ ORDER BY NgayBatDau DESC";
                 MessageBox.Show("Lỗi khi tải khóa học chưa hoàn thiện: " + ex.Message,
                     "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            btnThemLopHoc.Enabled = false;
         }
 
         private void btnXacNhan_Click(object sender, EventArgs e)
@@ -174,14 +179,28 @@ SELECT SCOPE_IDENTITY();";
         {
             if (e.RowIndex < 0) return;
 
-            int maKhoa = Convert.ToInt32(dgvKhoaHocChuaHoanThien.Rows[e.RowIndex].Cells["MaK"].Value);
+            maKhoa_DangChon = Convert.ToInt32(dgvKhoaHocChuaHoanThien.Rows[e.RowIndex].Cells["MaK"].Value);
+            tenKhoa_DangChon = dgvKhoaHocChuaHoanThien.Rows[e.RowIndex].Cells["TenKhoaHoc"].Value.ToString();
+            // Sau khi đóng, reload lại danh sách
+            LoadKhoaHocChuaHoanThien();
+            btnThemLopHoc.Enabled = true;
+        }
 
-            // Mở form thêm lớp trực tiếp từ khóa đã chọn
-            themLopHoc frm = new themLopHoc(maKhoa);
+        private void btnThemLopHoc_Click(object sender, EventArgs e)
+        {
+            if (maKhoa_DangChon == -1)
+            {
+                MessageBox.Show("Vui lòng chọn một khóa học!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            themLopHoc frm = new themLopHoc(maKhoa_DangChon);
+            frm.Text = $"Thêm Lớp Học vào Khóa: {tenKhoa_DangChon}";
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
 
-            // Sau khi đóng, reload lại danh sách
+            // Reload dữ liệu sau khi đóng form
             LoadKhoaHocChuaHoanThien();
         }
     }

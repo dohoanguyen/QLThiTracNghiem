@@ -10,22 +10,17 @@ namespace Winform_KLCN.ManHinhAdmin
         private DataTable dtGiaoVien;
         private bool isEditing = false;
         private string editingMaGV = "";
+
         public qlyGiaoVien()
         {
             InitializeComponent();
             CauHinhDataGridView();
-           
             LoadTatCaGiaoVien();
 
             btnSua.Enabled = false;
             btnLuu.Enabled = false;
         }
 
-        private void qlyGiaoVien_Load(object sender, EventArgs e)
-        {
-        }
-
-       
         private void CauHinhDataGridView()
         {
             dgvGiaoVien.AutoGenerateColumns = false;
@@ -48,6 +43,12 @@ namespace Winform_KLCN.ManHinhAdmin
             AddColumn("SDT", "SĐT", 100);
             AddColumn("TrangThai", "Trạng thái", 120);
             AddColumn("DiaChi", "Địa chỉ", 300);
+
+            // Sự kiện click để bật btnSua
+            dgvGiaoVien.CellClick += dgvGiaoVien_CellClick;
+
+            // Sự kiện click nút Xóa
+            dgvGiaoVien.CellContentClick += dgvGiaoVien_CellContentClick;
         }
 
         private void AddColumn(string dataProp, string header, int width)
@@ -64,7 +65,6 @@ namespace Winform_KLCN.ManHinhAdmin
             dgvGiaoVien.Columns.Add(col);
         }
 
-       
         private void LoadTatCaGiaoVien()
         {
             try
@@ -80,7 +80,17 @@ namespace Winform_KLCN.ManHinhAdmin
                     da.Fill(dtGiaoVien);
                     dgvGiaoVien.DataSource = dtGiaoVien;
 
-                   
+                    // ✅ Thêm nút Xóa nếu chưa tồn tại
+                    if (!dgvGiaoVien.Columns.Contains("btnXoa"))
+                    {
+                        DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                        btnDelete.Name = "btnXoa";
+                        btnDelete.HeaderText = "Xóa";
+                        btnDelete.Text = "Xóa";
+                        btnDelete.UseColumnTextForButtonValue = true;
+                        btnDelete.Width = 60;
+                        dgvGiaoVien.Columns.Add(btnDelete);
+                    }
                 }
             }
             catch (Exception ex)
@@ -101,10 +111,10 @@ namespace Winform_KLCN.ManHinhAdmin
             btnSua.Enabled = false;
             btnLuu.Enabled = true;
 
-            // ✅ Lưu mã GV đang sửa
+            // Lưu mã GV đang sửa
             editingMaGV = dgvGiaoVien.CurrentRow.Cells["MaGV"].Value.ToString();
 
-            // ✅ Cho phép chỉnh sửa 3 cột: Trình độ, SDT, Địa chỉ
+            // Cho phép chỉnh sửa 3 cột: Trình độ, SDT, Địa chỉ
             dgvGiaoVien.ReadOnly = false;
             foreach (DataGridViewColumn col in dgvGiaoVien.Columns)
             {
@@ -114,7 +124,8 @@ namespace Winform_KLCN.ManHinhAdmin
                     col.ReadOnly = true;
             }
 
-            MessageBox.Show("Bạn có thể chỉnh sửa Trình độ, SĐT và Địa chỉ.\nSau khi chỉnh xong, nhấn Lưu để hoàn tất.",
+            MessageBox.Show(
+                "Bạn có thể chỉnh sửa Trình độ, SĐT và Địa chỉ.\nSau khi chỉnh xong, nhấn Lưu để hoàn tất.",
                 "Chế độ chỉnh sửa");
         }
 
@@ -126,7 +137,6 @@ namespace Winform_KLCN.ManHinhAdmin
                 return;
             }
 
-            // Lấy thông tin vừa sửa
             DataGridViewRow row = dgvGiaoVien.CurrentRow;
             string trinhDo = row.Cells["TrinhDo"].Value.ToString();
             string sdt = row.Cells["SDT"].Value.ToString();
@@ -143,9 +153,10 @@ namespace Winform_KLCN.ManHinhAdmin
                 cmd.Parameters.AddWithValue("@mgv", editingMaGV);
                 cmd.ExecuteNonQuery();
             }
+
             MessageBox.Show("Đã lưu thay đổi thành công.", "Thành công");
 
-            // Reset lại trạng thái
+            // Reset trạng thái
             isEditing = false;
             editingMaGV = "";
             dgvGiaoVien.ReadOnly = true;
@@ -163,13 +174,66 @@ namespace Winform_KLCN.ManHinhAdmin
             }
         }
 
+        private void dgvGiaoVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            if (dgvGiaoVien.Columns[e.ColumnIndex].Name == "btnXoa")
+            {
+                string maGV = dgvGiaoVien.Rows[e.RowIndex].Cells["MaGV"].Value.ToString();
+                string tenGV = dgvGiaoVien.Rows[e.RowIndex].Cells["TenGV"].Value.ToString();
+
+                DialogResult dr = MessageBox.Show(
+                    $"Bạn có chắc muốn xóa giáo viên {tenGV} (Mã: {maGV})?",
+                    "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (dr == DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (SqlConnection conn = KetNoi.TaoKetNoi())
+                        {
+                            conn.Open();
+
+                            // Kiểm tra xem GV có đang dạy lớp nào không
+                            string checkSql = "SELECT COUNT(*) FROM LOPHOC WHERE MaGV=@mgv";
+                            SqlCommand checkCmd = new SqlCommand(checkSql, conn);
+                            checkCmd.Parameters.AddWithValue("@mgv", maGV);
+                            int count = (int)checkCmd.ExecuteScalar();
+
+                            if (count > 0)
+                            {
+                                MessageBox.Show(
+                                    $"Không thể xóa giáo viên {tenGV} vì đang dạy {count} lớp!",
+                                    "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return; // thoát khỏi hàm
+                            }
+
+                            // Nếu không có lớp nào thì mới xóa
+                            string sql = "DELETE FROM GIAOVIEN WHERE MaGV=@mgv";
+                            SqlCommand cmd = new SqlCommand(sql, conn);
+                            cmd.Parameters.AddWithValue("@mgv", maGV);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        MessageBox.Show("Đã xóa giáo viên thành công!", "Thành công");
+                        LoadTatCaGiaoVien();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi xóa giáo viên: " + ex.Message, "Lỗi");
+                    }
+                }
+            }
+
+        }
+
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string keyword = txtTimKiem.Text.Trim();
 
             if (string.IsNullOrEmpty(keyword))
             {
-                // Nếu ô tìm kiếm rỗng -> hiển thị tất cả
                 LoadTatCaGiaoVien();
                 return;
             }
@@ -181,9 +245,9 @@ namespace Winform_KLCN.ManHinhAdmin
                     conn.Open();
 
                     string sql = @"
-                SELECT MaGV, TenGV, GioiTinh, NgaySinh, TrinhDo, SDT, TrangThai, DiaChi
-                FROM GIAOVIEN
-                WHERE TenGV LIKE @keyword OR CAST(MaGV AS NVARCHAR) LIKE @keyword";
+                        SELECT MaGV, TenGV, GioiTinh, NgaySinh, TrinhDo, SDT, TrangThai, DiaChi
+                        FROM GIAOVIEN
+                        WHERE TenGV LIKE @keyword OR CAST(MaGV AS NVARCHAR) LIKE @keyword";
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
@@ -198,6 +262,18 @@ namespace Winform_KLCN.ManHinhAdmin
                     }
 
                     dgvGiaoVien.DataSource = dt;
+
+                    // ✅ Thêm nút Xóa sau khi tìm kiếm nếu chưa tồn tại
+                    if (!dgvGiaoVien.Columns.Contains("btnXoa"))
+                    {
+                        DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                        btnDelete.Name = "btnXoa";
+                        btnDelete.HeaderText = "Xóa";
+                        btnDelete.Text = "Xóa";
+                        btnDelete.UseColumnTextForButtonValue = true;
+                        btnDelete.Width = 60;
+                        dgvGiaoVien.Columns.Add(btnDelete);
+                    }
                 }
             }
             catch (Exception ex)

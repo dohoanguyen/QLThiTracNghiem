@@ -51,7 +51,20 @@ namespace Winform_KLCN.ManHinhAdmin
             AddColumn("DapAn", "Đáp án", 300);
             AddColumn("DapAnDung", "Đáp án đúng", 100);
             AddColumn("GiaiThich", "Giải thích", 250);
+
+            // ✅ Thêm nút Xóa
+            DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+            btnDelete.Name = "btnXoa";
+            btnDelete.HeaderText = "Xóa";
+            btnDelete.Text = "Xóa";
+            btnDelete.UseColumnTextForButtonValue = true;
+            btnDelete.Width = 60;
+            dgvCauHoi.Columns.Add(btnDelete);
+
+            // Gắn sự kiện
+            dgvCauHoi.CellContentClick += dgvCauHoi_CellContentClick;
         }
+
 
         private void AddColumn(string dataProp, string header, int width)
         {
@@ -231,5 +244,63 @@ WHERE (1=1)";
             LoadCauHoi(maM, maDK, maP);
         }
         #endregion
+
+        private void dgvCauHoi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            if (dgvCauHoi.Columns[e.ColumnIndex].Name == "btnXoa")
+            {
+                string maCH = dgvCauHoi.Rows[e.RowIndex].Cells["MaCH"].Value.ToString();
+                string noiDung = dgvCauHoi.Rows[e.RowIndex].Cells["NoiDung"].Value.ToString();
+
+                DialogResult dr = MessageBox.Show(
+                    $"Bạn có chắc muốn xóa câu hỏi:\n{noiDung} (Mã CH: {maCH})?",
+                    "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (dr == DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (SqlConnection conn = KetNoi.TaoKetNoi())
+                        {
+                            conn.Open();
+
+                            // ✅ Kiểm tra xem câu hỏi có đang được dùng trong đề thi
+                            string checkSql = "SELECT COUNT(*) FROM DETHI_CAUHOI WHERE MaCH=@maCH";
+                            SqlCommand checkCmd = new SqlCommand(checkSql, conn);
+                            checkCmd.Parameters.AddWithValue("@maCH", maCH);
+                            int count = (int)checkCmd.ExecuteScalar();
+
+                            if (count > 0)
+                            {
+                                MessageBox.Show(
+                                    $"Không thể xóa câu hỏi này vì đang có {count} đề thi sử dụng!",
+                                    "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+
+                            // Nếu không bị dùng thì xóa
+                            string sql = "DELETE FROM NGANHANGCAUHOI WHERE MaCH=@maCH";
+                            SqlCommand cmd = new SqlCommand(sql, conn);
+                            cmd.Parameters.AddWithValue("@maCH", maCH);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        MessageBox.Show("Đã xóa câu hỏi thành công!", "Thành công");
+
+                        // Reload DataGridView
+                        int maM = cboMon.SelectedValue != null ? Convert.ToInt32(cboMon.SelectedValue) : -1;
+                        int maDK = cboDoKho.SelectedValue != null ? Convert.ToInt32(cboDoKho.SelectedValue) : -1;
+                        int maP = cboPhan.SelectedValue != null ? Convert.ToInt32(cboPhan.SelectedValue) : -1;
+                        LoadCauHoi(maM, maDK, maP);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi xóa câu hỏi: " + ex.Message, "Lỗi");
+                    }
+                }
+            }
+
+        }
     }
 }

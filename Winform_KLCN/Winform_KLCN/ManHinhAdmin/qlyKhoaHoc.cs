@@ -98,10 +98,12 @@ namespace Winform_KLCN.ManHinhAdmin
                 string sql = @"
 SELECT MaK, TenKhoaHoc, NamHoc, NgayBatDau, NgayKetThuc
 FROM KHOAHOC
-WHERE 1=1";
+WHERE TrangThai <> N'Chưa hoàn thiện'"; // Chỉ lấy khóa học đã hoàn thiện hoặc đang học
 
                 if (namHoc != "Tất cả")
                     sql += " AND NamHoc = @NamHoc";
+
+                sql += " ORDER BY NgayBatDau DESC;";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
@@ -115,6 +117,7 @@ WHERE 1=1";
                 }
             }
         }
+
 
         private void CboNamHoc_SelectedIndexChanged(object sender, EventArgs e)
         {

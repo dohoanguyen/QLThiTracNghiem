@@ -207,6 +207,12 @@
       <DependentUpon>ManHinhChinh.cs</DependentUpon>
     </Compile>
     <Compile Include="KetNoi.cs" />
+    <Compile Include="ManHinhAdmin\chiaLop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManHinhAdmin\chiaLop.Designer.cs">
+      <DependentUpon>chiaLop.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManHinhAdmin\qlyCauHoi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -329,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoDien\ManHinhChinh.resx">
       <DependentUpon>ManHinhChinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManHinhAdmin\chiaLop.resx">
+      <DependentUpon>chiaLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManHinhAdmin\qlyCauHoi.resx">
       <DependentUpon>qlyCauHoi.cs</DependentUpon>

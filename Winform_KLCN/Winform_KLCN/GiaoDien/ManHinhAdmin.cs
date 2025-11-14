@@ -343,6 +343,16 @@ namespace Winform_KLCN.GiaoDien
             form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
+
+        private void chiaLop_Click(object sender, EventArgs e)
+        {
+            panelNoiDung.Controls.Clear();
+
+            chiaLop uc = new chiaLop();
+            uc.Dock = DockStyle.Fill;
+
+            panelNoiDung.Controls.Add(uc);
+        }
     }
     
 }

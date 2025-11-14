@@ -52,6 +52,19 @@ namespace Winform_KLCN.ManHinhAdmin
             AddColumn("SDT", "SĐT", 110);
             AddColumn("TrangThai", "Trạng thái", 120);
             AddColumn("TenLop", "Lớp", 180);
+
+            // Thêm nút Xóa
+            DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+            btnDelete.Name = "btnXoa";
+            btnDelete.HeaderText = "Xóa";
+            btnDelete.Text = "Xóa";
+            btnDelete.UseColumnTextForButtonValue = true;
+            btnDelete.Width = 60;
+            dgvHocVien.Columns.Add(btnDelete);
+
+            // Gắn sự kiện CellContentClick
+            dgvHocVien.CellContentClick += dgvHocVien_CellContentClick;
+
         }
 
         private void AddColumn(string dataProp, string header, int width)
@@ -279,6 +292,58 @@ namespace Winform_KLCN.ManHinhAdmin
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi lưu: " + ex.Message);
+            }
+        }
+
+        private void dgvHocVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            if (dgvHocVien.Columns[e.ColumnIndex].Name == "btnXoa")
+            {
+                int maHV = Convert.ToInt32(dgvHocVien.Rows[e.RowIndex].Cells["MaHV"].Value);
+                string tenHV = dgvHocVien.Rows[e.RowIndex].Cells["TenHV"].Value.ToString();
+
+                DialogResult dr = MessageBox.Show($"Bạn có chắc muốn xóa học viên {tenHV} (Mã: {maHV})?",
+                                                  "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (SqlConnection conn = KetNoi.TaoKetNoi())
+                        {
+                            conn.Open();
+
+                            // Kiểm tra học viên có đang tham gia lớp không
+                            string checkSql = "SELECT COUNT(*) FROM HOCVIEN_LOPHOC WHERE MaHV=@MaHV";
+                            SqlCommand checkCmd = new SqlCommand(checkSql, conn);
+                            checkCmd.Parameters.AddWithValue("@MaHV", maHV);
+                            int count = (int)checkCmd.ExecuteScalar();
+
+                            if (count > 0)
+                            {
+                                MessageBox.Show($"Không thể xóa học viên này vì đang có {count} lớp tham gia!",
+                                                "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+
+                            // Nếu không bị dùng thì xóa
+                            string sql = "DELETE FROM HOCVIEN WHERE MaHV=@MaHV";
+                            SqlCommand cmd = new SqlCommand(sql, conn);
+                            cmd.Parameters.AddWithValue("@MaHV", maHV);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        MessageBox.Show("Đã xóa học viên thành công!", "Thành công");
+
+                        // Reload DataGridView
+                        LoadHocVien(Convert.ToInt32(cboLop.SelectedValue));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi xóa học viên: " + ex.Message, "Lỗi");
+                    }
+                }
             }
         }
     }

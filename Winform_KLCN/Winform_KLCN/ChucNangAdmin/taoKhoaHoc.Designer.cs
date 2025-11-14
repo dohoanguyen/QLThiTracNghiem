@@ -43,6 +43,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnThemLopHoc = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhoaHocChuaHoanThien)).BeginInit();
             this.SuspendLayout();
             // 
@@ -235,12 +236,33 @@
             this.label5.TabIndex = 44;
             this.label5.Text = "KẾT THÚC:";
             // 
+            // btnThemLopHoc
+            // 
+            this.btnThemLopHoc.BorderRadius = 20;
+            this.btnThemLopHoc.CustomizableEdges.BottomLeft = false;
+            this.btnThemLopHoc.CustomizableEdges.TopRight = false;
+            this.btnThemLopHoc.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemLopHoc.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemLopHoc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThemLopHoc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThemLopHoc.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnThemLopHoc.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnThemLopHoc.ForeColor = System.Drawing.Color.White;
+            this.btnThemLopHoc.Location = new System.Drawing.Point(35, 384);
+            this.btnThemLopHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThemLopHoc.Name = "btnThemLopHoc";
+            this.btnThemLopHoc.Size = new System.Drawing.Size(261, 46);
+            this.btnThemLopHoc.TabIndex = 45;
+            this.btnThemLopHoc.Text = "Thêm Lớp Học";
+            this.btnThemLopHoc.Click += new System.EventHandler(this.btnThemLopHoc_Click);
+            // 
             // taoKhoaHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(1164, 523);
+            this.Controls.Add(this.btnThemLopHoc);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -275,5 +297,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
+        private Guna.UI2.WinForms.Guna2Button btnThemLopHoc;
     }
 }
