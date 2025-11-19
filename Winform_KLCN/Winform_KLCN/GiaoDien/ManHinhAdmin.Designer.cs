@@ -62,6 +62,7 @@
             this.tHỐNGKÊKẾTQUẢToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaoLuu = new System.Windows.Forms.ToolStripMenuItem();
             this.panelNoiDung = new Guna.UI2.WinForms.Guna2Panel();
+            this.phanMon = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2GradientPanel1.SuspendLayout();
             this.menuAdmin.SuspendLayout();
             this.SuspendLayout();
@@ -192,7 +193,8 @@
             // GiaoVien
             // 
             this.GiaoVien.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.QlyGiaoVien});
+            this.QlyGiaoVien,
+            this.phanMon});
             this.GiaoVien.Name = "GiaoVien";
             this.GiaoVien.Size = new System.Drawing.Size(97, 24);
             this.GiaoVien.Text = "GIÁO VIÊN";
@@ -356,6 +358,13 @@
             this.panelNoiDung.Size = new System.Drawing.Size(1182, 570);
             this.panelNoiDung.TabIndex = 3;
             // 
+            // phanMon
+            // 
+            this.phanMon.Name = "phanMon";
+            this.phanMon.Size = new System.Drawing.Size(256, 26);
+            this.phanMon.Text = "PHÂN MÔN";
+            this.phanMon.Click += new System.EventHandler(this.phanMon_Click);
+            // 
             // ManHinhAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -414,5 +423,6 @@
         private System.Windows.Forms.ToolStripMenuItem KH;
         private System.Windows.Forms.ToolStripMenuItem taoKhoaHoc;
         private System.Windows.Forms.ToolStripMenuItem qlyKhoaHoc;
+        private System.Windows.Forms.ToolStripMenuItem phanMon;
     }
 }

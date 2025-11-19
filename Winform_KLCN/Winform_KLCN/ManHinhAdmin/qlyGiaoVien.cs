@@ -30,30 +30,42 @@ namespace Winform_KLCN.ManHinhAdmin
             dgvGiaoVien.ReadOnly = true;
             dgvGiaoVien.RowHeadersVisible = false;
 
-            dgvGiaoVien.ColumnHeadersVisible = true;
-            dgvGiaoVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dgvGiaoVien.ColumnHeadersHeight = 40;
-
             dgvGiaoVien.Columns.Clear();
-            AddColumn("MaGV", "Mã GV", 30);
+
+            // ✅ Thêm cột MaGV nhưng ẩn
+            AddColumn("MaGV", "Mã GV", 50);
+            dgvGiaoVien.Columns["MaGV"].Visible = false;
+
             AddColumn("TenGV", "Tên giáo viên", 180);
             AddColumn("GioiTinh", "Giới tính", 40);
             AddColumn("NgaySinh", "Ngày sinh", 100);
             AddColumn("TrinhDo", "Trình độ", 120);
             AddColumn("SDT", "SĐT", 100);
             AddColumn("TrangThai", "Trạng thái", 120);
-            AddColumn("DiaChi", "Địa chỉ", 300);
+            AddColumn("DiaChi", "Địa chỉ", 200);
+            AddColumn("MonDay", "Môn dạy", 150);
+            AddColumn("LopDay", "Lớp dạy", 150);
 
-            // Sự kiện click để bật btnSua
+            // Thêm nút Xóa
+            if (!dgvGiaoVien.Columns.Contains("btnXoa"))
+            {
+                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                btnDelete.Name = "btnXoa";
+                btnDelete.HeaderText = "Xóa";
+                btnDelete.Text = "Xóa";
+                btnDelete.UseColumnTextForButtonValue = true;
+                btnDelete.Width = 60;
+                dgvGiaoVien.Columns.Add(btnDelete);
+            }
+
             dgvGiaoVien.CellClick += dgvGiaoVien_CellClick;
-
-            // Sự kiện click nút Xóa
             dgvGiaoVien.CellContentClick += dgvGiaoVien_CellContentClick;
         }
 
+
         private void AddColumn(string dataProp, string header, int width)
         {
-            DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn()
+            dgvGiaoVien.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = dataProp,
                 DataPropertyName = dataProp,
@@ -61,9 +73,9 @@ namespace Winform_KLCN.ManHinhAdmin
                 Width = width,
                 ReadOnly = true,
                 SortMode = DataGridViewColumnSortMode.NotSortable
-            };
-            dgvGiaoVien.Columns.Add(col);
+            });
         }
+
 
         private void LoadTatCaGiaoVien()
         {
@@ -72,25 +84,21 @@ namespace Winform_KLCN.ManHinhAdmin
                 using (SqlConnection conn = KetNoi.TaoKetNoi())
                 {
                     conn.Open();
-                    string sql = @"SELECT MaGV, TenGV, GioiTinh, NgaySinh, 
-                                          DiaChi, TrinhDo, SDT, TrangThai
-                                   FROM GIAOVIEN";
+                    string sql = @"
+                SELECT gv.MaGV, gv.TenGV, gv.GioiTinh, gv.NgaySinh, gv.TrinhDo, gv.SDT, gv.TrangThai, gv.DiaChi,
+                       (SELECT STRING_AGG(m.TenMon, ', ') 
+                        FROM GIAOVIEN_MON gm
+                        JOIN MON m ON gm.MaM = m.MaM
+                        WHERE gm.MaGV = gv.MaGV) AS MonDay,
+                       (SELECT STRING_AGG(l.TenLop, ', ') 
+                        FROM LOPHOC l
+                        WHERE l.MaGV = gv.MaGV) AS LopDay
+                FROM GIAOVIEN gv";
+
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);
                     dtGiaoVien = new DataTable();
                     da.Fill(dtGiaoVien);
                     dgvGiaoVien.DataSource = dtGiaoVien;
-
-                    // ✅ Thêm nút Xóa nếu chưa tồn tại
-                    if (!dgvGiaoVien.Columns.Contains("btnXoa"))
-                    {
-                        DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
-                        btnDelete.Name = "btnXoa";
-                        btnDelete.HeaderText = "Xóa";
-                        btnDelete.Text = "Xóa";
-                        btnDelete.UseColumnTextForButtonValue = true;
-                        btnDelete.Width = 60;
-                        dgvGiaoVien.Columns.Add(btnDelete);
-                    }
                 }
             }
             catch (Exception ex)
@@ -98,6 +106,8 @@ namespace Winform_KLCN.ManHinhAdmin
                 MessageBox.Show("Lỗi khi load giáo viên: " + ex.Message);
             }
         }
+
+
 
         private void btnSua_Click(object sender, EventArgs e)
         {

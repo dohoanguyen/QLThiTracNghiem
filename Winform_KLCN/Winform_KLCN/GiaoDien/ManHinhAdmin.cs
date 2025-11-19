@@ -353,6 +353,14 @@ namespace Winform_KLCN.GiaoDien
 
             panelNoiDung.Controls.Add(uc);
         }
+
+        private void phanMon_Click(object sender, EventArgs e)
+        {
+            panelNoiDung.Controls.Clear();
+            phanMon uc = new phanMon();
+            uc.Dock = DockStyle.Fill;
+            panelNoiDung.Controls.Add(uc);
+        }
     }
     
 }
