@@ -12,7 +12,6 @@ namespace Winform_KLCN.ManHinhChinh
     public partial class ThemCauHoi : Form
     {
         private DataTable dtCauHoi = new DataTable();
-
         public ThemCauHoi()
         {
             InitializeComponent();
@@ -52,10 +51,9 @@ namespace Winform_KLCN.ManHinhChinh
             }
             return dt;
         }
-
         private void ThemCauHoi_Load(object sender, EventArgs e)
         {
-            // Tạo cấu trúc DataTable
+            // Khởi tạo DataTable trống
             dtCauHoi.Columns.Add("MaM", typeof(int));
             dtCauHoi.Columns.Add("MaDK", typeof(int));
             dtCauHoi.Columns.Add("NoiDung", typeof(string));
@@ -64,42 +62,13 @@ namespace Winform_KLCN.ManHinhChinh
             dtCauHoi.Columns.Add("DapAnC", typeof(string));
             dtCauHoi.Columns.Add("DapAnD", typeof(string));
             dtCauHoi.Columns.Add("DapAnDung", typeof(string));
-            dtCauHoi.Columns.Add("LoaiCauHoi", typeof(string));
+            dtCauHoi.Columns.Add("MaP", typeof(int));
 
-            // Load dữ liệu từ DB trực tiếp
-            using (SqlConnection conn = KetNoi.TaoKetNoi())
-            {
-                conn.Open();
-                string sql = @"SELECT MaM, MaDK, NoiDung, DapAnA, DapAnB, DapAnC, DapAnD, DapAnDung FROM NGANHANGCAUHOI";
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    dtCauHoi.Load(reader);
-                }
-            }
+            // Ngăn DataGridView tự tạo cột
+            dgvCauHoi.AutoGenerateColumns = false;
+            dgvCauHoi.RowHeadersVisible = false; // ✅ Tắt cột trống đầu tiên
 
-            // Cấu hình DataGridView
-            dgvCauHoi.DataSource = dtCauHoi;
-            dgvCauHoi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvCauHoi.AllowUserToAddRows = false;
-            dgvCauHoi.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvCauHoi.ColumnHeadersDefaultCellStyle.BackColor = Color.LightGray;
-            dgvCauHoi.EnableHeadersVisualStyles = false;
-            dgvCauHoi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgvCauHoi.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgvCauHoi.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
-            // Gán tên cột
-            dgvCauHoi.Columns["MaM"].HeaderText = "Môn học";
-            dgvCauHoi.Columns["MaDK"].HeaderText = "Độ khó";
-            dgvCauHoi.Columns["NoiDung"].HeaderText = "Nội dung câu hỏi";
-            dgvCauHoi.Columns["DapAnA"].HeaderText = "Đáp án A";
-            dgvCauHoi.Columns["DapAnB"].HeaderText = "Đáp án B";
-            dgvCauHoi.Columns["DapAnC"].HeaderText = "Đáp án C";
-            dgvCauHoi.Columns["DapAnD"].HeaderText = "Đáp án D";
-            dgvCauHoi.Columns["DapAnDung"].HeaderText = "Đáp án đúng";
-
-            // Gắn ComboBox cho cột Môn học
+            // Tạo ComboBox cho Môn
             DataGridViewComboBoxColumn colMon = new DataGridViewComboBoxColumn
             {
                 HeaderText = "Môn học",
@@ -110,7 +79,7 @@ namespace Winform_KLCN.ManHinhChinh
                 AutoComplete = true
             };
 
-            // Gắn ComboBox cho cột Độ khó
+            // Tạo ComboBox cho Độ khó
             DataGridViewComboBoxColumn colDoKho = new DataGridViewComboBoxColumn
             {
                 HeaderText = "Độ khó",
@@ -121,22 +90,45 @@ namespace Winform_KLCN.ManHinhChinh
                 AutoComplete = true
             };
 
-            dgvCauHoi.Columns.Remove("MaM");
-            dgvCauHoi.Columns.Remove("MaDK");
-            dgvCauHoi.Columns.Insert(0, colMon);
-            dgvCauHoi.Columns.Insert(1, colDoKho);
-        }
+            // Tạo các cột khác
+            DataGridViewTextBoxColumn colNoiDung = new DataGridViewTextBoxColumn { HeaderText = "Nội dung câu hỏi", DataPropertyName = "NoiDung" };
+            DataGridViewTextBoxColumn colA = new DataGridViewTextBoxColumn { HeaderText = "Đáp án A", DataPropertyName = "DapAnA" };
+            DataGridViewTextBoxColumn colB = new DataGridViewTextBoxColumn { HeaderText = "Đáp án B", DataPropertyName = "DapAnB" };
+            DataGridViewTextBoxColumn colC = new DataGridViewTextBoxColumn { HeaderText = "Đáp án C", DataPropertyName = "DapAnC" };
+            DataGridViewTextBoxColumn colD = new DataGridViewTextBoxColumn { HeaderText = "Đáp án D", DataPropertyName = "DapAnD" };
+            DataGridViewTextBoxColumn colDung = new DataGridViewTextBoxColumn { HeaderText = "Đáp án đúng", DataPropertyName = "DapAnDung" };
+            DataGridViewTextBoxColumn colMaP = new DataGridViewTextBoxColumn { HeaderText = "Phần", DataPropertyName = "MaP" };
 
+            // Thêm cột vào DataGridView theo thứ tự
+            dgvCauHoi.Columns.Clear();
+            dgvCauHoi.Columns.Add(colMon);
+            dgvCauHoi.Columns.Add(colDoKho);
+            dgvCauHoi.Columns.Add(colNoiDung);
+            dgvCauHoi.Columns.Add(colA);
+            dgvCauHoi.Columns.Add(colB);
+            dgvCauHoi.Columns.Add(colC);
+            dgvCauHoi.Columns.Add(colD);
+            dgvCauHoi.Columns.Add(colDung);
+            dgvCauHoi.Columns.Add(colMaP);
+
+            // Gán DataSource (DataTable trống)
+            dgvCauHoi.DataSource = dtCauHoi;
+
+            // Các thiết lập khác
+            dgvCauHoi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvCauHoi.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvCauHoi.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvCauHoi.AllowUserToAddRows = false;
+        }
         private void LoadExcelToGrid(string filePath)
         {
             dtCauHoi.Rows.Clear();
-
             using (var workbook = new XLWorkbook(filePath))
             {
-                HashSet<string> seenNoiDung = new HashSet<string>();   // kiểm tra trùng nội dung
-                List<string> loi = new List<string>();                 // lưu thông báo lỗi
+                HashSet<string> seenNoiDung = new HashSet<string>();
+                List<string> loi = new List<string>();
 
-                // ✅ 1️⃣ Lấy danh sách mã môn mà giáo viên này được phép nhập
+                // Lấy danh sách môn giáo viên được phân công
                 HashSet<int> monDuocPhanCong = new HashSet<int>();
                 using (SqlConnection conn = KetNoi.TaoKetNoi())
                 {
@@ -160,7 +152,7 @@ namespace Winform_KLCN.ManHinhChinh
                     return;
                 }
 
-                // ✅ 2️⃣ Đọc từng sheet và xử lý như trước
+                // Duyệt từng sheet (Phần 1, 2, 3)
                 for (int loaiPhan = 1; loaiPhan <= 3; loaiPhan++)
                 {
                     if (workbook.Worksheets.Count < loaiPhan) continue;
@@ -173,34 +165,34 @@ namespace Winform_KLCN.ManHinhChinh
                         string noiDung = row.Cell(3).GetValue<string>().Trim();
                         if (string.IsNullOrWhiteSpace(noiDung))
                         {
-                            loi.Add($"[Sheet {loaiPhan}] Dòng {row.RowNumber()}: Nội dung trống");
+                            loi.Add($"[Sheet {loaiPhan}] Dòng {row.RowNumber()}: Nội dung câu hỏi trống!");
                             continue;
                         }
 
                         if (seenNoiDung.Contains(noiDung))
                         {
-                            loi.Add($"[Sheet {loaiPhan}] Dòng {row.RowNumber()}: Trùng nội dung câu hỏi");
+                            loi.Add($"[Sheet {loaiPhan}] Dòng {row.RowNumber()}: Câu hỏi bị trùng!");
                             continue;
                         }
                         seenNoiDung.Add(noiDung);
 
+                        // Kiểm tra MaM và MaDK hợp lệ nhưng chỉ ghi mô tả
                         int maM, maDK;
                         if (!int.TryParse(row.Cell(1).GetValue<string>(), out maM))
                         {
-                            loi.Add($"[Sheet {loaiPhan}] Dòng {row.RowNumber()}: Mã môn không hợp lệ");
+                            loi.Add($"[Sheet {loaiPhan}] Dòng {row.RowNumber()}: Môn học không hợp lệ!");
                             continue;
                         }
 
-                        // ✅ 3️⃣ Kiểm tra môn học có thuộc quyền của giáo viên không
                         if (!monDuocPhanCong.Contains(maM))
                         {
-                            loi.Add($"[Sheet {loaiPhan}] Dòng {row.RowNumber()}: Giáo viên không được phép nhập câu hỏi cho môn này (MaM = {maM})");
+                            loi.Add($"[Sheet {loaiPhan}] Dòng {row.RowNumber()}: Giáo viên không được phép nhập câu hỏi cho môn này!");
                             continue;
                         }
 
                         if (!int.TryParse(row.Cell(2).GetValue<string>(), out maDK))
                         {
-                            loi.Add($"[Sheet {loaiPhan}] Dòng {row.RowNumber()}: Mã độ khó không hợp lệ");
+                            loi.Add($"[Sheet {loaiPhan}] Dòng {row.RowNumber()}: Độ khó không hợp lệ!");
                             continue;
                         }
 
@@ -209,26 +201,22 @@ namespace Winform_KLCN.ManHinhChinh
                         string dapAnC = row.Cell(6).GetValue<string>().Trim();
                         string dapAnD = row.Cell(7).GetValue<string>().Trim();
                         string dapAnDung = "";
-                        string loaiCauHoi = "";
 
                         if (loaiPhan == 1)
                         {
                             string dapAnKey = row.Cell(8).GetValue<string>().Trim().ToUpper();
-
                             if (dapAnKey == "A") dapAnDung = dapAnA;
                             else if (dapAnKey == "B") dapAnDung = dapAnB;
                             else if (dapAnKey == "C") dapAnDung = dapAnC;
                             else if (dapAnKey == "D") dapAnDung = dapAnD;
                             else dapAnDung = dapAnKey;
-
-                            loaiCauHoi = "TracNghiem1DapAn";
                         }
                         else if (loaiPhan == 2)
                         {
                             string dapAnKeys = row.Cell(8).GetValue<string>().Trim();
                             if (string.IsNullOrEmpty(dapAnKeys))
                             {
-                                loi.Add($"[Sheet 2] Dòng {row.RowNumber()}: Chưa có đáp án đúng");
+                                loi.Add($"[Sheet 2] Dòng {row.RowNumber()}: Chưa chọn đáp án đúng");
                                 continue;
                             }
 
@@ -242,22 +230,18 @@ namespace Winform_KLCN.ManHinhChinh
                                 else if (key == "B") dapAnDungList.Add(dapAnB);
                                 else if (key == "C") dapAnDungList.Add(dapAnC);
                                 else if (key == "D") dapAnDungList.Add(dapAnD);
-                                else dapAnDungList.Add(k.Trim());
+                                else dapAnDungList.Add(key);
                             }
 
                             dapAnDung = string.Join("; ", dapAnDungList);
-                            loaiCauHoi = "TracNghiemNhieuDapAn";
                         }
                         else if (loaiPhan == 3)
                         {
                             dapAnDung = row.Cell(4).GetValue<string>().Trim();
                             if (string.IsNullOrEmpty(dapAnDung))
                                 loi.Add($"[Sheet 3] Dòng {row.RowNumber()}: Thiếu đáp án đúng (trả lời ngắn)");
-
-                            loaiCauHoi = "TraLoiNgan";
                         }
 
-                        // --- Thêm vào DataTable ---
                         DataRow newRow = dtCauHoi.NewRow();
                         newRow["MaM"] = maM;
                         newRow["MaDK"] = maDK;
@@ -267,12 +251,11 @@ namespace Winform_KLCN.ManHinhChinh
                         newRow["DapAnC"] = dapAnC;
                         newRow["DapAnD"] = dapAnD;
                         newRow["DapAnDung"] = dapAnDung;
-                        newRow["LoaiCauHoi"] = loaiCauHoi;
+                        newRow["MaP"] = loaiPhan;
                         dtCauHoi.Rows.Add(newRow);
                     }
                 }
 
-                // ✅ 4️⃣ Hiển thị kết quả và lỗi
                 dgvCauHoi.DataSource = dtCauHoi;
                 dgvCauHoi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dgvCauHoi.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
@@ -290,7 +273,6 @@ namespace Winform_KLCN.ManHinhChinh
                 }
             }
         }
-
         private void btnChonFile_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog()
@@ -312,7 +294,6 @@ namespace Winform_KLCN.ManHinhChinh
                 }
             }
         }
-
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
@@ -338,8 +319,8 @@ namespace Winform_KLCN.ManHinhChinh
                     foreach (DataRow row in dtCauHoi.Rows)
                     {
                         string sql = @"INSERT INTO NGANHANGCAUHOI 
-                                       (MaM, MaDK, NoiDung, DapAnA, DapAnB, DapAnC, DapAnD, DapAnDung, MaGV, LoaiCauHoi)
-                                       VALUES (@MaM, @MaDK, @NoiDung, @A, @B, @C, @D, @Dung, @MaGV, @Loai)";
+                                   (MaM, MaDK, NoiDung, DapAnA, DapAnB, DapAnC, DapAnD, DapAnDung, MaGV, MaP)
+                                   VALUES (@MaM, @MaDK, @NoiDung, @A, @B, @C, @D, @Dung, @MaGV, @MaP)";
 
                         using (SqlCommand cmd = new SqlCommand(sql, conn))
                         {
@@ -351,8 +332,8 @@ namespace Winform_KLCN.ManHinhChinh
                             cmd.Parameters.AddWithValue("@C", row["DapAnC"]);
                             cmd.Parameters.AddWithValue("@D", row["DapAnD"]);
                             cmd.Parameters.AddWithValue("@Dung", row["DapAnDung"]);
-                            cmd.Parameters.AddWithValue("@MaGV", UserSession.MaGV); // ✅ Thêm MaGV
-                            cmd.Parameters.AddWithValue("@Loai", row["LoaiCauHoi"]);
+                            cmd.Parameters.AddWithValue("@MaGV", UserSession.MaGV);
+                            cmd.Parameters.AddWithValue("@MaP", row["MaP"]);
 
                             cmd.ExecuteNonQuery();
                         }
