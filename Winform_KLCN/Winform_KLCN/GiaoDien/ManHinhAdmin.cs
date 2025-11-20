@@ -361,6 +361,22 @@ namespace Winform_KLCN.GiaoDien
             uc.Dock = DockStyle.Fill;
             panelNoiDung.Controls.Add(uc);
         }
+
+        private void chiTiet_Click(object sender, EventArgs e)
+        {
+            panelNoiDung.Controls.Clear();
+            tkChiTiet uc = new tkChiTiet();
+            uc.Dock = DockStyle.Fill;
+            panelNoiDung.Controls.Add(uc);
+        }
+
+        private void ketQua_Click(object sender, EventArgs e)
+        {
+            panelNoiDung.Controls.Clear();
+            tkKetQua uc = new tkKetQua();
+            uc.Dock = DockStyle.Fill;
+            panelNoiDung.Controls.Add(uc);
+        }
     }
     
 }

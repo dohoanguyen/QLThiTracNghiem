@@ -261,6 +261,18 @@
     <Compile Include="ManHinhAdmin\qlyTaiKhoan.Designer.cs">
       <DependentUpon>qlyTaiKhoan.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManHinhAdmin\tkChiTiet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManHinhAdmin\tkChiTiet.Designer.cs">
+      <DependentUpon>tkChiTiet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManHinhAdmin\tkKetQua.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManHinhAdmin\tkKetQua.Designer.cs">
+      <DependentUpon>tkKetQua.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManHinhChinh\CauHoi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -368,6 +380,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManHinhAdmin\qlyTaiKhoan.resx">
       <DependentUpon>qlyTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManHinhAdmin\tkChiTiet.resx">
+      <DependentUpon>tkChiTiet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManHinhAdmin\tkKetQua.resx">
+      <DependentUpon>tkKetQua.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManHinhChinh\CauHoi.resx">
       <DependentUpon>CauHoi.cs</DependentUpon>

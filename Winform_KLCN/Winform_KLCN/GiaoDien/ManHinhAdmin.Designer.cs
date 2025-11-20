@@ -42,6 +42,7 @@
             this.themAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.GiaoVien = new System.Windows.Forms.ToolStripMenuItem();
             this.QlyGiaoVien = new System.Windows.Forms.ToolStripMenuItem();
+            this.phanMon = new System.Windows.Forms.ToolStripMenuItem();
             this.HocVien = new System.Windows.Forms.ToolStripMenuItem();
             this.QlyHocVien = new System.Windows.Forms.ToolStripMenuItem();
             this.chiaLop = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,12 +58,10 @@
             this.taoKhoaHoc = new System.Windows.Forms.ToolStripMenuItem();
             this.qlyKhoaHoc = new System.Windows.Forms.ToolStripMenuItem();
             this.ThongKe = new System.Windows.Forms.ToolStripMenuItem();
-            this.tHỐNGKÊKHÓAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tHỐNGKÊLỚPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tHỐNGKÊKẾTQUẢToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chiTiet = new System.Windows.Forms.ToolStripMenuItem();
+            this.ketQua = new System.Windows.Forms.ToolStripMenuItem();
             this.SaoLuu = new System.Windows.Forms.ToolStripMenuItem();
             this.panelNoiDung = new Guna.UI2.WinForms.Guna2Panel();
-            this.phanMon = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2GradientPanel1.SuspendLayout();
             this.menuAdmin.SuspendLayout();
             this.SuspendLayout();
@@ -207,6 +206,13 @@
             this.QlyGiaoVien.Text = "DANH SÁCH GIÁO VIÊN";
             this.QlyGiaoVien.Click += new System.EventHandler(this.QlyGiaoVien_Click);
             // 
+            // phanMon
+            // 
+            this.phanMon.Name = "phanMon";
+            this.phanMon.Size = new System.Drawing.Size(256, 26);
+            this.phanMon.Text = "PHÂN MÔN";
+            this.phanMon.Click += new System.EventHandler(this.phanMon_Click);
+            // 
             // HocVien
             // 
             this.HocVien.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -319,30 +325,25 @@
             // ThongKe
             // 
             this.ThongKe.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tHỐNGKÊKHÓAToolStripMenuItem,
-            this.tHỐNGKÊLỚPToolStripMenuItem,
-            this.tHỐNGKÊKẾTQUẢToolStripMenuItem});
+            this.chiTiet,
+            this.ketQua});
             this.ThongKe.Name = "ThongKe";
             this.ThongKe.Size = new System.Drawing.Size(103, 24);
             this.ThongKe.Text = "THỐNG KÊ";
             // 
-            // tHỐNGKÊKHÓAToolStripMenuItem
+            // chiTiet
             // 
-            this.tHỐNGKÊKHÓAToolStripMenuItem.Name = "tHỐNGKÊKHÓAToolStripMenuItem";
-            this.tHỐNGKÊKHÓAToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
-            this.tHỐNGKÊKHÓAToolStripMenuItem.Text = "THỐNG KÊ KHÓA";
+            this.chiTiet.Name = "chiTiet";
+            this.chiTiet.Size = new System.Drawing.Size(242, 26);
+            this.chiTiet.Text = "THỐNG KÊ CHI TIẾT";
+            this.chiTiet.Click += new System.EventHandler(this.chiTiet_Click);
             // 
-            // tHỐNGKÊLỚPToolStripMenuItem
+            // ketQua
             // 
-            this.tHỐNGKÊLỚPToolStripMenuItem.Name = "tHỐNGKÊLỚPToolStripMenuItem";
-            this.tHỐNGKÊLỚPToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
-            this.tHỐNGKÊLỚPToolStripMenuItem.Text = "THỐNG KÊ LỚP";
-            // 
-            // tHỐNGKÊKẾTQUẢToolStripMenuItem
-            // 
-            this.tHỐNGKÊKẾTQUẢToolStripMenuItem.Name = "tHỐNGKÊKẾTQUẢToolStripMenuItem";
-            this.tHỐNGKÊKẾTQUẢToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
-            this.tHỐNGKÊKẾTQUẢToolStripMenuItem.Text = "THỐNG KÊ KẾT QUẢ";
+            this.ketQua.Name = "ketQua";
+            this.ketQua.Size = new System.Drawing.Size(242, 26);
+            this.ketQua.Text = "THỐNG KÊ KẾT QUẢ";
+            this.ketQua.Click += new System.EventHandler(this.ketQua_Click);
             // 
             // SaoLuu
             // 
@@ -357,13 +358,6 @@
             this.panelNoiDung.Name = "panelNoiDung";
             this.panelNoiDung.Size = new System.Drawing.Size(1182, 570);
             this.panelNoiDung.TabIndex = 3;
-            // 
-            // phanMon
-            // 
-            this.phanMon.Name = "phanMon";
-            this.phanMon.Size = new System.Drawing.Size(256, 26);
-            this.phanMon.Text = "PHÂN MÔN";
-            this.phanMon.Click += new System.EventHandler(this.phanMon_Click);
             // 
             // ManHinhAdmin
             // 
@@ -417,9 +411,8 @@
         private System.Windows.Forms.ToolStripMenuItem qlyDeThi;
         private System.Windows.Forms.ToolStripMenuItem QlyKyThi;
         private System.Windows.Forms.ToolStripMenuItem taoKyThi;
-        private System.Windows.Forms.ToolStripMenuItem tHỐNGKÊKHÓAToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tHỐNGKÊLỚPToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tHỐNGKÊKẾTQUẢToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem chiTiet;
+        private System.Windows.Forms.ToolStripMenuItem ketQua;
         private System.Windows.Forms.ToolStripMenuItem KH;
         private System.Windows.Forms.ToolStripMenuItem taoKhoaHoc;
         private System.Windows.Forms.ToolStripMenuItem qlyKhoaHoc;
