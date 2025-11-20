@@ -38,6 +38,7 @@ namespace Winform_KLCN.ManHinhChinh
             dgvLopHoc.RowHeadersVisible = false;
             dgvLopHoc.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dgvLopHoc.ColumnHeadersHeight = 40;
+            dgvLopHoc.CellFormatting += DgvLopHoc_CellFormatting;
 
             dgvLopHoc.Columns.Clear();
 
@@ -47,6 +48,7 @@ namespace Winform_KLCN.ManHinhChinh
             AddColumn("TenMon", "Môn học", 100);
             AddColumn("TenGV", "Giáo viên", 150);
             AddColumn("SoHV", "Số HV", 80);
+            AddColumn("TrangThai", "Trạng thái", 120);
         }
         private void AddColumn(string dataProp, string header, int width)
         {
@@ -75,22 +77,24 @@ namespace Winform_KLCN.ManHinhChinh
                 using (SqlConnection conn = KetNoi.TaoKetNoi())
                 {
                     conn.Open();
+                    // Đã thêm kh.TrangThai vào SELECT và GROUP BY
                     string sql = @"
-                        SELECT 
-                            lh.MaL,
-                            lh.TenLop,
-                            kh.TenKhoaHoc,
-                            m.TenMon,
-                            gv.TenGV,
-                            ISNULL(COUNT(hl.MaHV), 0) AS SoHV
-                        FROM LOPHOC lh
-                        JOIN KHOAHOC kh ON lh.MaK = kh.MaK
-                        JOIN MON m ON lh.MaM = m.MaM
-                        JOIN GIAOVIEN gv ON lh.MaGV = gv.MaGV
-                        LEFT JOIN HOCVIEN_LOPHOC hl ON lh.MaL = hl.MaL
-                        WHERE lh.MaGV = @MaGV
-                        GROUP BY lh.MaL, lh.TenLop, kh.TenKhoaHoc, m.TenMon, gv.TenGV
-                        ORDER BY lh.TenLop";
+                SELECT 
+                    lh.MaL,
+                    lh.TenLop,
+                    kh.TenKhoaHoc,
+                    m.TenMon,
+                    gv.TenGV,
+                    kh.TrangThai,  -- <--- THÊM Ở ĐÂY
+                    ISNULL(COUNT(hl.MaHV), 0) AS SoHV
+                FROM LOPHOC lh
+                JOIN KHOAHOC kh ON lh.MaK = kh.MaK
+                JOIN MON m ON lh.MaM = m.MaM
+                JOIN GIAOVIEN gv ON lh.MaGV = gv.MaGV
+                LEFT JOIN HOCVIEN_LOPHOC hl ON lh.MaL = hl.MaL
+                WHERE lh.MaGV = @MaGV
+                GROUP BY lh.MaL, lh.TenLop, kh.TenKhoaHoc, m.TenMon, gv.TenGV, kh.TrangThai -- <--- VÀ THÊM Ở ĐÂY
+                ORDER BY lh.TenLop";
 
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);
                     da.SelectCommand.Parameters.AddWithValue("@MaGV", maGV);
@@ -99,13 +103,32 @@ namespace Winform_KLCN.ManHinhChinh
                     da.Fill(dtLopHoc);
 
                     dgvLopHoc.DataSource = dtLopHoc;
-
-              
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi load danh sách lớp: " + ex.Message);
+            }
+        }
+        private void DgvLopHoc_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Kiểm tra nếu là cột Trạng thái
+            if (dgvLopHoc.Columns[e.ColumnIndex].DataPropertyName == "TrangThai" && e.Value != null)
+            {
+                string status = e.Value.ToString();
+                if (status.Contains("Đang học"))
+                {
+                    e.CellStyle.ForeColor = Color.Green;
+                    e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
+                }
+                else if (status.Contains("kết thúc"))
+                {
+                    e.CellStyle.ForeColor = Color.Gray;
+                }
+                else if (status.Contains("Chưa"))
+                {
+                    e.CellStyle.ForeColor = Color.OrangeRed;
+                }
             }
         }
     }

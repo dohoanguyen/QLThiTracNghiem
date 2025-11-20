@@ -88,29 +88,31 @@ namespace Winform_KLCN.ManHinhChinh
                 using (SqlConnection conn = KetNoi.TaoKetNoi())
                 {
                     conn.Open();
-                    // SQL giữ nguyên
+                    // SỬA CÂU SQL: Đổi đoạn ORDER BY ở cuối
                     string sql = @"
-                        SELECT DISTINCT
-                            hv.MaHV, hv.TenHV, hv.GioiTinh, hv.NgaySinh, hv.DiaChi, lh.TenLop
-                        FROM HOCVIEN hv
-                        JOIN HOCVIEN_LOPHOC hl ON hv.MaHV = hl.MaHV
-                        JOIN LOPHOC lh ON hl.MaL = lh.MaL
-                        WHERE lh.MaGV = @MaGV
-                        ORDER BY hv.TenHV, lh.TenLop";
+                SELECT DISTINCT
+                    hv.MaHV, hv.TenHV, hv.GioiTinh, hv.NgaySinh, hv.DiaChi, lh.TenLop
+                FROM HOCVIEN hv
+                JOIN HOCVIEN_LOPHOC hl ON hv.MaHV = hl.MaHV
+                JOIN LOPHOC lh ON hl.MaL = lh.MaL
+                WHERE lh.MaGV = @MaGV
+                ORDER BY hv.MaHV ASC, lh.TenLop ASC";
+                    // ^^^ SỬA DÒNG NÀY:
+                    // 1. hv.MaHV ASC: Sắp xếp học viên theo Mã tăng dần.
+                    // 2. lh.TenLop ASC: Nếu 1 học viên có nhiều lớp, các lớp sẽ xếp theo tên A-Z.
 
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);
                     da.SelectCommand.Parameters.AddWithValue("@MaGV", maGV);
 
                     dtHocVien = new DataTable();
-                    da.Fill(dtHocVien); // Lấy dữ liệu thô (Dạng phẳng)
+                    da.Fill(dtHocVien);
 
                     // --- XỬ LÝ DỮ LIỆU BẰNG LINQ & ĐỔ VÀO GRID ---
-                    
-                    dgvHocVien.Rows.Clear(); // Xóa dữ liệu cũ trên lưới
+
+                    dgvHocVien.Rows.Clear();
 
                     if (dtHocVien.Rows.Count > 0)
                     {
-                        // Gom nhóm các dòng có cùng MaHV
                         var groupedData = dtHocVien.AsEnumerable()
                             .GroupBy(row => new
                             {
@@ -124,48 +126,43 @@ namespace Winform_KLCN.ManHinhChinh
                             {
                                 ThongTin = g.Key,
                                 DanhSachLop = g.Select(r => r.Field<string>("TenLop")).ToList()
-                            }).ToList();
+                            })
+                            // Đảm bảo chắc chắn danh sách đầu ra cũng theo thứ tự MaHV
+                            .OrderBy(x => x.ThongTin.MaHV)
+                            .ToList();
 
-                        // Duyệt qua từng học viên đã gom nhóm
                         foreach (var item in groupedData)
                         {
                             int idx = dgvHocVien.Rows.Add();
                             DataGridViewRow row = dgvHocVien.Rows[idx];
 
-                            // Gán giá trị cho các cột Text
                             row.Cells[0].Value = item.ThongTin.MaHV;
                             row.Cells[1].Value = item.ThongTin.TenHV;
                             row.Cells[2].Value = item.ThongTin.GioiTinh;
                             row.Cells[3].Value = item.ThongTin.NgaySinh.ToString("dd/MM/yyyy");
                             row.Cells[4].Value = item.ThongTin.DiaChi;
 
-                            // Gán giá trị cho cột ComboBox
                             DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)row.Cells["colTenLop"];
-                            
-                            // Đổ list lớp vào Items của ô đó
+
                             foreach (var lop in item.DanhSachLop)
                             {
                                 cell.Items.Add(lop);
                             }
 
-                            // Chọn giá trị hiển thị mặc định (Lớp đầu tiên)
                             if (item.DanhSachLop.Count > 0)
                             {
                                 cell.Value = item.DanhSachLop[0];
                             }
 
-                            // *** LOGIC ẨN HIỆN COMBOBOX ***
                             if (item.DanhSachLop.Count <= 1)
                             {
-                                // Nếu chỉ 1 lớp: Biến thành Textbox (ẩn nút mũi tên)
                                 cell.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
-                                cell.ReadOnly = true; // Khóa lại cho chắc
+                                cell.ReadOnly = true;
                             }
                             else
                             {
-                                // Nếu nhiều lớp: Hiện nút dropdown
                                 cell.DisplayStyle = DataGridViewComboBoxDisplayStyle.DropDownButton;
-                                cell.ReadOnly = false; // Mở ra để chọn
+                                cell.ReadOnly = false;
                             }
                         }
                     }
