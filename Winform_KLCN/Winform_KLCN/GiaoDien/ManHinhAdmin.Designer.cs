@@ -77,9 +77,10 @@
             this.btnDangXuat.FillColor = System.Drawing.Color.Transparent;
             this.btnDangXuat.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnDangXuat.ForeColor = System.Drawing.Color.White;
-            this.btnDangXuat.Location = new System.Drawing.Point(979, 10);
+            this.btnDangXuat.Location = new System.Drawing.Point(734, 8);
+            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(179, 33);
+            this.btnDangXuat.Size = new System.Drawing.Size(134, 27);
             this.btnDangXuat.TabIndex = 5;
             this.btnDangXuat.Text = "🚪  Đăng xuất";
             this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
@@ -89,9 +90,10 @@
             this.lblXinChao.AutoSize = true;
             this.lblXinChao.Font = new System.Drawing.Font("Arial", 10.2F);
             this.lblXinChao.ForeColor = System.Drawing.Color.White;
-            this.lblXinChao.Location = new System.Drawing.Point(39, 17);
+            this.lblXinChao.Location = new System.Drawing.Point(29, 14);
+            this.lblXinChao.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblXinChao.Name = "lblXinChao";
-            this.lblXinChao.Size = new System.Drawing.Size(61, 19);
+            this.lblXinChao.Size = new System.Drawing.Size(49, 16);
             this.lblXinChao.TabIndex = 2;
             this.lblXinChao.Text = "ADMIN";
             // 
@@ -100,9 +102,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 15.2F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(385, 10);
+            this.label1.Location = new System.Drawing.Point(289, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(411, 31);
+            this.label1.Size = new System.Drawing.Size(319, 24);
             this.label1.TabIndex = 1;
             this.label1.Text = "TRUNG TÂM QUẢN LÝ CỦA TUQ";
             // 
@@ -113,8 +116,9 @@
             this.guna2GradientPanel1.Controls.Add(this.lblXinChao);
             this.guna2GradientPanel1.Controls.Add(this.label1);
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(1182, 52);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(886, 42);
             this.guna2GradientPanel1.TabIndex = 1;
             // 
             // menuAdmin
@@ -134,9 +138,10 @@
             this.ThongKe,
             this.SaoLuu});
             this.menuAdmin.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.menuAdmin.Location = new System.Drawing.Point(0, 55);
+            this.menuAdmin.Location = new System.Drawing.Point(0, 45);
             this.menuAdmin.Name = "menuAdmin";
-            this.menuAdmin.Size = new System.Drawing.Size(974, 28);
+            this.menuAdmin.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuAdmin.Size = new System.Drawing.Size(642, 24);
             this.menuAdmin.TabIndex = 2;
             this.menuAdmin.Text = "menuAdmin";
             // 
@@ -146,14 +151,14 @@
             this.QlyTaiKhoan,
             this.themTaiKhoan});
             this.TaiKhoan.Name = "TaiKhoan";
-            this.TaiKhoan.Size = new System.Drawing.Size(103, 24);
+            this.TaiKhoan.Size = new System.Drawing.Size(81, 20);
             this.TaiKhoan.Text = "TÀI KHOẢN";
             this.TaiKhoan.Click += new System.EventHandler(this.gIÁOVIÊNToolStripMenuItem_Click);
             // 
             // QlyTaiKhoan
             // 
             this.QlyTaiKhoan.Name = "QlyTaiKhoan";
-            this.QlyTaiKhoan.Size = new System.Drawing.Size(241, 26);
+            this.QlyTaiKhoan.Size = new System.Drawing.Size(189, 22);
             this.QlyTaiKhoan.Text = "QUẢN LÝ TÀI KHOẢN";
             this.QlyTaiKhoan.Click += new System.EventHandler(this.QlyTaiKhoan_Click);
             // 
@@ -164,28 +169,28 @@
             this.themHocVien,
             this.themAdmin});
             this.themTaiKhoan.Name = "themTaiKhoan";
-            this.themTaiKhoan.Size = new System.Drawing.Size(241, 26);
+            this.themTaiKhoan.Size = new System.Drawing.Size(189, 22);
             this.themTaiKhoan.Text = "THÊM TÀI KHOẢN";
             this.themTaiKhoan.Click += new System.EventHandler(this.themTaiKhoan_Click);
             // 
             // themGiaoVien
             // 
             this.themGiaoVien.Name = "themGiaoVien";
-            this.themGiaoVien.Size = new System.Drawing.Size(165, 26);
+            this.themGiaoVien.Size = new System.Drawing.Size(131, 22);
             this.themGiaoVien.Text = "GIÁO VIÊN";
             this.themGiaoVien.Click += new System.EventHandler(this.themGiaoVien_Click);
             // 
             // themHocVien
             // 
             this.themHocVien.Name = "themHocVien";
-            this.themHocVien.Size = new System.Drawing.Size(165, 26);
+            this.themHocVien.Size = new System.Drawing.Size(131, 22);
             this.themHocVien.Text = "HỌC VIÊN";
             this.themHocVien.Click += new System.EventHandler(this.themHocVien_Click);
             // 
             // themAdmin
             // 
             this.themAdmin.Name = "themAdmin";
-            this.themAdmin.Size = new System.Drawing.Size(165, 26);
+            this.themAdmin.Size = new System.Drawing.Size(131, 22);
             this.themAdmin.Text = "ADMIN";
             this.themAdmin.Click += new System.EventHandler(this.themAdmin_Click);
             // 
@@ -195,21 +200,21 @@
             this.QlyGiaoVien,
             this.phanMon});
             this.GiaoVien.Name = "GiaoVien";
-            this.GiaoVien.Size = new System.Drawing.Size(97, 24);
+            this.GiaoVien.Size = new System.Drawing.Size(76, 20);
             this.GiaoVien.Text = "GIÁO VIÊN";
             this.GiaoVien.Click += new System.EventHandler(this.GiaoVien_Click);
             // 
             // QlyGiaoVien
             // 
             this.QlyGiaoVien.Name = "QlyGiaoVien";
-            this.QlyGiaoVien.Size = new System.Drawing.Size(256, 26);
+            this.QlyGiaoVien.Size = new System.Drawing.Size(201, 22);
             this.QlyGiaoVien.Text = "DANH SÁCH GIÁO VIÊN";
             this.QlyGiaoVien.Click += new System.EventHandler(this.QlyGiaoVien_Click);
             // 
             // phanMon
             // 
             this.phanMon.Name = "phanMon";
-            this.phanMon.Size = new System.Drawing.Size(256, 26);
+            this.phanMon.Size = new System.Drawing.Size(201, 22);
             this.phanMon.Text = "PHÂN MÔN";
             this.phanMon.Click += new System.EventHandler(this.phanMon_Click);
             // 
@@ -219,21 +224,21 @@
             this.QlyHocVien,
             this.chiaLop});
             this.HocVien.Name = "HocVien";
-            this.HocVien.Size = new System.Drawing.Size(94, 24);
+            this.HocVien.Size = new System.Drawing.Size(73, 20);
             this.HocVien.Text = "HỌC VIÊN";
             this.HocVien.Click += new System.EventHandler(this.HocVien_Click);
             // 
             // QlyHocVien
             // 
             this.QlyHocVien.Name = "QlyHocVien";
-            this.QlyHocVien.Size = new System.Drawing.Size(253, 26);
+            this.QlyHocVien.Size = new System.Drawing.Size(198, 22);
             this.QlyHocVien.Text = "DANH SÁCH HỌC VIÊN";
             this.QlyHocVien.Click += new System.EventHandler(this.QlyHocVien_Click);
             // 
             // chiaLop
             // 
             this.chiaLop.Name = "chiaLop";
-            this.chiaLop.Size = new System.Drawing.Size(253, 26);
+            this.chiaLop.Size = new System.Drawing.Size(198, 22);
             this.chiaLop.Text = "PHÂN LỚP HỌC VIÊN";
             this.chiaLop.Click += new System.EventHandler(this.chiaLop_Click);
             // 
@@ -242,14 +247,14 @@
             this.CauHoi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.qlyCauHoi});
             this.CauHoi.Name = "CauHoi";
-            this.CauHoi.Size = new System.Drawing.Size(84, 24);
+            this.CauHoi.Size = new System.Drawing.Size(66, 20);
             this.CauHoi.Text = "CÂU HỎI";
             this.CauHoi.Click += new System.EventHandler(this.CauHoi_Click);
             // 
             // qlyCauHoi
             // 
             this.qlyCauHoi.Name = "qlyCauHoi";
-            this.qlyCauHoi.Size = new System.Drawing.Size(246, 26);
+            this.qlyCauHoi.Size = new System.Drawing.Size(191, 22);
             this.qlyCauHoi.Text = "NGÂN HÀNG CÂU HỎI";
             this.qlyCauHoi.Click += new System.EventHandler(this.nGÂNHÀNGCÂUHỎIToolStripMenuItem_Click);
             // 
@@ -259,20 +264,20 @@
             this.taoDeThi,
             this.qlyDeThi});
             this.DeThi.Name = "DeThi";
-            this.DeThi.Size = new System.Drawing.Size(72, 24);
+            this.DeThi.Size = new System.Drawing.Size(56, 20);
             this.DeThi.Text = "ĐỀ THI";
             // 
             // taoDeThi
             // 
             this.taoDeThi.Name = "taoDeThi";
-            this.taoDeThi.Size = new System.Drawing.Size(210, 26);
+            this.taoDeThi.Size = new System.Drawing.Size(164, 22);
             this.taoDeThi.Text = "TẠO ĐỀ THI";
             this.taoDeThi.Click += new System.EventHandler(this.taoDeThi_Click);
             // 
             // qlyDeThi
             // 
             this.qlyDeThi.Name = "qlyDeThi";
-            this.qlyDeThi.Size = new System.Drawing.Size(210, 26);
+            this.qlyDeThi.Size = new System.Drawing.Size(164, 22);
             this.qlyDeThi.Text = "QUẢN LÝ ĐỀ THI";
             this.qlyDeThi.Click += new System.EventHandler(this.qlyDeThi_Click);
             // 
@@ -282,20 +287,20 @@
             this.QlyKyThi,
             this.taoKyThi});
             this.LichThi.Name = "LichThi";
-            this.LichThi.Size = new System.Drawing.Size(72, 24);
+            this.LichThi.Size = new System.Drawing.Size(55, 20);
             this.LichThi.Text = "KỲ THI";
             // 
             // QlyKyThi
             // 
             this.QlyKyThi.Name = "QlyKyThi";
-            this.QlyKyThi.Size = new System.Drawing.Size(231, 26);
+            this.QlyKyThi.Size = new System.Drawing.Size(180, 22);
             this.QlyKyThi.Text = "DANH SÁCH KỲ THI";
             this.QlyKyThi.Click += new System.EventHandler(this.QlyKyThi_Click);
             // 
             // taoKyThi
             // 
             this.taoKyThi.Name = "taoKyThi";
-            this.taoKyThi.Size = new System.Drawing.Size(231, 26);
+            this.taoKyThi.Size = new System.Drawing.Size(180, 22);
             this.taoKyThi.Text = "TẠO KỲ THI";
             this.taoKyThi.Click += new System.EventHandler(this.taoKyThi_Click);
             // 
@@ -305,20 +310,20 @@
             this.taoKhoaHoc,
             this.qlyKhoaHoc});
             this.KH.Name = "KH";
-            this.KH.Size = new System.Drawing.Size(102, 24);
+            this.KH.Size = new System.Drawing.Size(80, 20);
             this.KH.Text = "KHÓA HỌC";
             // 
             // taoKhoaHoc
             // 
             this.taoKhoaHoc.Name = "taoKhoaHoc";
-            this.taoKhoaHoc.Size = new System.Drawing.Size(240, 26);
+            this.taoKhoaHoc.Size = new System.Drawing.Size(188, 22);
             this.taoKhoaHoc.Text = "TẠO KHÓA HỌC";
             this.taoKhoaHoc.Click += new System.EventHandler(this.taoKhoaHoc_Click);
             // 
             // qlyKhoaHoc
             // 
             this.qlyKhoaHoc.Name = "qlyKhoaHoc";
-            this.qlyKhoaHoc.Size = new System.Drawing.Size(240, 26);
+            this.qlyKhoaHoc.Size = new System.Drawing.Size(188, 22);
             this.qlyKhoaHoc.Text = "QUẢN LÝ KHÓA HỌC";
             this.qlyKhoaHoc.Click += new System.EventHandler(this.qlyKhoaHoc_Click);
             // 
@@ -328,48 +333,50 @@
             this.chiTiet,
             this.ketQua});
             this.ThongKe.Name = "ThongKe";
-            this.ThongKe.Size = new System.Drawing.Size(103, 24);
+            this.ThongKe.Size = new System.Drawing.Size(77, 20);
             this.ThongKe.Text = "THỐNG KÊ";
             // 
             // chiTiet
             // 
             this.chiTiet.Name = "chiTiet";
-            this.chiTiet.Size = new System.Drawing.Size(242, 26);
+            this.chiTiet.Size = new System.Drawing.Size(185, 22);
             this.chiTiet.Text = "THỐNG KÊ CHI TIẾT";
             this.chiTiet.Click += new System.EventHandler(this.chiTiet_Click);
             // 
             // ketQua
             // 
             this.ketQua.Name = "ketQua";
-            this.ketQua.Size = new System.Drawing.Size(242, 26);
+            this.ketQua.Size = new System.Drawing.Size(185, 22);
             this.ketQua.Text = "THỐNG KÊ KẾT QUẢ";
             this.ketQua.Click += new System.EventHandler(this.ketQua_Click);
             // 
             // SaoLuu
             // 
             this.SaoLuu.Name = "SaoLuu";
-            this.SaoLuu.Size = new System.Drawing.Size(89, 24);
+            this.SaoLuu.Size = new System.Drawing.Size(72, 20);
             this.SaoLuu.Text = "SAO LƯU";
             // 
             // panelNoiDung
             // 
             this.panelNoiDung.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.panelNoiDung.Location = new System.Drawing.Point(0, 84);
+            this.panelNoiDung.Location = new System.Drawing.Point(0, 68);
+            this.panelNoiDung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelNoiDung.Name = "panelNoiDung";
-            this.panelNoiDung.Size = new System.Drawing.Size(1182, 570);
+            this.panelNoiDung.Size = new System.Drawing.Size(886, 463);
             this.panelNoiDung.TabIndex = 3;
             // 
             // ManHinhAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1182, 653);
+            this.ClientSize = new System.Drawing.Size(886, 531);
             this.Controls.Add(this.panelNoiDung);
             this.Controls.Add(this.guna2GradientPanel1);
             this.Controls.Add(this.menuAdmin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ManHinhAdmin";
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.ManHinhAdmin_Load);

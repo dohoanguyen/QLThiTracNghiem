@@ -58,12 +58,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvHocVien.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvHocVien.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvHocVien.Location = new System.Drawing.Point(0, -3);
+            this.dgvHocVien.Location = new System.Drawing.Point(0, 0);
+            this.dgvHocVien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvHocVien.Name = "dgvHocVien";
             this.dgvHocVien.RowHeadersVisible = false;
             this.dgvHocVien.RowHeadersWidth = 51;
             this.dgvHocVien.RowTemplate.Height = 24;
-            this.dgvHocVien.Size = new System.Drawing.Size(1182, 653);
+            this.dgvHocVien.Size = new System.Drawing.Size(886, 422);
             this.dgvHocVien.TabIndex = 2;
             this.dgvHocVien.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvHocVien.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -89,11 +90,12 @@
             // 
             // HocVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dgvHocVien);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "HocVien";
-            this.Size = new System.Drawing.Size(1182, 653);
+            this.Size = new System.Drawing.Size(886, 531);
             this.Load += new System.EventHandler(this.HocVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocVien)).EndInit();
             this.ResumeLayout(false);

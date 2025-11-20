@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,7 +38,8 @@ namespace Winform_KLCN.ManHinhChinh
                 using (SqlConnection conn = KetNoi.TaoKetNoi())
                 {
                     conn.Open();
-                    string sql = @"SELECT TenGV, GioiTinh, NgaySinh, DiaChi, TrinhDo, SDT 
+                    // 1. SỬA CÂU SQL: Thêm cột chứa tên ảnh (ví dụ: AnhDaiDien) vào câu SELECT
+                    string sql = @"SELECT TenGV, GioiTinh, NgaySinh, DiaChi, TrinhDo, SDT, AnhDaiDien 
                            FROM GIAOVIEN 
                            WHERE MaTK = @MaTK";
 
@@ -48,12 +50,45 @@ namespace Winform_KLCN.ManHinhChinh
                         {
                             if (reader.Read())
                             {
+                                // Load các thông tin chữ như bình thường
                                 lblTen.Text = reader["TenGV"].ToString();
                                 txtGioiTinh.Text = reader["GioiTinh"].ToString();
                                 txtNgaySinh.Text = Convert.ToDateTime(reader["NgaySinh"]).ToString("dd/MM/yyyy");
                                 txtDiaChi.Text = reader["DiaChi"].ToString();
                                 txtTrinhDo.Text = reader["TrinhDo"].ToString();
                                 txtSDT.Text = reader["SDT"].ToString();
+
+                                // 2. PHẦN XỬ LÝ ẢNH (MỚI THÊM)
+                                // Lấy tên file từ CSDL
+                                string tenFileAnh = reader["AnhDaiDien"].ToString();
+
+                                if (!string.IsNullOrEmpty(tenFileAnh))
+                                {
+                                    // Đường dẫn đến thư mục Images nằm trong thư mục Debug/bin của dự án
+                                    string folderPath = Path.Combine(Application.StartupPath, "Images");
+                                    string fullPath = Path.Combine(folderPath, tenFileAnh);
+
+                                    // Kiểm tra file có tồn tại không rồi mới load
+                                    if (File.Exists(fullPath))
+                                    {
+                                        // Dọn dẹp ảnh cũ trong picturebox (nếu có) để tránh tốn ram
+                                        if (pictureBox1.Image != null) pictureBox1.Image.Dispose();
+
+                                        // Load ảnh mới
+                                        pictureBox1.Image = Image.FromFile(fullPath);
+                                        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage; // Chỉnh ảnh co giãn vừa khung
+                                    }
+                                    else
+                                    {
+                                        // Nếu có tên file trong DB nhưng không thấy file ảnh đâu -> Load ảnh trống hoặc mặc định
+                                        pictureBox1.Image = null;
+                                    }
+                                }
+                                else
+                                {
+                                    // Trường hợp trong DB chưa có tên ảnh
+                                    pictureBox1.Image = null;
+                                }
                             }
                             else
                             {
@@ -83,6 +118,12 @@ namespace Winform_KLCN.ManHinhChinh
             txtMatKhauCu.Visible = false;
             txtMatKhauMoi.Visible = false;
             txtXacNhanMKM.Visible = false;
+
+            txtTrinhDo.Enabled = true;
+            txtNgaySinh.Enabled = true;
+            txtGioiTinh.Enabled = true;
+            txtDiaChi.Enabled = true;
+            txtSDT.Enabled = true;
         }
 
         private void btnDoiMK_Click(object sender, EventArgs e)
@@ -199,6 +240,12 @@ namespace Winform_KLCN.ManHinhChinh
                 txtMatKhauCu.Visible = false;
                 txtMatKhauMoi.Visible = false;
                 txtXacNhanMKM.Visible = false;
+
+                txtTrinhDo.Enabled = false;
+                txtNgaySinh.Enabled = false;
+                txtGioiTinh.Enabled = false;
+                txtDiaChi.Enabled = false;
+                txtSDT.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -240,6 +287,11 @@ namespace Winform_KLCN.ManHinhChinh
             txtTrinhDo.Visible = true;
             txtSDT.Visible = true;
 
+            txtTrinhDo.Enabled = false;
+            txtNgaySinh.Enabled = false;
+            txtGioiTinh.Enabled = false;
+            txtDiaChi.Enabled = false;
+            txtSDT.Enabled = false;
             LoadData(UserSession.MaTK);
         }
 

@@ -402,6 +402,9 @@
     <EmbeddedResource Include="ManHinhChinh\ThongTin.resx">
       <DependentUpon>ThongTin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManHinhChinh\TrangChu.resx">
+      <DependentUpon>TrangChu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

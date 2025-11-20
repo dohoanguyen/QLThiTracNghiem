@@ -47,7 +47,6 @@ namespace Winform_KLCN.ManHinhChinh
             dgvCauHoi.Columns.Clear();
 
             // ✅ THÊM CỘT VỚI WIDTH CỐ ĐỊNH
-            AddColumn("MaM", "Mã môn", 70);
             AddColumn("MaCH", "Mã CH", 70);
             AddColumn("NoiDung", "Nội dung", 350);
             AddColumn("DoKho", "Độ khó", 70);
@@ -71,9 +70,6 @@ namespace Winform_KLCN.ManHinhChinh
             };
             dgvCauHoi.Columns.Add(col);
         }
-
-
-
         private void LoadMonHoc()
         {
             try
