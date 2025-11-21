@@ -39,7 +39,7 @@
             // cboNamHoc
             // 
             this.cboNamHoc.BackColor = System.Drawing.Color.Transparent;
-            this.cboNamHoc.BorderRadius = 20;
+            this.cboNamHoc.BorderRadius = 5;
             this.cboNamHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNamHoc.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -47,9 +47,10 @@
             this.cboNamHoc.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboNamHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboNamHoc.ItemHeight = 30;
-            this.cboNamHoc.Location = new System.Drawing.Point(29, 28);
+            this.cboNamHoc.Location = new System.Drawing.Point(33, 35);
+            this.cboNamHoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboNamHoc.Name = "cboNamHoc";
-            this.cboNamHoc.Size = new System.Drawing.Size(206, 36);
+            this.cboNamHoc.Size = new System.Drawing.Size(231, 36);
             this.cboNamHoc.TabIndex = 36;
             // 
             // dgvKhoaHoc
@@ -75,13 +76,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKhoaHoc.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvKhoaHoc.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvKhoaHoc.Location = new System.Drawing.Point(263, 28);
+            this.dgvKhoaHoc.Location = new System.Drawing.Point(287, 35);
             this.dgvKhoaHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvKhoaHoc.Name = "dgvKhoaHoc";
             this.dgvKhoaHoc.RowHeadersVisible = false;
             this.dgvKhoaHoc.RowHeadersWidth = 51;
             this.dgvKhoaHoc.RowTemplate.Height = 24;
-            this.dgvKhoaHoc.Size = new System.Drawing.Size(891, 514);
+            this.dgvKhoaHoc.Size = new System.Drawing.Size(995, 651);
             this.dgvKhoaHoc.TabIndex = 35;
             this.dgvKhoaHoc.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvKhoaHoc.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -107,12 +108,14 @@
             // 
             // qlyKhoaHoc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.Controls.Add(this.cboNamHoc);
             this.Controls.Add(this.dgvKhoaHoc);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "qlyKhoaHoc";
-            this.Size = new System.Drawing.Size(1182, 570);
+            this.Size = new System.Drawing.Size(1330, 712);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhoaHoc)).EndInit();
             this.ResumeLayout(false);
 

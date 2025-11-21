@@ -40,7 +40,7 @@
             // cboKhoa
             // 
             this.cboKhoa.BackColor = System.Drawing.Color.Transparent;
-            this.cboKhoa.BorderRadius = 20;
+            this.cboKhoa.BorderRadius = 5;
             this.cboKhoa.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboKhoa.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -48,9 +48,10 @@
             this.cboKhoa.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboKhoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboKhoa.ItemHeight = 30;
-            this.cboKhoa.Location = new System.Drawing.Point(30, 110);
+            this.cboKhoa.Location = new System.Drawing.Point(34, 103);
+            this.cboKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboKhoa.Name = "cboKhoa";
-            this.cboKhoa.Size = new System.Drawing.Size(206, 36);
+            this.cboKhoa.Size = new System.Drawing.Size(231, 36);
             this.cboKhoa.TabIndex = 32;
             // 
             // dgvKyThi
@@ -76,13 +77,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKyThi.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvKyThi.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvKyThi.Location = new System.Drawing.Point(264, 29);
+            this.dgvKyThi.Location = new System.Drawing.Point(297, 37);
             this.dgvKyThi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvKyThi.Name = "dgvKyThi";
             this.dgvKyThi.RowHeadersVisible = false;
             this.dgvKyThi.RowHeadersWidth = 51;
             this.dgvKyThi.RowTemplate.Height = 24;
-            this.dgvKyThi.Size = new System.Drawing.Size(891, 514);
+            this.dgvKyThi.Size = new System.Drawing.Size(981, 642);
             this.dgvKyThi.TabIndex = 31;
             this.dgvKyThi.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvKyThi.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -109,7 +110,7 @@
             // cboTrangThai
             // 
             this.cboTrangThai.BackColor = System.Drawing.Color.Transparent;
-            this.cboTrangThai.BorderRadius = 20;
+            this.cboTrangThai.BorderRadius = 5;
             this.cboTrangThai.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboTrangThai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTrangThai.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -117,20 +118,23 @@
             this.cboTrangThai.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboTrangThai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboTrangThai.ItemHeight = 30;
-            this.cboTrangThai.Location = new System.Drawing.Point(30, 29);
+            this.cboTrangThai.Location = new System.Drawing.Point(34, 37);
+            this.cboTrangThai.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboTrangThai.Name = "cboTrangThai";
-            this.cboTrangThai.Size = new System.Drawing.Size(206, 36);
+            this.cboTrangThai.Size = new System.Drawing.Size(231, 36);
             this.cboTrangThai.TabIndex = 34;
             // 
             // qlyKyThi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.Controls.Add(this.cboTrangThai);
             this.Controls.Add(this.cboKhoa);
             this.Controls.Add(this.dgvKyThi);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "qlyKyThi";
-            this.Size = new System.Drawing.Size(1182, 570);
+            this.Size = new System.Drawing.Size(1330, 712);
             this.Load += new System.EventHandler(this.qlyKyThi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKyThi)).EndInit();
             this.ResumeLayout(false);

@@ -49,7 +49,7 @@
             // cboLopHoc
             // 
             this.cboLopHoc.BackColor = System.Drawing.Color.Transparent;
-            this.cboLopHoc.BorderRadius = 20;
+            this.cboLopHoc.BorderRadius = 5;
             this.cboLopHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboLopHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLopHoc.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -57,16 +57,17 @@
             this.cboLopHoc.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboLopHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboLopHoc.ItemHeight = 30;
-            this.cboLopHoc.Location = new System.Drawing.Point(22, 179);
+            this.cboLopHoc.Location = new System.Drawing.Point(34, 257);
+            this.cboLopHoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboLopHoc.Name = "cboLopHoc";
-            this.cboLopHoc.Size = new System.Drawing.Size(196, 36);
+            this.cboLopHoc.Size = new System.Drawing.Size(279, 36);
             this.cboLopHoc.TabIndex = 61;
             this.cboLopHoc.SelectedValueChanged += new System.EventHandler(this.cboLopHoc_SelectedIndexChanged);
             // 
             // cboKhoa
             // 
             this.cboKhoa.BackColor = System.Drawing.Color.Transparent;
-            this.cboKhoa.BorderRadius = 20;
+            this.cboKhoa.BorderRadius = 5;
             this.cboKhoa.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboKhoa.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -74,16 +75,17 @@
             this.cboKhoa.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboKhoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboKhoa.ItemHeight = 30;
-            this.cboKhoa.Location = new System.Drawing.Point(22, 114);
+            this.cboKhoa.Location = new System.Drawing.Point(34, 183);
+            this.cboKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboKhoa.Name = "cboKhoa";
-            this.cboKhoa.Size = new System.Drawing.Size(196, 36);
+            this.cboKhoa.Size = new System.Drawing.Size(279, 36);
             this.cboKhoa.TabIndex = 60;
             this.cboKhoa.SelectedValueChanged += new System.EventHandler(this.cboKhoa_SelectedIndexChanged);
             // 
             // cboNamHoc
             // 
             this.cboNamHoc.BackColor = System.Drawing.Color.Transparent;
-            this.cboNamHoc.BorderRadius = 20;
+            this.cboNamHoc.BorderRadius = 5;
             this.cboNamHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNamHoc.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -91,9 +93,10 @@
             this.cboNamHoc.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboNamHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboNamHoc.ItemHeight = 30;
-            this.cboNamHoc.Location = new System.Drawing.Point(22, 47);
+            this.cboNamHoc.Location = new System.Drawing.Point(34, 111);
+            this.cboNamHoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboNamHoc.Name = "cboNamHoc";
-            this.cboNamHoc.Size = new System.Drawing.Size(196, 36);
+            this.cboNamHoc.Size = new System.Drawing.Size(279, 36);
             this.cboNamHoc.TabIndex = 59;
             this.cboNamHoc.SelectedValueChanged += new System.EventHandler(this.cboNamHoc_SelectedIndexChanged);
             // 
@@ -120,13 +123,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvHocVienHienCo.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvHocVienHienCo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvHocVienHienCo.Location = new System.Drawing.Point(311, 265);
+            this.dgvHocVienHienCo.Location = new System.Drawing.Point(350, 361);
             this.dgvHocVienHienCo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvHocVienHienCo.Name = "dgvHocVienHienCo";
             this.dgvHocVienHienCo.RowHeadersVisible = false;
             this.dgvHocVienHienCo.RowHeadersWidth = 51;
             this.dgvHocVienHienCo.RowTemplate.Height = 24;
-            this.dgvHocVienHienCo.Size = new System.Drawing.Size(849, 259);
+            this.dgvHocVienHienCo.Size = new System.Drawing.Size(955, 324);
             this.dgvHocVienHienCo.TabIndex = 58;
             this.dgvHocVienHienCo.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvHocVienHienCo.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -173,13 +176,13 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvHocVien.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvHocVien.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvHocVien.Location = new System.Drawing.Point(311, 47);
+            this.dgvHocVien.Location = new System.Drawing.Point(350, 81);
             this.dgvHocVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvHocVien.Name = "dgvHocVien";
             this.dgvHocVien.RowHeadersVisible = false;
             this.dgvHocVien.RowHeadersWidth = 51;
             this.dgvHocVien.RowTemplate.Height = 24;
-            this.dgvHocVien.Size = new System.Drawing.Size(849, 192);
+            this.dgvHocVien.Size = new System.Drawing.Size(955, 240);
             this.dgvHocVien.TabIndex = 62;
             this.dgvHocVien.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvHocVien.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -212,25 +215,27 @@
             // lblSiSo
             // 
             this.lblSiSo.AutoSize = true;
-            this.lblSiSo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblSiSo.Location = new System.Drawing.Point(895, 11);
+            this.lblSiSo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblSiSo.Location = new System.Drawing.Point(1001, 25);
             this.lblSiSo.Name = "lblSiSo";
-            this.lblSiSo.Size = new System.Drawing.Size(203, 20);
+            this.lblSiSo.Size = new System.Drawing.Size(271, 32);
             this.lblSiSo.TabIndex = 63;
             this.lblSiSo.Text = "NGÂN HÀNG CÂU HỎI";
             // 
             // chiaLop
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.Controls.Add(this.lblSiSo);
             this.Controls.Add(this.dgvHocVien);
             this.Controls.Add(this.cboLopHoc);
             this.Controls.Add(this.cboKhoa);
             this.Controls.Add(this.cboNamHoc);
             this.Controls.Add(this.dgvHocVienHienCo);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "chiaLop";
-            this.Size = new System.Drawing.Size(1182, 570);
+            this.Size = new System.Drawing.Size(1330, 712);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocVienHienCo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocVien)).EndInit();
             this.ResumeLayout(false);

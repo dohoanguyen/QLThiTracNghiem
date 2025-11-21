@@ -76,13 +76,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvMonThi.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMonThi.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvMonThi.Location = new System.Drawing.Point(411, 335);
+            this.dgvMonThi.Location = new System.Drawing.Point(462, 419);
             this.dgvMonThi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvMonThi.Name = "dgvMonThi";
             this.dgvMonThi.RowHeadersVisible = false;
             this.dgvMonThi.RowHeadersWidth = 51;
             this.dgvMonThi.RowTemplate.Height = 24;
-            this.dgvMonThi.Size = new System.Drawing.Size(358, 211);
+            this.dgvMonThi.Size = new System.Drawing.Size(403, 264);
             this.dgvMonThi.TabIndex = 50;
             this.dgvMonThi.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvMonThi.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -109,7 +109,7 @@
             // cboKhoaHoc
             // 
             this.cboKhoaHoc.BackColor = System.Drawing.Color.Transparent;
-            this.cboKhoaHoc.BorderRadius = 20;
+            this.cboKhoaHoc.BorderRadius = 5;
             this.cboKhoaHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboKhoaHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboKhoaHoc.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -117,9 +117,10 @@
             this.cboKhoaHoc.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboKhoaHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboKhoaHoc.ItemHeight = 30;
-            this.cboKhoaHoc.Location = new System.Drawing.Point(465, 272);
+            this.cboKhoaHoc.Location = new System.Drawing.Point(548, 340);
+            this.cboKhoaHoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboKhoaHoc.Name = "cboKhoaHoc";
-            this.cboKhoaHoc.Size = new System.Drawing.Size(206, 36);
+            this.cboKhoaHoc.Size = new System.Drawing.Size(231, 36);
             this.cboKhoaHoc.TabIndex = 49;
             // 
             // dgvChiTiet2
@@ -145,13 +146,13 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvChiTiet2.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvChiTiet2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvChiTiet2.Location = new System.Drawing.Point(798, 335);
+            this.dgvChiTiet2.Location = new System.Drawing.Point(898, 419);
             this.dgvChiTiet2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvChiTiet2.Name = "dgvChiTiet2";
             this.dgvChiTiet2.RowHeadersVisible = false;
             this.dgvChiTiet2.RowHeadersWidth = 51;
             this.dgvChiTiet2.RowTemplate.Height = 24;
-            this.dgvChiTiet2.Size = new System.Drawing.Size(358, 211);
+            this.dgvChiTiet2.Size = new System.Drawing.Size(403, 264);
             this.dgvChiTiet2.TabIndex = 48;
             this.dgvChiTiet2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvChiTiet2.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -198,13 +199,13 @@
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKyThi.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvKyThi.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvKyThi.Location = new System.Drawing.Point(26, 335);
+            this.dgvKyThi.Location = new System.Drawing.Point(29, 419);
             this.dgvKyThi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvKyThi.Name = "dgvKyThi";
             this.dgvKyThi.RowHeadersVisible = false;
             this.dgvKyThi.RowHeadersWidth = 51;
             this.dgvKyThi.RowTemplate.Height = 24;
-            this.dgvKyThi.Size = new System.Drawing.Size(358, 211);
+            this.dgvKyThi.Size = new System.Drawing.Size(403, 264);
             this.dgvKyThi.TabIndex = 46;
             this.dgvKyThi.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvKyThi.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -231,7 +232,7 @@
             // cboNamHoc2
             // 
             this.cboNamHoc2.BackColor = System.Drawing.Color.Transparent;
-            this.cboNamHoc2.BorderRadius = 20;
+            this.cboNamHoc2.BorderRadius = 5;
             this.cboNamHoc2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboNamHoc2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNamHoc2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -239,9 +240,10 @@
             this.cboNamHoc2.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboNamHoc2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboNamHoc2.ItemHeight = 30;
-            this.cboNamHoc2.Location = new System.Drawing.Point(80, 272);
+            this.cboNamHoc2.Location = new System.Drawing.Point(115, 340);
+            this.cboNamHoc2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboNamHoc2.Name = "cboNamHoc2";
-            this.cboNamHoc2.Size = new System.Drawing.Size(206, 36);
+            this.cboNamHoc2.Size = new System.Drawing.Size(231, 36);
             this.cboNamHoc2.TabIndex = 45;
             // 
             // dgvChiTiet1
@@ -267,13 +269,13 @@
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvChiTiet1.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvChiTiet1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvChiTiet1.Location = new System.Drawing.Point(263, 29);
+            this.dgvChiTiet1.Location = new System.Drawing.Point(296, 36);
             this.dgvChiTiet1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvChiTiet1.Name = "dgvChiTiet1";
             this.dgvChiTiet1.RowHeadersVisible = false;
             this.dgvChiTiet1.RowHeadersWidth = 51;
             this.dgvChiTiet1.RowTemplate.Height = 24;
-            this.dgvChiTiet1.Size = new System.Drawing.Size(893, 207);
+            this.dgvChiTiet1.Size = new System.Drawing.Size(1005, 259);
             this.dgvChiTiet1.TabIndex = 44;
             this.dgvChiTiet1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvChiTiet1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -300,7 +302,7 @@
             // cboNamHoc1
             // 
             this.cboNamHoc1.BackColor = System.Drawing.Color.Transparent;
-            this.cboNamHoc1.BorderRadius = 20;
+            this.cboNamHoc1.BorderRadius = 5;
             this.cboNamHoc1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboNamHoc1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNamHoc1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -308,15 +310,17 @@
             this.cboNamHoc1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboNamHoc1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboNamHoc1.ItemHeight = 30;
-            this.cboNamHoc1.Location = new System.Drawing.Point(26, 29);
+            this.cboNamHoc1.Location = new System.Drawing.Point(29, 36);
+            this.cboNamHoc1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboNamHoc1.Name = "cboNamHoc1";
-            this.cboNamHoc1.Size = new System.Drawing.Size(206, 36);
+            this.cboNamHoc1.Size = new System.Drawing.Size(231, 36);
             this.cboNamHoc1.TabIndex = 51;
             // 
             // tkKetQua
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.Controls.Add(this.cboNamHoc1);
             this.Controls.Add(this.dgvMonThi);
             this.Controls.Add(this.cboKhoaHoc);
@@ -324,8 +328,9 @@
             this.Controls.Add(this.dgvKyThi);
             this.Controls.Add(this.cboNamHoc2);
             this.Controls.Add(this.dgvChiTiet1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "tkKetQua";
-            this.Size = new System.Drawing.Size(1182, 570);
+            this.Size = new System.Drawing.Size(1330, 712);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMonThi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTiet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKyThi)).EndInit();
