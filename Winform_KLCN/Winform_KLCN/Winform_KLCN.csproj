@@ -446,6 +446,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\logo.ico" />
+    <None Include="Resources\logout_white.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

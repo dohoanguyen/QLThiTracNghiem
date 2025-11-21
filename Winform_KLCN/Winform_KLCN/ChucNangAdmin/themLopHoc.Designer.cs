@@ -50,9 +50,8 @@
             // 
             // txtTenLop
             // 
-            this.txtTenLop.BorderRadius = 20;
+            this.txtTenLop.BorderRadius = 5;
             this.txtTenLop.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTenLop.CustomizableEdges.BottomLeft = false;
             this.txtTenLop.DefaultText = "";
             this.txtTenLop.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtTenLop.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -61,18 +60,18 @@
             this.txtTenLop.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTenLop.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTenLop.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTenLop.Location = new System.Drawing.Point(12, 65);
-            this.txtTenLop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTenLop.Location = new System.Drawing.Point(33, 84);
+            this.txtTenLop.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtTenLop.Name = "txtTenLop";
             this.txtTenLop.PlaceholderText = "";
             this.txtTenLop.SelectedText = "";
-            this.txtTenLop.Size = new System.Drawing.Size(169, 45);
+            this.txtTenLop.Size = new System.Drawing.Size(190, 36);
             this.txtTenLop.TabIndex = 43;
             // 
             // cboMon
             // 
             this.cboMon.BackColor = System.Drawing.Color.Transparent;
-            this.cboMon.BorderRadius = 20;
+            this.cboMon.BorderRadius = 5;
             this.cboMon.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboMon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMon.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -80,9 +79,10 @@
             this.cboMon.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboMon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboMon.ItemHeight = 30;
-            this.cboMon.Location = new System.Drawing.Point(12, 130);
+            this.cboMon.Location = new System.Drawing.Point(33, 138);
+            this.cboMon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboMon.Name = "cboMon";
-            this.cboMon.Size = new System.Drawing.Size(169, 36);
+            this.cboMon.Size = new System.Drawing.Size(190, 36);
             this.cboMon.TabIndex = 42;
             this.cboMon.SelectedIndexChanged += new System.EventHandler(this.cboMon_SelectedIndexChanged);
             // 
@@ -109,13 +109,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvLopHoc.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvLopHoc.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvLopHoc.Location = new System.Drawing.Point(215, 53);
+            this.dgvLopHoc.Location = new System.Drawing.Point(257, 64);
             this.dgvLopHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvLopHoc.Name = "dgvLopHoc";
             this.dgvLopHoc.RowHeadersVisible = false;
             this.dgvLopHoc.RowHeadersWidth = 51;
             this.dgvLopHoc.RowTemplate.Height = 24;
-            this.dgvLopHoc.Size = new System.Drawing.Size(560, 147);
+            this.dgvLopHoc.Size = new System.Drawing.Size(630, 184);
             this.dgvLopHoc.TabIndex = 41;
             this.dgvLopHoc.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvLopHoc.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -144,7 +144,7 @@
             // cboGVCN
             // 
             this.cboGVCN.BackColor = System.Drawing.Color.Transparent;
-            this.cboGVCN.BorderRadius = 20;
+            this.cboGVCN.BorderRadius = 5;
             this.cboGVCN.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboGVCN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboGVCN.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -152,87 +152,80 @@
             this.cboGVCN.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboGVCN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboGVCN.ItemHeight = 30;
-            this.cboGVCN.Location = new System.Drawing.Point(12, 190);
+            this.cboGVCN.Location = new System.Drawing.Point(33, 190);
+            this.cboGVCN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboGVCN.Name = "cboGVCN";
-            this.cboGVCN.Size = new System.Drawing.Size(169, 36);
+            this.cboGVCN.Size = new System.Drawing.Size(190, 36);
             this.cboGVCN.TabIndex = 44;
             // 
             // btnThem
             // 
-            this.btnThem.BorderRadius = 20;
-            this.btnThem.CustomizableEdges.BottomLeft = false;
-            this.btnThem.CustomizableEdges.TopRight = false;
+            this.btnThem.BorderRadius = 10;
             this.btnThem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnThem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnThem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnThem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnThem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(0)))), ((int)(((byte)(128)))));
+            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(12, 251);
+            this.btnThem.Location = new System.Drawing.Point(33, 264);
             this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(169, 46);
+            this.btnThem.Size = new System.Drawing.Size(190, 58);
             this.btnThem.TabIndex = 45;
             this.btnThem.Text = "Thêm";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
-            this.btnSua.BorderRadius = 20;
-            this.btnSua.CustomizableEdges.BottomLeft = false;
-            this.btnSua.CustomizableEdges.TopRight = false;
+            this.btnSua.BorderRadius = 10;
             this.btnSua.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSua.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnSua.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnSua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(0)))), ((int)(((byte)(128)))));
+            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(12, 320);
+            this.btnSua.Location = new System.Drawing.Point(33, 337);
             this.btnSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(169, 46);
+            this.btnSua.Size = new System.Drawing.Size(190, 58);
             this.btnSua.TabIndex = 46;
             this.btnSua.Text = "Sửa";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnLuu
             // 
-            this.btnLuu.BorderRadius = 20;
-            this.btnLuu.CustomizableEdges.BottomLeft = false;
-            this.btnLuu.CustomizableEdges.TopRight = false;
+            this.btnLuu.BorderRadius = 10;
             this.btnLuu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnLuu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnLuu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLuu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnLuu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnLuu.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnLuu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(0)))), ((int)(((byte)(128)))));
+            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(12, 383);
+            this.btnLuu.Location = new System.Drawing.Point(33, 410);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(169, 46);
+            this.btnLuu.Size = new System.Drawing.Size(190, 58);
             this.btnLuu.TabIndex = 47;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnHoanThien
             // 
-            this.btnHoanThien.BorderRadius = 20;
-            this.btnHoanThien.CustomizableEdges.BottomLeft = false;
-            this.btnHoanThien.CustomizableEdges.TopRight = false;
+            this.btnHoanThien.BorderRadius = 10;
             this.btnHoanThien.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnHoanThien.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnHoanThien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnHoanThien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnHoanThien.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnHoanThien.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnHoanThien.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(0)))), ((int)(((byte)(128)))));
+            this.btnHoanThien.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnHoanThien.ForeColor = System.Drawing.Color.White;
-            this.btnHoanThien.Location = new System.Drawing.Point(227, 383);
+            this.btnHoanThien.Location = new System.Drawing.Point(597, 482);
             this.btnHoanThien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHoanThien.Name = "btnHoanThien";
-            this.btnHoanThien.Size = new System.Drawing.Size(258, 46);
+            this.btnHoanThien.Size = new System.Drawing.Size(290, 58);
             this.btnHoanThien.TabIndex = 48;
             this.btnHoanThien.Text = "Hoàn Thiện Khóa Học";
             this.btnHoanThien.Click += new System.EventHandler(this.btnHoanThien_Click);
@@ -260,13 +253,13 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvChiTiet.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvChiTiet.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvChiTiet.Location = new System.Drawing.Point(215, 219);
+            this.dgvChiTiet.Location = new System.Drawing.Point(257, 274);
             this.dgvChiTiet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvChiTiet.Name = "dgvChiTiet";
             this.dgvChiTiet.RowHeadersVisible = false;
             this.dgvChiTiet.RowHeadersWidth = 51;
             this.dgvChiTiet.RowTemplate.Height = 24;
-            this.dgvChiTiet.Size = new System.Drawing.Size(560, 147);
+            this.dgvChiTiet.Size = new System.Drawing.Size(630, 184);
             this.dgvChiTiet.TabIndex = 49;
             this.dgvChiTiet.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvChiTiet.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -292,9 +285,10 @@
             // 
             // themLopHoc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.ClientSize = new System.Drawing.Size(915, 562);
             this.Controls.Add(this.dgvChiTiet);
             this.Controls.Add(this.btnHoanThien);
             this.Controls.Add(this.btnLuu);
@@ -305,6 +299,7 @@
             this.Controls.Add(this.cboMon);
             this.Controls.Add(this.dgvLopHoc);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "themLopHoc";
             this.Text = "themLopHoc";
             this.Load += new System.EventHandler(this.themLopHoc_Load);
