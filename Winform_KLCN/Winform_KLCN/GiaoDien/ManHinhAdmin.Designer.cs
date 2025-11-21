@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManHinhAdmin));
-            this.btnDangXuat = new Guna.UI2.WinForms.Guna2Button();
             this.lblXinChao = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -62,63 +61,42 @@
             this.ketQua = new System.Windows.Forms.ToolStripMenuItem();
             this.SaoLuu = new System.Windows.Forms.ToolStripMenuItem();
             this.panelNoiDung = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnDangXuat = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1.SuspendLayout();
             this.menuAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnDangXuat
-            // 
-            this.btnDangXuat.BorderColor = System.Drawing.Color.Transparent;
-            this.btnDangXuat.BorderRadius = 5;
-            this.btnDangXuat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDangXuat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDangXuat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDangXuat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDangXuat.FillColor = System.Drawing.Color.Transparent;
-            this.btnDangXuat.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnDangXuat.ForeColor = System.Drawing.Color.White;
-            this.btnDangXuat.Location = new System.Drawing.Point(734, 8);
-            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(134, 27);
-            this.btnDangXuat.TabIndex = 5;
-            this.btnDangXuat.Text = "🚪  Đăng xuất";
-            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
-            // 
             // lblXinChao
             // 
             this.lblXinChao.AutoSize = true;
-            this.lblXinChao.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.lblXinChao.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblXinChao.ForeColor = System.Drawing.Color.White;
-            this.lblXinChao.Location = new System.Drawing.Point(29, 14);
-            this.lblXinChao.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblXinChao.Location = new System.Drawing.Point(44, 19);
             this.lblXinChao.Name = "lblXinChao";
-            this.lblXinChao.Size = new System.Drawing.Size(49, 16);
+            this.lblXinChao.Size = new System.Drawing.Size(82, 28);
             this.lblXinChao.TabIndex = 2;
             this.lblXinChao.Text = "ADMIN";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 15.2F);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(289, 8);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(434, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(319, 24);
+            this.label1.Size = new System.Drawing.Size(380, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "TRUNG TÂM QUẢN LÝ CỦA TUQ";
             // 
             // guna2GradientPanel1
             // 
-            this.guna2GradientPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(172)))));
+            this.guna2GradientPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(0)))), ((int)(((byte)(128)))));
             this.guna2GradientPanel1.Controls.Add(this.btnDangXuat);
             this.guna2GradientPanel1.Controls.Add(this.lblXinChao);
             this.guna2GradientPanel1.Controls.Add(this.label1);
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(886, 42);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(1329, 65);
             this.guna2GradientPanel1.TabIndex = 1;
             // 
             // menuAdmin
@@ -126,6 +104,7 @@
             this.menuAdmin.BackColor = System.Drawing.Color.Transparent;
             this.menuAdmin.Dock = System.Windows.Forms.DockStyle.None;
             this.menuAdmin.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.menuAdmin.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuAdmin.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuAdmin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TaiKhoan,
@@ -138,10 +117,10 @@
             this.ThongKe,
             this.SaoLuu});
             this.menuAdmin.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.menuAdmin.Location = new System.Drawing.Point(0, 45);
+            this.menuAdmin.Location = new System.Drawing.Point(0, 68);
             this.menuAdmin.Name = "menuAdmin";
-            this.menuAdmin.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuAdmin.Size = new System.Drawing.Size(642, 24);
+            this.menuAdmin.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
+            this.menuAdmin.Size = new System.Drawing.Size(1002, 35);
             this.menuAdmin.TabIndex = 2;
             this.menuAdmin.Text = "menuAdmin";
             // 
@@ -150,15 +129,16 @@
             this.TaiKhoan.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.QlyTaiKhoan,
             this.themTaiKhoan});
+            this.TaiKhoan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.TaiKhoan.Name = "TaiKhoan";
-            this.TaiKhoan.Size = new System.Drawing.Size(81, 20);
+            this.TaiKhoan.Size = new System.Drawing.Size(129, 29);
             this.TaiKhoan.Text = "TÀI KHOẢN";
             this.TaiKhoan.Click += new System.EventHandler(this.gIÁOVIÊNToolStripMenuItem_Click);
             // 
             // QlyTaiKhoan
             // 
             this.QlyTaiKhoan.Name = "QlyTaiKhoan";
-            this.QlyTaiKhoan.Size = new System.Drawing.Size(189, 22);
+            this.QlyTaiKhoan.Size = new System.Drawing.Size(298, 34);
             this.QlyTaiKhoan.Text = "QUẢN LÝ TÀI KHOẢN";
             this.QlyTaiKhoan.Click += new System.EventHandler(this.QlyTaiKhoan_Click);
             // 
@@ -169,28 +149,28 @@
             this.themHocVien,
             this.themAdmin});
             this.themTaiKhoan.Name = "themTaiKhoan";
-            this.themTaiKhoan.Size = new System.Drawing.Size(189, 22);
+            this.themTaiKhoan.Size = new System.Drawing.Size(298, 34);
             this.themTaiKhoan.Text = "THÊM TÀI KHOẢN";
             this.themTaiKhoan.Click += new System.EventHandler(this.themTaiKhoan_Click);
             // 
             // themGiaoVien
             // 
             this.themGiaoVien.Name = "themGiaoVien";
-            this.themGiaoVien.Size = new System.Drawing.Size(131, 22);
+            this.themGiaoVien.Size = new System.Drawing.Size(207, 34);
             this.themGiaoVien.Text = "GIÁO VIÊN";
             this.themGiaoVien.Click += new System.EventHandler(this.themGiaoVien_Click);
             // 
             // themHocVien
             // 
             this.themHocVien.Name = "themHocVien";
-            this.themHocVien.Size = new System.Drawing.Size(131, 22);
+            this.themHocVien.Size = new System.Drawing.Size(207, 34);
             this.themHocVien.Text = "HỌC VIÊN";
             this.themHocVien.Click += new System.EventHandler(this.themHocVien_Click);
             // 
             // themAdmin
             // 
             this.themAdmin.Name = "themAdmin";
-            this.themAdmin.Size = new System.Drawing.Size(131, 22);
+            this.themAdmin.Size = new System.Drawing.Size(207, 34);
             this.themAdmin.Text = "ADMIN";
             this.themAdmin.Click += new System.EventHandler(this.themAdmin_Click);
             // 
@@ -199,22 +179,23 @@
             this.GiaoVien.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.QlyGiaoVien,
             this.phanMon});
+            this.GiaoVien.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.GiaoVien.Name = "GiaoVien";
-            this.GiaoVien.Size = new System.Drawing.Size(76, 20);
+            this.GiaoVien.Size = new System.Drawing.Size(121, 29);
             this.GiaoVien.Text = "GIÁO VIÊN";
             this.GiaoVien.Click += new System.EventHandler(this.GiaoVien_Click);
             // 
             // QlyGiaoVien
             // 
             this.QlyGiaoVien.Name = "QlyGiaoVien";
-            this.QlyGiaoVien.Size = new System.Drawing.Size(201, 22);
+            this.QlyGiaoVien.Size = new System.Drawing.Size(319, 34);
             this.QlyGiaoVien.Text = "DANH SÁCH GIÁO VIÊN";
             this.QlyGiaoVien.Click += new System.EventHandler(this.QlyGiaoVien_Click);
             // 
             // phanMon
             // 
             this.phanMon.Name = "phanMon";
-            this.phanMon.Size = new System.Drawing.Size(201, 22);
+            this.phanMon.Size = new System.Drawing.Size(319, 34);
             this.phanMon.Text = "PHÂN MÔN";
             this.phanMon.Click += new System.EventHandler(this.phanMon_Click);
             // 
@@ -223,22 +204,23 @@
             this.HocVien.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.QlyHocVien,
             this.chiaLop});
+            this.HocVien.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.HocVien.Name = "HocVien";
-            this.HocVien.Size = new System.Drawing.Size(73, 20);
+            this.HocVien.Size = new System.Drawing.Size(114, 29);
             this.HocVien.Text = "HỌC VIÊN";
             this.HocVien.Click += new System.EventHandler(this.HocVien_Click);
             // 
             // QlyHocVien
             // 
             this.QlyHocVien.Name = "QlyHocVien";
-            this.QlyHocVien.Size = new System.Drawing.Size(198, 22);
+            this.QlyHocVien.Size = new System.Drawing.Size(312, 34);
             this.QlyHocVien.Text = "DANH SÁCH HỌC VIÊN";
             this.QlyHocVien.Click += new System.EventHandler(this.QlyHocVien_Click);
             // 
             // chiaLop
             // 
             this.chiaLop.Name = "chiaLop";
-            this.chiaLop.Size = new System.Drawing.Size(198, 22);
+            this.chiaLop.Size = new System.Drawing.Size(312, 34);
             this.chiaLop.Text = "PHÂN LỚP HỌC VIÊN";
             this.chiaLop.Click += new System.EventHandler(this.chiaLop_Click);
             // 
@@ -246,15 +228,16 @@
             // 
             this.CauHoi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.qlyCauHoi});
+            this.CauHoi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.CauHoi.Name = "CauHoi";
-            this.CauHoi.Size = new System.Drawing.Size(66, 20);
+            this.CauHoi.Size = new System.Drawing.Size(104, 29);
             this.CauHoi.Text = "CÂU HỎI";
             this.CauHoi.Click += new System.EventHandler(this.CauHoi_Click);
             // 
             // qlyCauHoi
             // 
             this.qlyCauHoi.Name = "qlyCauHoi";
-            this.qlyCauHoi.Size = new System.Drawing.Size(191, 22);
+            this.qlyCauHoi.Size = new System.Drawing.Size(308, 34);
             this.qlyCauHoi.Text = "NGÂN HÀNG CÂU HỎI";
             this.qlyCauHoi.Click += new System.EventHandler(this.nGÂNHÀNGCÂUHỎIToolStripMenuItem_Click);
             // 
@@ -263,21 +246,22 @@
             this.DeThi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.taoDeThi,
             this.qlyDeThi});
+            this.DeThi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.DeThi.Name = "DeThi";
-            this.DeThi.Size = new System.Drawing.Size(56, 20);
+            this.DeThi.Size = new System.Drawing.Size(87, 29);
             this.DeThi.Text = "ĐỀ THI";
             // 
             // taoDeThi
             // 
             this.taoDeThi.Name = "taoDeThi";
-            this.taoDeThi.Size = new System.Drawing.Size(164, 22);
+            this.taoDeThi.Size = new System.Drawing.Size(256, 34);
             this.taoDeThi.Text = "TẠO ĐỀ THI";
             this.taoDeThi.Click += new System.EventHandler(this.taoDeThi_Click);
             // 
             // qlyDeThi
             // 
             this.qlyDeThi.Name = "qlyDeThi";
-            this.qlyDeThi.Size = new System.Drawing.Size(164, 22);
+            this.qlyDeThi.Size = new System.Drawing.Size(256, 34);
             this.qlyDeThi.Text = "QUẢN LÝ ĐỀ THI";
             this.qlyDeThi.Click += new System.EventHandler(this.qlyDeThi_Click);
             // 
@@ -286,21 +270,22 @@
             this.LichThi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.QlyKyThi,
             this.taoKyThi});
+            this.LichThi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.LichThi.Name = "LichThi";
-            this.LichThi.Size = new System.Drawing.Size(55, 20);
+            this.LichThi.Size = new System.Drawing.Size(87, 29);
             this.LichThi.Text = "KỲ THI";
             // 
             // QlyKyThi
             // 
             this.QlyKyThi.Name = "QlyKyThi";
-            this.QlyKyThi.Size = new System.Drawing.Size(180, 22);
+            this.QlyKyThi.Size = new System.Drawing.Size(285, 34);
             this.QlyKyThi.Text = "DANH SÁCH KỲ THI";
             this.QlyKyThi.Click += new System.EventHandler(this.QlyKyThi_Click);
             // 
             // taoKyThi
             // 
             this.taoKyThi.Name = "taoKyThi";
-            this.taoKyThi.Size = new System.Drawing.Size(180, 22);
+            this.taoKyThi.Size = new System.Drawing.Size(285, 34);
             this.taoKyThi.Text = "TẠO KỲ THI";
             this.taoKyThi.Click += new System.EventHandler(this.taoKyThi_Click);
             // 
@@ -309,21 +294,22 @@
             this.KH.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.taoKhoaHoc,
             this.qlyKhoaHoc});
+            this.KH.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.KH.Name = "KH";
-            this.KH.Size = new System.Drawing.Size(80, 20);
+            this.KH.Size = new System.Drawing.Size(125, 29);
             this.KH.Text = "KHÓA HỌC";
             // 
             // taoKhoaHoc
             // 
             this.taoKhoaHoc.Name = "taoKhoaHoc";
-            this.taoKhoaHoc.Size = new System.Drawing.Size(188, 22);
+            this.taoKhoaHoc.Size = new System.Drawing.Size(294, 34);
             this.taoKhoaHoc.Text = "TẠO KHÓA HỌC";
             this.taoKhoaHoc.Click += new System.EventHandler(this.taoKhoaHoc_Click);
             // 
             // qlyKhoaHoc
             // 
             this.qlyKhoaHoc.Name = "qlyKhoaHoc";
-            this.qlyKhoaHoc.Size = new System.Drawing.Size(188, 22);
+            this.qlyKhoaHoc.Size = new System.Drawing.Size(294, 34);
             this.qlyKhoaHoc.Text = "QUẢN LÝ KHÓA HỌC";
             this.qlyKhoaHoc.Click += new System.EventHandler(this.qlyKhoaHoc_Click);
             // 
@@ -332,51 +318,72 @@
             this.ThongKe.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.chiTiet,
             this.ketQua});
+            this.ThongKe.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.ThongKe.Name = "ThongKe";
-            this.ThongKe.Size = new System.Drawing.Size(77, 20);
+            this.ThongKe.Size = new System.Drawing.Size(121, 29);
             this.ThongKe.Text = "THỐNG KÊ";
             // 
             // chiTiet
             // 
             this.chiTiet.Name = "chiTiet";
-            this.chiTiet.Size = new System.Drawing.Size(185, 22);
+            this.chiTiet.Size = new System.Drawing.Size(290, 34);
             this.chiTiet.Text = "THỐNG KÊ CHI TIẾT";
             this.chiTiet.Click += new System.EventHandler(this.chiTiet_Click);
             // 
             // ketQua
             // 
             this.ketQua.Name = "ketQua";
-            this.ketQua.Size = new System.Drawing.Size(185, 22);
+            this.ketQua.Size = new System.Drawing.Size(290, 34);
             this.ketQua.Text = "THỐNG KÊ KẾT QUẢ";
             this.ketQua.Click += new System.EventHandler(this.ketQua_Click);
             // 
             // SaoLuu
             // 
+            this.SaoLuu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.SaoLuu.Name = "SaoLuu";
-            this.SaoLuu.Size = new System.Drawing.Size(72, 20);
+            this.SaoLuu.Size = new System.Drawing.Size(106, 29);
             this.SaoLuu.Text = "SAO LƯU";
             // 
             // panelNoiDung
             // 
-            this.panelNoiDung.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.panelNoiDung.Location = new System.Drawing.Point(0, 68);
-            this.panelNoiDung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelNoiDung.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.panelNoiDung.Location = new System.Drawing.Point(0, 105);
             this.panelNoiDung.Name = "panelNoiDung";
-            this.panelNoiDung.Size = new System.Drawing.Size(886, 463);
+            this.panelNoiDung.Size = new System.Drawing.Size(1329, 712);
             this.panelNoiDung.TabIndex = 3;
+            // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.BackColor = System.Drawing.Color.Transparent;
+            this.btnDangXuat.BorderColor = System.Drawing.Color.Transparent;
+            this.btnDangXuat.BorderRadius = 5;
+            this.btnDangXuat.DefaultAutoSize = true;
+            this.btnDangXuat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangXuat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangXuat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDangXuat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDangXuat.FillColor = System.Drawing.Color.Transparent;
+            this.btnDangXuat.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDangXuat.ForeColor = System.Drawing.Color.White;
+            this.btnDangXuat.Image = global::Winform_KLCN.Properties.Resources.logout_white;
+            this.btnDangXuat.Location = new System.Drawing.Point(1101, 14);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(158, 39);
+            this.btnDangXuat.TabIndex = 5;
+            this.btnDangXuat.Text = " Đăng xuất";
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // ManHinhAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(886, 531);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(234)))), ((int)(((byte)(252)))));
+            this.ClientSize = new System.Drawing.Size(1329, 817);
             this.Controls.Add(this.panelNoiDung);
             this.Controls.Add(this.guna2GradientPanel1);
             this.Controls.Add(this.menuAdmin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ManHinhAdmin";
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.ManHinhAdmin_Load);
